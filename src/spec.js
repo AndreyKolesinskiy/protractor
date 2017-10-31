@@ -19,4 +19,12 @@ describe('angularjs homepage', function() {
         var sum = element(by.binding('todoList.todos.length'));
         expect(sum.getText()).toEqual('2 of 3 remaining');
     });
+    it('remove element from list', function() {
+        browser.get('http://www.angularjs.org');
+
+        element(by.linkText('archive')).click();
+
+        var sum = element(by.binding('todoList.todos.length'));
+        expect(sum.getText()).toEqual('1 of 1 remaining');
+    });
 });
