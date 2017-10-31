@@ -1,5 +1,5 @@
-describe('angularjs homepage', function() {
-    it('should greet the named user', function() {
+describe('angularjs homepage, input component', function() {
+    it('output entered text', function() {
         browser.get('http://www.angularjs.org');
         
         element(by.model('yourName')).sendKeys('Julie');
@@ -9,7 +9,7 @@ describe('angularjs homepage', function() {
     });
 });
 
-describe('angularjs homepage', function() {
+describe('angularjs homepage, checkbox component', function() {
     it('adding element to list', function() {
         browser.get('http://www.angularjs.org');
 
@@ -26,5 +26,13 @@ describe('angularjs homepage', function() {
 
         var sum = element(by.binding('todoList.todos.length'));
         expect(sum.getText()).toEqual('1 of 1 remaining');
+    });
+    it('check element of list', function() {
+        browser.get('http://www.angularjs.org');
+
+        element(by.model('todo.done')).click();
+
+        var sum = element(by.binding('todoList.todos.length'));
+        expect(sum.getText()).toEqual('2 of 2 remaining');
     });
 });
