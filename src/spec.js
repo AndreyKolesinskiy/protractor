@@ -36,3 +36,22 @@ describe('angularjs homepage, checkbox component', function() {
         expect(sum.getText()).toEqual('2 of 2 remaining');
     });
 });
+
+describe('angularjs homepage, list component', function() {
+    it('have entered element in list', function() {
+        browser.get('http://www.angularjs.org');
+
+        element(by.model('projectList.search')).sendKeys('AngularJS');
+
+        var greeting = element(by.binding('project.name'));
+        expect(greeting.getText()).toEqual('AngularJS');
+    });
+    it('dont have entered element in list', function() {
+        browser.get('http://www.angularjs.org');
+
+        element(by.model('projectList.search')).sendKeys('Other');
+
+        var greeting = element(by.binding('project.name'));
+        expect(greeting).nothing();
+    });
+});
