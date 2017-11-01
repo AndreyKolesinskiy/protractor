@@ -1,5 +1,11 @@
 exports.config = {
     framework: 'jasmine',
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    specs: ['specs/**/*.e2e-spec.js']
+    specs: ['specs/**/*.e2e-spec.js'],
+    capabilities: {
+        browserName: 'chrome',
+        chromeOptions: {
+            args: ['--window-size=1360,768']
+        }
+    }
 };
