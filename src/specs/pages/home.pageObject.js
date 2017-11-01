@@ -1,51 +1,51 @@
 var AngularHomePage = function() {
     
-    var nameInput = element(by.model('yourName'));
-    var greeting = element(by.binding('yourName'));
-    var todoText = element(by.model('todoList.todoText'));
-    var sum = element(by.binding('todoList.todos.length'));
-    var addButton = element(by.buttonText('add'));
-    var archiveLink = element(by.linkText('archive'));
-    var doneButton = element(by.model('todo.done'));
-    var search = element(by.model('projectList.search'));
-    var name = element(by.binding('project.name'));
+    this.nameInput = element(by.model('yourName'));
+    this.greeting = element(by.binding('yourName'));
+    this.todoText = element(by.model('todoList.todoText'));
+    this.sum = element(by.binding('todoList.todos.length'));
+    this.addButton = element(by.buttonText('add'));
+    this.archiveLink = element(by.linkText('archive'));
+    this.doneButton = element(by.model('todo.done'));
+    this.search = element(by.model('projectList.search'));
+    this.name = element(by.binding('project.name'));
 
     browser.get('http://www.angularjs.org');
 
     this.setName = function(name) {
-        nameInput.sendKeys(name);
+        this.nameInput.sendKeys(name);
     };
 
     this.getGreeting = function() {
-        return greeting.getText();
+        return this.greeting.getText();
     };
 
     this.setTodoText = function(text) {
-        todoText.sendKeys(text);
+        this.todoText.sendKeys(text);
     };
 
     this.addButtonClick = function () {
-        addButton.click();
-    }
+        this.addButton.click();
+    };
 
     this.archiveLinkClick = function () {
-        archiveLink.click();
-    }
+        this.archiveLink.click();
+    };
 
     this.doneButtonClick = function () {
-        doneButton.click();
-    }
+        this.doneButton.click();
+    };
 
     this.getSum = function() {
-        return sum.getText();
-    }
+        return this.sum.getText();
+    };
 
     this.setSearchArgument = function(argument) {
-        search.sendKeys(argument);
+        this.search.sendKeys(argument);
     };
 
     this.getName = function() {
-        return name.getText();
+        return this.name.getText();
     }
 };
 
