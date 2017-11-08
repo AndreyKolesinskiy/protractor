@@ -1,19 +1,11 @@
-var ApiPage = function() {
+module.exports = ApiPage;
 
-    this.techniquesButton = element(by.partialButtonText('Techniques'));
-    this.setupDeploymentButton = element(by.partialButtonText('Setup & Deployment'));
+function ApiPage() {
+    this.techniquesButton = element(by.partialButtonText('Techniques'));    
     this.setupForLocalDevLink = element(by.partialLinkText('Setup for local development'));
 
-    browser.get('https://angular.io/api');
-
-    this.techniquesButtonClick = function () {
-        this.techniquesButton.click();
+    this.openSubElementOfList = function (mainElementText, subElementText) {
+        element(by.partialButtonText(mainElementText)).click();
+        element(by.partialButtonText(subElementText)).click();
     };
-
-    this.setupDeploymentButtonClick = function () {
-        this.setupDeploymentButton.click();
-    };
-
-};
-
-module.exports = ApiPage;
+}
