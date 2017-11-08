@@ -3,7 +3,7 @@ var ApiPage = require('./pages/api.pageObject.js');
 describe('angularjs api page, link in sub element of menu', function() {
     var page = new ApiPage();
 
-    beforeAll(function(){
+    beforeEach(function(){
         browser.get('https://angular.io/api');
     });
 
