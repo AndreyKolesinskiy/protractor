@@ -1,10 +1,12 @@
 module.exports = ApiPage;
 
 function ApiPage() {
-    this.techniquesButton = element(by.partialButtonText('Techniques'));    
-    this.setupForLocalDevLink = element(by.partialLinkText('Setup for local development'));
+    var that = this;
 
-    this.openSubElementOfList = function (mainElementText, subElementText) {
+    that.techniquesButton = element(by.partialButtonText('Techniques'));
+    that.setupForLocalDevLink = element(by.partialLinkText('Setup for local development'));
+
+    that.openSubElementOfList = function (mainElementText, subElementText) {
         element(by.partialButtonText(mainElementText)).click();
         element(by.partialButtonText(subElementText)).click();
     };

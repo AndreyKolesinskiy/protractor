@@ -1,13 +1,15 @@
 module.exports = AngularHomePage;
 
 function AngularHomePage() {
-    this.nameInput = element(by.model('yourName'));
-    this.greeting = element(by.binding('yourName'));
-    this.todoText = element(by.model('todoList.todoText'));
-    this.sum = element(by.binding('todoList.todos.length'));
-    this.addButton = element(by.buttonText('add'));
-    this.archiveLink = element(by.linkText('archive'));
-    this.doneButton = element(by.model('todo.done'));
-    this.search = element(by.model('projectList.search'));
-    this.name = element(by.binding('project.name'));
+    var that = this;
+
+    that.nameInput = element(by.model('yourName'));
+    that.greeting = element(by.binding('yourName'));
+    that.todoText = element(by.model('todoList.todoText'));
+    that.sum = element(by.binding('todoList.todos.length'));
+    that.addButton = element(by.buttonText('add'));
+    that.archiveLink = element(by.linkText('archive'));
+    that.doneButton = element(by.model('todo.done'));
+    that.search = element(by.model('projectList.search'));
+    that.name = element(by.binding('project.name'));
 }
