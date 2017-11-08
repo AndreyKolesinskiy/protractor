@@ -1,4 +1,4 @@
-var AngularHomePage = require('./pages/home.pageObject.js');
+var AngularHomePage = require('./pages/home.e2e-po.js');
 
 describe('angularjs homepage, checkbox component', function() {
     var page = new AngularHomePage();
