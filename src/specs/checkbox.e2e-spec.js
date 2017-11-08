@@ -13,12 +13,12 @@ describe('angularjs homepage, checkbox component', function() {
         expect(page.sum.getText()).toEqual('2 of 3 remaining');
     });
 
-    it('remove element from list', function() {
+    it('should remove element from list', function() {
         page.archiveLink.click();
         expect(page.sum.getText()).toEqual('1 of 1 remaining');
     });
 
-    it('check element of list', function() {
+    it('should check element of list', function() {
         page.doneButton.click();
         expect(page.sum.getText()).toEqual('2 of 2 remaining');
     });
