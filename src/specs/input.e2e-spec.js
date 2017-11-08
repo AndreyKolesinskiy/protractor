@@ -1,4 +1,4 @@
-var AngularHomePage = require('./pages/home.e2e-po.js');
+var AngularHomePage = require('../pages/home.e2e-po.js');
 
 describe('angularjs homepage, input component', function() {
     var page = new AngularHomePage();
