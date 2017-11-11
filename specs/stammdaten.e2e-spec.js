@@ -11,12 +11,21 @@ describe('stammdaten page', function () {
     });
 
     /**
-     * Page's title must be like menu's selected element.
+     * Page's title must be like menu's selected element - Saisons.
      */
-    it('should set title value like menus element', function () {
+    it('should set title value like menus element - Saisons', function () {
         page.menuElement.click();
-        page.visibilityWaitingAndClick(page.menuSubElement);
+        page.visibilityWaitingAndClick(page.saisonsMenuSubElement);
         expect(page.title.getText()).toEqual('Saisons');
+    });
+
+    /**
+     * Page's title must be like menu's selected element - Vorteile.
+     */
+    it('should set title value like menus element - Vorteile', function () {
+        page.menuElement.click();
+        page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
+        expect(page.title.getText()).toEqual('Vorteile');
     });
 });
 

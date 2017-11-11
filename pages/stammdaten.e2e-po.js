@@ -4,7 +4,9 @@ function StammdatenPage() {
     var EC = protractor.ExpectedConditions;
     var that = this;
 
-    that.menuSubElement = element(by.partialLinkText('Saisons'));
+    that.saisonsMenuSubElement = element(by.partialLinkText('Saisons'));
+    that.vorteileMenuSubElement = element(by.partialLinkText('Vorteile'));
+    
     that.menuElement = element(by.partialLinkText('STAMMDATEN'));
     that.title = element(by.binding('applicationTitle'));
 
