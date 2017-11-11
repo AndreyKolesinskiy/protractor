@@ -14,7 +14,7 @@ describe('productions page', function () {
      * Page's title must be like menu's selected element.
      */
     it('should set title value like menus element', function () {
-        page.productionsMenuElement.click();
+        page.productionsMenuElement.click();        
         expect(page.title.getText()).toEqual('Publikationspflege');
     });
 
@@ -22,8 +22,7 @@ describe('productions page', function () {
      * Click tree's element and test fields's values.
      * */
     it('should set true values on fields after click on trees element', function () {
-        browser.actions().doubleClick(page.nod).perform();
-
+        page.visibilityWaitingAndDoubleClick(page.nod);
         page.visibilityWaitingAndDoubleClick(page.sub1);
         page.visibilityWaitingAndDoubleClick(page.sub2);
 
@@ -31,5 +30,44 @@ describe('productions page', function () {
         expect(page.type.getAttribute('value')).toEqual('1');
         expect(page.date.getAttribute('value')).toEqual('02.03.2017');
         expect(page.price.getAttribute('value')).toEqual('0');
+
+        /* clear cash */
+        page.visibilityWaitingAndDoubleClick(page.nod);
+        page.visibilityWaitingAndDoubleClick(page.sub1);
+    });
+
+    /**
+     * Set fields's values after click on tree's element.
+     * */
+    it('should set fields values after click on trees element', function () {
+        page.visibilityWaitingAndDoubleClick(page.nod);
+        page.visibilityWaitingAndDoubleClick(page.sub1);
+        page.visibilityWaitingAndDoubleClick(page.sub2);
+
+        page.clearAndEnterValue(page.number, '121');
+        page.changeElementMenu(page.type, 'UP');
+        page.clearAndEnterValue(page.date, '01.02.2007');
+        page.changeElementMenu(page.price, 'DOWN');
+
+        expect(page.number.getAttribute('value')).toEqual('121');
+        expect(page.type.getAttribute('value')).toEqual('21');
+        expect(page.date.getAttribute('value')).toEqual('01.02.2007');
+        expect(page.price.getAttribute('value')).toEqual('1');
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
