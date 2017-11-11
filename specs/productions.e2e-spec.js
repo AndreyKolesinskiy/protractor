@@ -31,7 +31,7 @@ describe('productions page', function () {
         expect(page.date.getAttribute('value')).toEqual('02.03.2017');
         expect(page.price.getAttribute('value')).toEqual('0');
 
-        /* clear cash */
+        /* rollback */
         page.visibilityWaitingAndDoubleClick(page.nod);
         page.visibilityWaitingAndDoubleClick(page.sub1);
     });
@@ -53,6 +53,14 @@ describe('productions page', function () {
         expect(page.type.getAttribute('value')).toEqual('21');
         expect(page.date.getAttribute('value')).toEqual('01.02.2007');
         expect(page.price.getAttribute('value')).toEqual('1');
+    });
+
+    /**
+     * Check cancel message present.
+     * */
+    it('should get cancel message', function () {
+        page.cancelButton.click();
+        expect(page.cancelMessage.isPresent()).toBe(true);
     });
 });
 

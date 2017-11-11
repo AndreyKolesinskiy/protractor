@@ -4,6 +4,9 @@ function ProductionsPage() {
     var EC = protractor.ExpectedConditions;
     var that = this;
 
+    that.cancelButton = element(by.css('.fa-undo'));
+    that.cancelMessage = element(by.cssContainingText('.cp-text-color', 'Noch nichts geändert'));
+
     that.productionsMenuElement = element(by.partialLinkText('Publikationspflege'));
     that.title = element(by.binding('applicationTitle'));
     that.number = element(by.model('publication.name'));
