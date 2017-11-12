@@ -17,12 +17,14 @@ function StammdatenPage() {
     that.firstListItem = element(by.repeater('item in items').row(0));
     that.secondListItem = element(by.repeater('item in items').row(1));
     that.plusButton = element(by.css('.glyphicon-plus'));
+    that.minusButton = element(by.css('.glyphicon-minus'));
     that.okButton = element(by.buttonText('Anlegen'));
+    that.yesButton = element(by.buttonText('Ja'));
     that.popupNameField = element.all(by.model('item.name')).last();
     that.saveButton = element(by.css('.fa-floppy-o'));
 
     that.visibilityWaitingAndClick = function (element) {
-        browser.wait(EC.visibilityOf(element), 6000);
+        browser.wait(EC.visibilityOf(element), 8000);
         browser.actions().click(element).perform();
     };
 }

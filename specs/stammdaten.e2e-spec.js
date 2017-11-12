@@ -88,6 +88,21 @@ describe('stammdaten page', function () {
         expect(page.name.getAttribute('value')).toEqual('Test_edit');
     });
 
+    /**
+     * Remove element.
+     */
+    it('should remove element', function () {
+        page.menuElement.click();
+        page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
+
+        page.visibilityWaitingAndClick(page.firstListItem);
+        page.minusButton.click();
+        page.yesButton.click();
+
+        /* not pretty solution */
+        page.visibilityWaitingAndClick(page.firstListItem);
+        expect(page.name.getAttribute('value')).toEqual('VR_1');
+    });
 });
 
 
