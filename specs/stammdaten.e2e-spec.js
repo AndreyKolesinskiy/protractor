@@ -67,9 +67,27 @@ describe('stammdaten page', function () {
         page.okButton.click();
 
         /* not pretty solution */
-        page.firstListItem.click();
+        page.visibilityWaitingAndClick(page.firstListItem);
         expect(page.name.getAttribute('value')).toEqual('Test_create');
     });
+
+    /**
+     * Check edition element.
+     */
+    it('should edit element', function () {
+        page.menuElement.click();
+        page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
+
+        page.firstListItem.click();
+        page.name.clear();
+        page.name.sendKeys('Test_edit');
+        page.saveButton.click();
+
+        /* not pretty solution */
+        page.visibilityWaitingAndClick(page.firstListItem);
+        expect(page.name.getAttribute('value')).toEqual('Test_edit');
+    });
+
 });
 
 

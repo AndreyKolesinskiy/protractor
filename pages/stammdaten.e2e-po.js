@@ -19,6 +19,7 @@ function StammdatenPage() {
     that.plusButton = element(by.css('.glyphicon-plus'));
     that.okButton = element(by.buttonText('Anlegen'));
     that.popupNameField = element.all(by.model('item.name')).last();
+    that.saveButton = element(by.css('.fa-floppy-o'));
 
     that.visibilityWaitingAndClick = function (element) {
         browser.wait(EC.visibilityOf(element), 6000);
