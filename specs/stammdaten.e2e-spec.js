@@ -27,6 +27,22 @@ describe('stammdaten page', function () {
         page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
         expect(page.title.getText()).toEqual('Vorteile');
     });
+
+    /**
+     * Select season and get specific data in fields.
+     */
+    it('should set season and specific data in fields', function () {
+        page.menuElement.click();
+        page.visibilityWaitingAndClick(page.saisonsMenuSubElement);
+
+        page.season.click();
+
+        expect(page.identity.getAttribute('value')).toEqual('34');
+        expect(page.name.getAttribute('value')).toEqual('Herbst/Winter 2012/2013');
+
+        expect(page.startDate.getAttribute('value')).toEqual('01.09.2012');
+        expect(page.endDate.getAttribute('value')).toEqual('28.02.2013');
+    });
 });
 
 
