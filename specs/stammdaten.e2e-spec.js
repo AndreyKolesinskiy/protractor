@@ -20,15 +20,6 @@ describe('stammdaten page', function () {
     });
 
     /**
-     * Page's title must be like menu's selected element - Vorteile.
-     */
-    it('should set title value like menus element - Vorteile', function () {
-        page.menuElement.click();
-        page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
-        expect(page.title.getText()).toEqual('Vorteile');
-    });
-
-    /**
      * Select season and get specific data in fields.
      */
     it('should set season and specific data in fields', function () {
@@ -42,6 +33,26 @@ describe('stammdaten page', function () {
 
         expect(page.startDate.getAttribute('value')).toEqual('01.09.2012');
         expect(page.endDate.getAttribute('value')).toEqual('28.02.2013');
+    });
+
+    /**
+     * Page's title must be like menu's selected element - Vorteile.
+     */
+    it('should set title value like menus element - Vorteile', function () {
+        page.menuElement.click();
+        page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
+        expect(page.title.getText()).toEqual('Vorteile');
+    });
+
+    /**
+     * Name field must be like list's selected element.
+     */
+    it('should set name by selected element', function () {
+        page.menuElement.click();
+        page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
+        
+        page.secondListItem.click();        
+        expect(page.name.getAttribute('value')).toEqual('VR_2');
     });
 });
 

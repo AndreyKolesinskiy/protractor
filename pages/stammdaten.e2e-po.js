@@ -13,6 +13,7 @@ function StammdatenPage() {
     that.name = element(by.model('item.name'));    
     that.startDate = element.all(by.model('dateItem')).first();
     that.endDate = element.all(by.model('dateItem')).last();
+    that.secondListItem = element(by.repeater('item in items').row(1));
 
     that.visibilityWaitingAndClick = function (element) {
         browser.wait(EC.visibilityOf(element), 6000);
