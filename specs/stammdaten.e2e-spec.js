@@ -50,9 +50,25 @@ describe('stammdaten page', function () {
     it('should set name by selected element', function () {
         page.menuElement.click();
         page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
-        
-        page.secondListItem.click();        
+
+        page.secondListItem.click();
         expect(page.name.getAttribute('value')).toEqual('VR_2');
+    });
+
+    /**
+     * Check addition new element.
+     */
+    it('should add new element', function () {
+        page.menuElement.click();
+        page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
+
+        page.plusButton.click();
+        page.popupNameField.sendKeys('Test_create');
+        page.okButton.click();
+
+        /* not pretty solution */
+        page.firstListItem.click();
+        expect(page.name.getAttribute('value')).toEqual('Test_create');
     });
 });
 
