@@ -22,6 +22,12 @@ function PublicationsPage() {
     that.description = element(by.model('newPublication.description'));
     that.okButton = element(by.buttonText('Anlegen'));
 
+    that.sub2 = element(by.tagName('body')).
+        element(by.cssContainingText('.aciTreeText', 'Schwarzpreis ET: 05.05.2017'));
+
+    that.trashButton = element(by.css('.glyphicon-trash'));
+    that.yesButton = element(by.buttonText('Ja'));
+    
     that.visibilityWaitingAndClick = function (element) {
         browser.wait(EC.visibilityOf(element), 8000);
         browser.actions().click(element).perform();

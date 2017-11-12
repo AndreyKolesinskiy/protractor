@@ -34,6 +34,17 @@ describe('publications page', function () {
         /* needed country value is default */
         page.description.sendKeys('test');
 
-        page.visibilityWaitingAndClick(page.okButton);        
+        page.visibilityWaitingAndClick(page.okButton);
+        expect(page.sub2.isPresent()).toBe(true);
+    });
+
+    /**
+     * Check remove element.
+     */
+    it('should remove element', function () {
+        page.visibilityWaitingAndClick(page.trashButton);
+        page.visibilityWaitingAndClick(page.yesButton);
+
+        expect(page.sub2.isPresent()).toBe(false);
     });
 });
