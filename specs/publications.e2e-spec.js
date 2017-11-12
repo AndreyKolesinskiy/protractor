@@ -17,5 +17,23 @@ describe('publications page', function () {
         page.productionsMenuElement.click();
         expect(page.title.getText()).toEqual('Publikationspflege');
     });
-    
+
+    /**
+     * Check addition element.
+     */
+    it('should add element', function () {
+        page.plusButton.click();
+
+        page.season.sendKeys(31);
+        var randomValue = Math.round(Math.random() * 8999 + 1000);
+        page.newNumber.sendKeys(randomValue);
+        page.changeElementMenu(page.type, 'DOWN');
+        page.clearAndEnterValue(page.hauptDate, '05.05.2017');
+        page.clearAndEnterValue(page.warenDate, '05.05.2017');
+        page.changeElementMenu(page.priceType, 'DOWN');
+        /* needed country value is default */
+        page.description.sendKeys('test');
+
+        page.visibilityWaitingAndClick(page.okButton);        
+    });
 });

@@ -6,9 +6,43 @@ function PublicationsPage() {
 
     that.productionsMenuElement = element(by.partialLinkText('Publikationspflege'));
     that.title = element(by.binding('applicationTitle'));
+
+    that.plusButton = element(by.css('.glyphicon-plus'));
+    that.minusButton = element(by.css('.glyphicon-minus'));
+    that.season = element(by.model('newPublication.season'));
     
+    that.newNumber = element(by.model('newPublication.name'));
+    that.type = element(by.model('newPublication.type'));
+    
+    that.hauptDate = element(by.css('.modal-content'))
+        .all(by.model('dateItem')).first();
+    that.warenDate = element(by.css('.modal-content'))
+        .all(by.model('dateItem')).last();
+    that.priceType = element(by.model('newPublication.priceType'));
+    that.description = element(by.model('newPublication.description'));
+    that.okButton = element(by.buttonText('Anlegen'));
+
     that.visibilityWaitingAndClick = function (element) {
         browser.wait(EC.visibilityOf(element), 8000);
         browser.actions().click(element).perform();
+    };
+
+    that.changeElementMenu = function (element, value) {
+        if (value == 'UP') {
+            browser.actions().click(element)
+                .sendKeys(protractor.Key.ARROW_UP)
+                .sendKeys(protractor.Key.ENTER)
+                .perform();
+        } else if (value == 'DOWN') {
+            browser.actions().click(element)
+                .sendKeys(protractor.Key.ARROW_DOWN)
+                .sendKeys(protractor.Key.ENTER)
+                .perform();
+        }
+    };
+
+    that.clearAndEnterValue = function (element, value) {
+        element.clear();
+        element.sendKeys(value);
     };
 }
