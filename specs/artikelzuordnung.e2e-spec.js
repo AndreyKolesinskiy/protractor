@@ -18,4 +18,17 @@ describe('stammdaten page', function () {
         expect(page.title.getText()).toEqual('Publikationspflege');
     });
 
+    /**
+     * Page's title must be like menu's selected element - Artikelzuordnung.
+     * */
+    it('should set title value like menus element - Artikelzuordnung', function () {
+        page.visibilityWaitingAndDoubleClick(page.nod);
+        page.visibilityWaitingAndDoubleClick(page.sub1);
+        page.visibilityWaitingAndDoubleClick(page.sub2);
+
+        page.menuElement.click();
+        page.visibilityWaitingAndClick(page.menuSubElement);
+
+        expect(page.title.getText()).toEqual('Artikelzuordnung');
+    });
 });
