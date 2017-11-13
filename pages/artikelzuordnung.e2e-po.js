@@ -17,6 +17,30 @@ function ArtikelzuordnungPage() {
     that.menuElement = element(by.partialLinkText('EINKAUF'));
     that.menuSubElement = element(by.partialLinkText('Artikelzuordnung'));
 
+    that.plusButton = element(by.css('.glyphicon-plus'));
+    that.publicationPart = element(by.model('item.publicationPart'));
+    that.page = element(by.model('item.page'));
+    that.okButton = element(by.buttonText('Anlegen'));
+
+    that.addedElement = element(by.tagName('body'))
+        .element(by.css('.htAutocomplete.current'))
+            .all(by.css('.htAutocompleteArrow')).last();
+    
+    that.changeElementMenu = function (element, value) {
+        browser.wait(EC.visibilityOf(element), 8000);
+        if (value == 'UP') {
+            browser.actions().click(element)
+                .sendKeys(protractor.Key.ARROW_UP)
+                .sendKeys(protractor.Key.ENTER)
+                .perform();
+        } else if (value == 'DOWN') {
+            browser.actions().click(element)
+                .sendKeys(protractor.Key.ARROW_DOWN)
+                .sendKeys(protractor.Key.ENTER)
+                .perform();
+        }
+    };
+    
     that.visibilityWaitingAndClick = function (element) {
         browser.wait(EC.visibilityOf(element), 8000);
         browser.actions().click(element).perform();

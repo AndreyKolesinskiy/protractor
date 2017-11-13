@@ -31,4 +31,18 @@ describe('stammdaten page', function () {
 
         expect(page.title.getText()).toEqual('Artikelzuordnung');
     });
+
+    /**
+     * Check adding element.
+     * */
+    it('should add element', function () {
+        page.menuElement.click();
+        page.visibilityWaitingAndClick(page.menuSubElement);
+        page.visibilityWaitingAndClick(page.plusButton);
+        page.changeElementMenu(page.publicationPart, 'DOWN');
+        page.changeElementMenu(page.page, 'DOWN');
+        page.visibilityWaitingAndClick(page.okButton);
+
+        expect(page.addedElement.isPresent()).toBe(true);
+    });
 });
