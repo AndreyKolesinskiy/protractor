@@ -16,6 +16,8 @@ function SeitenplanungPage() {
 
     that.menuElement = element(by.partialLinkText('EINKAUF'));
     that.menuSubElement = element(by.partialLinkText('Seitenplanung'));
+
+    that.saveButton = element(by.css('.glyphicon-file'));
     
     that.visibilityWaitingAndClick = function (element) {
         browser.wait(EC.visibilityOf(element), 8000);

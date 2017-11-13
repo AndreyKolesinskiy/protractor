@@ -31,4 +31,16 @@ describe('stammdaten page', function () {
 
         expect(page.title.getText()).toEqual('Seitenplanung');
     });
+
+    /**
+     * Check saving file.
+     * */
+    it('should save file', function () {
+        page.menuElement.click();
+        page.visibilityWaitingAndClick(page.menuSubElement);
+
+        /* need expect this */
+        page.visibilityWaitingAndClick(page.saveButton);
+        browser.sleep(5000);
+    });    
 });
