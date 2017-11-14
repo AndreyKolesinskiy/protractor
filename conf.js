@@ -4,11 +4,16 @@ exports.config = {
     capabilities: {
         browserName: 'chrome',
         chromeOptions: {
-            args: ['--window-size=1360,768']
+            args: ['--window-size=1360,768'],
+            prefs: {
+                'download': {
+                    'default_directory': 'c:/'
+                }
+            }
         }
     },    
     
-    specs: ['specs/**/*.e2e-spec.js'],    
+    specs: ['specs/**/*.e2e-spec.js'],
     
     suites: {
         home: ['specs/checkbox.e2e-spec.js',

@@ -39,8 +39,18 @@ describe('stammdaten page', function () {
         page.menuElement.click();
         page.visibilityWaitingAndClick(page.menuSubElement);
 
-        /* need expect this */
+        var path = 'c:/report.xlsx';
+        var fs = require('fs');
+
+        if (fs.existsSync(path)) {
+            fs.unlinkSync(path);
+        }
         page.visibilityWaitingAndClick(page.saveButton);
-        browser.sleep(5000);
+
+        browser.driver.wait(function() {
+            return fs.existsSync(path);
+        }, 30000).then(function () {
+            expect(fs.existsSync(path)).toBe(true);
+        });
     });    
 });
