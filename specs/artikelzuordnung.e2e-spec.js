@@ -33,9 +33,9 @@ describe('stammdaten page', function () {
     });
 
     /**
-     * Check adding element.
+     * Check add and check entered value.
      * */
-    it('should add element', function () {
+    it('should add and check entered value', function () {
         page.menuElement.click();
         page.visibilityWaitingAndClick(page.menuSubElement);
         page.visibilityWaitingAndClick(page.plusButton);
@@ -44,5 +44,13 @@ describe('stammdaten page', function () {
         page.visibilityWaitingAndClick(page.okButton);
 
         expect(page.addedElement.isPresent()).toBe(true);
+
+        browser.actions()
+            .sendKeys(protractor.Key.ENTER)
+            .sendKeys(protractor.Key.ARROW_DOWN)
+            .sendKeys(protractor.Key.ENTER)
+            .perform();
+
+        expect(page.eshopNumber.getAttribute('value')).toEqual('11250114');
     });
 });

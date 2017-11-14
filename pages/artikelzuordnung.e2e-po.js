@@ -23,8 +23,11 @@ function ArtikelzuordnungPage() {
     that.okButton = element(by.buttonText('Anlegen'));
 
     that.addedElement = element(by.tagName('body'))
-        .element(by.css('.htAutocomplete.current'))
-            .all(by.css('.htAutocompleteArrow')).last();
+        .all(by.css('.htAutocomplete.current'))
+        .last();
+
+    that.eshopNumber = element.all(by.repeater('tab in tabs')).first()
+        .element(by.css('.input-sm.form-control'));
     
     that.changeElementMenu = function (element, value) {
         browser.wait(EC.visibilityOf(element), 8000);
