@@ -28,7 +28,11 @@ function ArtikelzuordnungPage() {
 
     that.eshopNumber = element.all(by.repeater('tab in tabs')).first()
         .element(by.css('.input-sm.form-control'));
-    
+
+    that.undoButton = element(by.css('.fa-undo'));
+
+    // Wurde gespeichert
+
     that.changeElementMenu = function (element, value) {
         browser.wait(EC.visibilityOf(element), 8000);
         if (value == 'UP') {

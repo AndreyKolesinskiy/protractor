@@ -33,9 +33,9 @@ describe('stammdaten page', function () {
     });
 
     /**
-     * Check add and check entered value.
+     * Check add, check and undo entered value.
      * */
-    it('should add and check entered value', function () {
+    it('should add, check and undo entered value', function () {
         page.menuElement.click();
         page.visibilityWaitingAndClick(page.menuSubElement);
         page.visibilityWaitingAndClick(page.plusButton);
@@ -52,5 +52,8 @@ describe('stammdaten page', function () {
             .perform();
 
         expect(page.eshopNumber.getAttribute('value')).toEqual('11250114');
+
+        page.undoButton.click();
+        expect(page.eshopNumber.getAttribute('value')).toEqual('');
     });
 });
