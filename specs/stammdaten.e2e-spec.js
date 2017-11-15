@@ -1,30 +1,21 @@
 var StammdatenPage = require('../pages/stammdaten.e2e-po.js');
 var CommonUtil = require('../util/common.js');
 
-describe('stammdaten page, lab 2-3', function () {
+describe('lab 2-3 - stammdaten page', function () {
     var page = new StammdatenPage();
     var util = new CommonUtil();
-
-    /**
-     * Get cell page.
-     */
+    
     beforeEach(function () {
         browser.get('http://vtest16:8093/catalog-planning/#/productionsEditor');
     });
-
-    /**
-     * Page's title must be like menu's selected element - Saisons.
-     */
-    it('should set title value like menus element - Saisons', function () {
+    
+    it('lab 2, step 1 - should set title value like menus element', function () {
         page.menuElement.click();
         util.visibilityWaitingAndClick(page.saisonsMenuSubElement);
         expect(page.title.getText()).toEqual('Saisons');
     });
 
-    /**
-     * Select season and get specific data in fields.
-     */
-    it('should set season and specific data in fields', function () {
+    it('lab 2, step 2 - should set season and specific data in fields', function () {
         page.menuElement.click();
         util.visibilityWaitingAndClick(page.saisonsMenuSubElement);
 
@@ -36,47 +27,34 @@ describe('stammdaten page, lab 2-3', function () {
         expect(page.startDate.getAttribute('value')).toEqual('01.09.2012');
         expect(page.endDate.getAttribute('value')).toEqual('28.02.2013');
     });
-
-    /**
-     * Page's title must be like menu's selected element - Vorteile.
-     */
-    it('should set title value like menus element - Vorteile', function () {
+    
+    it('lab 3, step 1 - should set title value like menus element', function () {
         page.menuElement.click();
         util.visibilityWaitingAndClick(page.vorteileMenuSubElement);
         expect(page.title.getText()).toEqual('Vorteile');
     });
 
-    /**
-     * Name field must be like list's selected element.
-     */
-    it('should set name by selected element', function () {
+    it('lab 3, step 2 - should set name by selected element', function () {
         page.menuElement.click();
         util.visibilityWaitingAndClick(page.vorteileMenuSubElement);
 
         page.secondListItem.click();
         expect(page.name.getAttribute('value')).toEqual('VR_2');
     });
-
-    /**
-     * Check addition new element.
-     */
-    it('should add new element', function () {
+    
+    it('lab 3, step 3 - should add new element', function () {
         page.menuElement.click();
         util.visibilityWaitingAndClick(page.vorteileMenuSubElement);
-
+        
         page.plusButton.click();
         page.popupNameField.sendKeys('Test_create');
         page.okButton.click();
 
-        /* not pretty solution */
         util.visibilityWaitingAndClick(page.firstListItem);
         expect(page.name.getAttribute('value')).toEqual('Test_create');
     });
-
-    /**
-     * Check edition element.
-     */
-    it('should edit element', function () {
+    
+    it('lab 3, step 4 - should edit element', function () {
         page.menuElement.click();
         util.visibilityWaitingAndClick(page.vorteileMenuSubElement);
 
@@ -85,15 +63,11 @@ describe('stammdaten page, lab 2-3', function () {
         page.name.sendKeys('Test_edit');
         page.saveButton.click();
 
-        /* not pretty solution */
         util.visibilityWaitingAndClick(page.firstListItem);
         expect(page.name.getAttribute('value')).toEqual('Test_edit');
     });
-
-    /**
-     * Remove element.
-     */
-    it('should remove element', function () {
+    
+    it('lab 3, step 5 - should remove element', function () {
         page.menuElement.click();
         util.visibilityWaitingAndClick(page.vorteileMenuSubElement);
 
@@ -101,7 +75,6 @@ describe('stammdaten page, lab 2-3', function () {
         page.minusButton.click();
         page.yesButton.click();
 
-        /* not pretty solution */
         util.visibilityWaitingAndClick(page.firstListItem);
         expect(page.name.getAttribute('value')).toEqual('VR_1');
     });

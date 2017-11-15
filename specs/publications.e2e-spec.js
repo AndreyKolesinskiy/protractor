@@ -1,49 +1,34 @@
 var PublicationsPage = require('../pages/publications.e2e-po.js');
 var CommonUtil = require('../util/common.js');
 
-describe('publications page, lab 4', function () {
+describe('lab 4 - publications page', function () {
     var page = new PublicationsPage();
     var util = new CommonUtil();
-
-    /**
-     * Get cell page.
-     */
+    
     beforeEach(function () {
         browser.get('http://vtest16:8093/catalog-planning/#/productionsEditor');
     });
-
-    /**
-     * Page's title must be like menu's selected element.
-     */
-    it('should set title value like menus element', function () {
+    
+    it('lab 4, step 1 - should set title value by menu element', function () {
         page.productionsMenuElement.click();
         expect(page.title.getText()).toEqual('Publikationspflege');
     });
-
-    /**
-     * Check addition element.
-     */
-    it('should add element', function () {
+    
+    it('lab 4, step 2 - should add element', function () {
         page.plusButton.click();
-
-        page.season.sendKeys(31);
-        var randomValue = Math.round(Math.random() * 8999 + 1000);
-        page.newNumber.sendKeys(randomValue);
+        page.season.sendKeys(31);        
+        page.newNumber.sendKeys(util.getRandomValue());
         util.changeElementMenu(page.type, 'DOWN');
         util.clearAndEnterValue(page.hauptDate, '05.05.2017');
         util.clearAndEnterValue(page.warenDate, '05.05.2017');
         util.changeElementMenu(page.priceType, 'DOWN');
-        /* needed country value is default */
         page.description.sendKeys('test');
-
         util.visibilityWaitingAndClick(page.okButton);
+        
         expect(page.sub2.isPresent()).toBe(true);
     });
-
-    /**
-     * Check remove element.
-     */
-    it('should remove element', function () {
+    
+    it('lab 4, step 3 - should remove element', function () {
         util.visibilityWaitingAndClick(page.trashButton);
         util.visibilityWaitingAndClick(page.yesButton);
 

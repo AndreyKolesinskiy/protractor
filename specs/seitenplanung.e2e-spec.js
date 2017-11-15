@@ -1,7 +1,7 @@
 var SeitenplanungPage = require('../pages/seitenplanung.e2e-po.js');
 var CommonUtil = require('../util/common.js');
 
-describe('stammdaten page, lab 5', function () {
+describe('lab 5 - seitenplanung page', function () {
     var page = new SeitenplanungPage();
     var util = new CommonUtil();
         
@@ -9,12 +9,12 @@ describe('stammdaten page, lab 5', function () {
         browser.get('http://vtest16:8093/catalog-planning/#/productionsEditor');
     });
 
-    it('should set title value like menus element - Publikationspflege', function () {
+    it('lab 5, step 1 - should set title value by menu element', function () {
         page.productionsMenuElement.click();
         expect(page.title.getText()).toEqual('Publikationspflege');
     });
 
-    it('should set title value like menus element - Seitenplanung', function () {
+    it('lab 5, step 2 - 3 - should set title value like menus element', function () {
         util.openBranch(page.nod, page.sub1);
         util.visibilityWaitingAndDoubleClick(page.sub2);
         page.menuElement.click();
@@ -23,7 +23,7 @@ describe('stammdaten page, lab 5', function () {
         expect(page.title.getText()).toEqual('Seitenplanung');
     });
 
-    it('should save file', function () {
+    it('lab 5, step 4 - should save file', function () {
         page.menuElement.click();
         util.visibilityWaitingAndClick(page.menuSubElement);
 
