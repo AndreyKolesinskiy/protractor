@@ -1,7 +1,9 @@
 var PublicationsPage = require('../pages/publications.e2e-po.js');
+var CommonUtil = require('../util/common.js');
 
-describe('publications page', function () {
+describe('publications page, lab 4', function () {
     var page = new PublicationsPage();
+    var util = new CommonUtil();
 
     /**
      * Get cell page.
@@ -46,5 +48,9 @@ describe('publications page', function () {
         page.visibilityWaitingAndClick(page.yesButton);
 
         expect(page.sub2.isPresent()).toBe(false);
+    });
+
+    afterAll(function () {
+        util.closeBranch(page.nod, page.sub1);
     });
 });

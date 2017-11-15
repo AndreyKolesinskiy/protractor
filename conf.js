@@ -15,11 +15,7 @@ exports.config = {
     
     specs: ['specs/**/*.e2e-spec.js'],
     
-    suites: {
-        home: ['specs/checkbox.e2e-spec.js',
-                'specs/input.e2e-spec.js',
-                'specs/list.e2e-spec.js'],
-        api: 'specs/multilevellist.e2e-spec.js',
+    suites: {        
         productions: 'specs/productions.e2e-spec.js'
     }
 };

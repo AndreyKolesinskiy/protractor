@@ -1,8 +1,10 @@
 var SeitenplanungPage = require('../pages/seitenplanung.e2e-po.js');
+var CommonUtil = require('../util/common.js');
 
-describe('stammdaten page', function () {
+describe('stammdaten page, lab 5', function () {
     var page = new SeitenplanungPage();
-
+    var util = new CommonUtil();
+        
     /**
      * Get cell page.
      */
@@ -22,8 +24,10 @@ describe('stammdaten page', function () {
      * Page's title must be like menu's selected element - Seitenplanung.
      * */
     it('should set title value like menus element - Seitenplanung', function () {
-        page.visibilityWaitingAndDoubleClick(page.nod);
-        page.visibilityWaitingAndDoubleClick(page.sub1);
+        util.openBranch(page.nod, page.sub1);
+
+        // page.visibilityWaitingAndDoubleClick(page.nod);
+        // page.visibilityWaitingAndDoubleClick(page.sub1);
         page.visibilityWaitingAndDoubleClick(page.sub2);
 
         page.menuElement.click();
@@ -48,9 +52,12 @@ describe('stammdaten page', function () {
         page.visibilityWaitingAndClick(page.saveButton);
 
         browser.driver.wait(function() {
+
             return fs.existsSync(path);
         }, 30000).then(function () {
             expect(fs.existsSync(path)).toBe(true);
         });
+        
+        util.closeBranch(page.nod, page.sub1);
     });    
 });

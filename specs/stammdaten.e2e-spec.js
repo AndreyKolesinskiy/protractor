@@ -1,6 +1,6 @@
 var StammdatenPage = require('../pages/stammdaten.e2e-po.js');
 
-describe('stammdaten page', function () {
+describe('stammdaten page, lab 2-3', function () {
     var page = new StammdatenPage();
 
     /**

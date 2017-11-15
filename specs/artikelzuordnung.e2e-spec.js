@@ -1,8 +1,10 @@
 var ArtikelzuordnungPage = require('../pages/artikelzuordnung.e2e-po.js');
+var CommonUtil = require('../util/common.js');
 
-describe('stammdaten page', function () {
+describe('stammdaten page, lab 6', function () {
     var page = new ArtikelzuordnungPage();
-
+    var util = new CommonUtil();
+    
     /**
      * Get cell page.
      */
@@ -22,10 +24,9 @@ describe('stammdaten page', function () {
      * Page's title must be like menu's selected element - Artikelzuordnung.
      * */
     it('should set title value like menus element - Artikelzuordnung', function () {
-        page.visibilityWaitingAndDoubleClick(page.nod);
-        page.visibilityWaitingAndDoubleClick(page.sub1);
-        page.visibilityWaitingAndDoubleClick(page.sub2);
+        util.openBranch(page.nod, page.sub1);
 
+        page.visibilityWaitingAndDoubleClick(page.sub2);
         page.menuElement.click();
         page.visibilityWaitingAndClick(page.menuSubElement);
 
@@ -55,5 +56,7 @@ describe('stammdaten page', function () {
 
         page.undoButton.click();
         expect(page.eshopNumber.getAttribute('value')).toEqual('');
+        
+        util.closeBranch(page.nod, page.sub1);        
     });
 });
