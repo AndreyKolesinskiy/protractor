@@ -19,7 +19,7 @@ describe('productions page, lab 1', function () {
     it('should set true values on fields after click on trees element', function () {        
         util.openBranch(page.nod, page.sub1);
 
-        page.visibilityWaitingAndDoubleClick(page.sub2);
+        util.visibilityWaitingAndDoubleClick(page.sub2);
 
         expect(page.number.getAttribute('value')).toEqual('6556');
         expect(page.type.getAttribute('value')).toEqual('1');
@@ -33,12 +33,12 @@ describe('productions page, lab 1', function () {
     it('should set fields values after click on trees element', function () {        
         util.openBranch(page.nod, page.sub1);
 
-        page.visibilityWaitingAndDoubleClick(page.sub2);
+        util.visibilityWaitingAndDoubleClick(page.sub2);
 
-        page.clearAndEnterValue(page.number, '121');
-        page.changeElementMenu(page.type, 'UP');
-        page.clearAndEnterValue(page.date, '01.02.2007');
-        page.changeElementMenu(page.price, 'DOWN');
+        util.clearAndEnterValue(page.number, '121');
+        util.changeElementMenu(page.type, 'UP');
+        util.clearAndEnterValue(page.date, '01.02.2007');
+        util.changeElementMenu(page.price, 'DOWN');
 
         // 3
         expect(page.number.getAttribute('value')).toEqual('121');

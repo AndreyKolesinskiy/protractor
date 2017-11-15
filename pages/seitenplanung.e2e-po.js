@@ -1,8 +1,7 @@
 module.exports = SeitenplanungPage;
 
 function SeitenplanungPage() {
-    var that = this;
-    var EC = protractor.ExpectedConditions;
+    var that = this;    
 
     that.productionsMenuElement = element(by.partialLinkText('Publikationspflege'));
     that.title = element(by.binding('applicationTitle'));
@@ -17,15 +16,5 @@ function SeitenplanungPage() {
     that.menuElement = element(by.partialLinkText('EINKAUF'));
     that.menuSubElement = element(by.partialLinkText('Seitenplanung'));
 
-    that.saveButton = element(by.css('.glyphicon-file'));
-    
-    that.visibilityWaitingAndClick = function (element) {
-        browser.wait(EC.visibilityOf(element), 8000);
-        browser.actions().click(element).perform();
-    };
-
-    that.visibilityWaitingAndDoubleClick = function (element) {
-        browser.wait(EC.visibilityOf(element), 6000);
-        browser.actions().doubleClick(element).perform();
-    };
+    that.saveButton = element(by.css('.glyphicon-file'));        
 }

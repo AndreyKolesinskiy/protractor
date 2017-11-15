@@ -28,10 +28,10 @@ describe('stammdaten page, lab 5', function () {
 
         // page.visibilityWaitingAndDoubleClick(page.nod);
         // page.visibilityWaitingAndDoubleClick(page.sub1);
-        page.visibilityWaitingAndDoubleClick(page.sub2);
+        util.visibilityWaitingAndDoubleClick(page.sub2);
 
         page.menuElement.click();
-        page.visibilityWaitingAndClick(page.menuSubElement);
+        util.visibilityWaitingAndClick(page.menuSubElement);
 
         expect(page.title.getText()).toEqual('Seitenplanung');
     });
@@ -41,7 +41,7 @@ describe('stammdaten page, lab 5', function () {
      * */
     it('should save file', function () {
         page.menuElement.click();
-        page.visibilityWaitingAndClick(page.menuSubElement);
+        util.visibilityWaitingAndClick(page.menuSubElement);
 
         var path = 'c:/report.xlsx';
         var fs = require('fs');
@@ -49,7 +49,7 @@ describe('stammdaten page, lab 5', function () {
         if (fs.existsSync(path)) {
             fs.unlinkSync(path);
         }
-        page.visibilityWaitingAndClick(page.saveButton);
+        util.visibilityWaitingAndClick(page.saveButton);
 
         browser.driver.wait(function() {
 

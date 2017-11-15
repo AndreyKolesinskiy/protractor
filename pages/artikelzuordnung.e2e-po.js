@@ -1,8 +1,7 @@
 module.exports = ArtikelzuordnungPage;
 
 function ArtikelzuordnungPage() {
-    var that = this;
-    var EC = protractor.ExpectedConditions;
+    var that = this;    
 
     that.productionsMenuElement = element(by.partialLinkText('Publikationspflege'));
     that.title = element(by.binding('applicationTitle'));
@@ -30,31 +29,4 @@ function ArtikelzuordnungPage() {
         .element(by.css('.input-sm.form-control'));
 
     that.undoButton = element(by.css('.fa-undo'));
-
-    // Wurde gespeichert
-
-    that.changeElementMenu = function (element, value) {
-        browser.wait(EC.visibilityOf(element), 8000);
-        if (value == 'UP') {
-            browser.actions().click(element)
-                .sendKeys(protractor.Key.ARROW_UP)
-                .sendKeys(protractor.Key.ENTER)
-                .perform();
-        } else if (value == 'DOWN') {
-            browser.actions().click(element)
-                .sendKeys(protractor.Key.ARROW_DOWN)
-                .sendKeys(protractor.Key.ENTER)
-                .perform();
-        }
-    };
-    
-    that.visibilityWaitingAndClick = function (element) {
-        browser.wait(EC.visibilityOf(element), 8000);
-        browser.actions().click(element).perform();
-    };
-
-    that.visibilityWaitingAndDoubleClick = function (element) {
-        browser.wait(EC.visibilityOf(element), 6000);
-        browser.actions().doubleClick(element).perform();
-    };
 }

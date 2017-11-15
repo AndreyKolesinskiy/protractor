@@ -1,7 +1,6 @@
 module.exports = PublicationsPage;
 
-function PublicationsPage() {
-    var EC = protractor.ExpectedConditions;
+function PublicationsPage() {    
     var that = this;
 
     that.productionsMenuElement = element(by.partialLinkText('Publikationspflege'));
@@ -30,29 +29,5 @@ function PublicationsPage() {
         element(by.cssContainingText('.aciTreeText', 'Schwarzpreis ET: 05.05.2017'));
 
     that.trashButton = element(by.css('.glyphicon-trash'));
-    that.yesButton = element(by.buttonText('Ja'));
-    
-    that.visibilityWaitingAndClick = function (element) {
-        browser.wait(EC.visibilityOf(element), 8000);
-        browser.actions().click(element).perform();
-    };
-
-    that.changeElementMenu = function (element, value) {
-        if (value == 'UP') {
-            browser.actions().click(element)
-                .sendKeys(protractor.Key.ARROW_UP)
-                .sendKeys(protractor.Key.ENTER)
-                .perform();
-        } else if (value == 'DOWN') {
-            browser.actions().click(element)
-                .sendKeys(protractor.Key.ARROW_DOWN)
-                .sendKeys(protractor.Key.ENTER)
-                .perform();
-        }
-    };
-
-    that.clearAndEnterValue = function (element, value) {
-        element.clear();
-        element.sendKeys(value);
-    };
+    that.yesButton = element(by.buttonText('Ja'));        
 }

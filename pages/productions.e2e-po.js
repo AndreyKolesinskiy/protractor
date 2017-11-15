@@ -1,7 +1,6 @@
 module.exports = ProductionsPage;
 
-function ProductionsPage() {
-    var EC = protractor.ExpectedConditions;
+function ProductionsPage() {    
     var that = this;
 
     that.cancelButton = element(by.css('.fa-undo'));
@@ -19,29 +18,5 @@ function ProductionsPage() {
     that.sub1 = element(by.tagName('body')).
         element(by.cssContainingText('.aciTreeText', 'Prospekt'));
     that.sub2 = element(by.tagName('body')).
-        element(by.cssContainingText('.aciTreeText', '6556 Schwarzpreis ET: 02.03.2017'));
-    
-    that.visibilityWaitingAndDoubleClick = function (element) {
-        browser.wait(EC.visibilityOf(element), 6000);
-        browser.actions().doubleClick(element).perform();
-    };
-
-    that.clearAndEnterValue = function (element, value) {
-        element.clear();
-        element.sendKeys(value);
-    };
-
-    that.changeElementMenu = function (element, value) {
-        if (value == 'UP') {
-            browser.actions().click(element)
-                .sendKeys(protractor.Key.ARROW_UP)
-                .sendKeys(protractor.Key.ENTER)
-                .perform();
-        } else if (value == 'DOWN') {
-            browser.actions().click(element)
-                .sendKeys(protractor.Key.ARROW_DOWN)
-                .sendKeys(protractor.Key.ENTER)
-                .perform();
-        }
-    };
+        element(by.cssContainingText('.aciTreeText', '6556 Schwarzpreis ET: 02.03.2017'));        
 }

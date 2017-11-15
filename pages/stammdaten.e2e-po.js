@@ -1,7 +1,6 @@
 module.exports = StammdatenPage;
 
-function StammdatenPage() {
-    var EC = protractor.ExpectedConditions;
+function StammdatenPage() {    
     var that = this;
 
     that.saisonsMenuSubElement = element(by.partialLinkText('Saisons'));
@@ -22,9 +21,4 @@ function StammdatenPage() {
     that.yesButton = element(by.buttonText('Ja'));
     that.popupNameField = element.all(by.model('item.name')).last();
     that.saveButton = element(by.css('.fa-floppy-o'));
-
-    that.visibilityWaitingAndClick = function (element) {
-        browser.wait(EC.visibilityOf(element), 8000);
-        browser.actions().click(element).perform();
-    };
 }

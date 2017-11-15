@@ -1,7 +1,9 @@
 var StammdatenPage = require('../pages/stammdaten.e2e-po.js');
+var CommonUtil = require('../util/common.js');
 
 describe('stammdaten page, lab 2-3', function () {
     var page = new StammdatenPage();
+    var util = new CommonUtil();
 
     /**
      * Get cell page.
@@ -15,7 +17,7 @@ describe('stammdaten page, lab 2-3', function () {
      */
     it('should set title value like menus element - Saisons', function () {
         page.menuElement.click();
-        page.visibilityWaitingAndClick(page.saisonsMenuSubElement);
+        util.visibilityWaitingAndClick(page.saisonsMenuSubElement);
         expect(page.title.getText()).toEqual('Saisons');
     });
 
@@ -24,7 +26,7 @@ describe('stammdaten page, lab 2-3', function () {
      */
     it('should set season and specific data in fields', function () {
         page.menuElement.click();
-        page.visibilityWaitingAndClick(page.saisonsMenuSubElement);
+        util.visibilityWaitingAndClick(page.saisonsMenuSubElement);
 
         page.season.click();
 
@@ -40,7 +42,7 @@ describe('stammdaten page, lab 2-3', function () {
      */
     it('should set title value like menus element - Vorteile', function () {
         page.menuElement.click();
-        page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
+        util.visibilityWaitingAndClick(page.vorteileMenuSubElement);
         expect(page.title.getText()).toEqual('Vorteile');
     });
 
@@ -49,7 +51,7 @@ describe('stammdaten page, lab 2-3', function () {
      */
     it('should set name by selected element', function () {
         page.menuElement.click();
-        page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
+        util.visibilityWaitingAndClick(page.vorteileMenuSubElement);
 
         page.secondListItem.click();
         expect(page.name.getAttribute('value')).toEqual('VR_2');
@@ -60,14 +62,14 @@ describe('stammdaten page, lab 2-3', function () {
      */
     it('should add new element', function () {
         page.menuElement.click();
-        page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
+        util.visibilityWaitingAndClick(page.vorteileMenuSubElement);
 
         page.plusButton.click();
         page.popupNameField.sendKeys('Test_create');
         page.okButton.click();
 
         /* not pretty solution */
-        page.visibilityWaitingAndClick(page.firstListItem);
+        util.visibilityWaitingAndClick(page.firstListItem);
         expect(page.name.getAttribute('value')).toEqual('Test_create');
     });
 
@@ -76,7 +78,7 @@ describe('stammdaten page, lab 2-3', function () {
      */
     it('should edit element', function () {
         page.menuElement.click();
-        page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
+        util.visibilityWaitingAndClick(page.vorteileMenuSubElement);
 
         page.firstListItem.click();
         page.name.clear();
@@ -84,7 +86,7 @@ describe('stammdaten page, lab 2-3', function () {
         page.saveButton.click();
 
         /* not pretty solution */
-        page.visibilityWaitingAndClick(page.firstListItem);
+        util.visibilityWaitingAndClick(page.firstListItem);
         expect(page.name.getAttribute('value')).toEqual('Test_edit');
     });
 
@@ -93,14 +95,14 @@ describe('stammdaten page, lab 2-3', function () {
      */
     it('should remove element', function () {
         page.menuElement.click();
-        page.visibilityWaitingAndClick(page.vorteileMenuSubElement);
+        util.visibilityWaitingAndClick(page.vorteileMenuSubElement);
 
-        page.visibilityWaitingAndClick(page.firstListItem);
+        util.visibilityWaitingAndClick(page.firstListItem);
         page.minusButton.click();
         page.yesButton.click();
 
         /* not pretty solution */
-        page.visibilityWaitingAndClick(page.firstListItem);
+        util.visibilityWaitingAndClick(page.firstListItem);
         expect(page.name.getAttribute('value')).toEqual('VR_1');
     });
 });

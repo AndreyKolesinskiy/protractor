@@ -29,14 +29,14 @@ describe('publications page, lab 4', function () {
         page.season.sendKeys(31);
         var randomValue = Math.round(Math.random() * 8999 + 1000);
         page.newNumber.sendKeys(randomValue);
-        page.changeElementMenu(page.type, 'DOWN');
-        page.clearAndEnterValue(page.hauptDate, '05.05.2017');
-        page.clearAndEnterValue(page.warenDate, '05.05.2017');
-        page.changeElementMenu(page.priceType, 'DOWN');
+        util.changeElementMenu(page.type, 'DOWN');
+        util.clearAndEnterValue(page.hauptDate, '05.05.2017');
+        util.clearAndEnterValue(page.warenDate, '05.05.2017');
+        util.changeElementMenu(page.priceType, 'DOWN');
         /* needed country value is default */
         page.description.sendKeys('test');
 
-        page.visibilityWaitingAndClick(page.okButton);
+        util.visibilityWaitingAndClick(page.okButton);
         expect(page.sub2.isPresent()).toBe(true);
     });
 
@@ -44,8 +44,8 @@ describe('publications page, lab 4', function () {
      * Check remove element.
      */
     it('should remove element', function () {
-        page.visibilityWaitingAndClick(page.trashButton);
-        page.visibilityWaitingAndClick(page.yesButton);
+        util.visibilityWaitingAndClick(page.trashButton);
+        util.visibilityWaitingAndClick(page.yesButton);
 
         expect(page.sub2.isPresent()).toBe(false);
     });
