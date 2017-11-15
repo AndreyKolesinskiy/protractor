@@ -15,8 +15,8 @@ describe('lab 5 - seitenplanung page', function () {
     });
 
     it('lab 5, step 2 - 3 - should set title value like menus element', function () {
-        util.openBranch(page.nod, page.sub1);
-        util.visibilityWaitingAndDoubleClick(page.sub2);
+        util.selectBranchInnerNode(['39, Frühling/Sommer 2015', 'Inszenierungspunkt', '3911 Schwarzpreis ET: 04.03.2016']);
+
         page.menuElement.click();
         util.visibilityWaitingAndClick(page.menuSubElement);
 
@@ -29,6 +29,6 @@ describe('lab 5 - seitenplanung page', function () {
 
         /* TODO: move out expect from function */
         util.saveFile(page.saveButton);
-        util.closeBranch(page.nod, page.sub1);
+        util.closeBranch(['39, Frühling/Sommer 2015', 'Inszenierungspunkt']);
     });    
 });

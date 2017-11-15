@@ -24,18 +24,16 @@ describe('lab 4 - publications page', function () {
         util.changeElementMenu(page.priceType, 'DOWN');
         page.description.sendKeys('test');
         util.visibilityWaitingAndClick(page.okButton);
-        
-        expect(page.sub2.isPresent()).toBe(true);
+        expect(util.getNodeByValue('Schwarzpreis ET: 05.05.2017').isPresent()).toBe(true);
     });
     
     it('lab 4, step 3 - should remove element', function () {
         util.visibilityWaitingAndClick(page.trashButton);
         util.visibilityWaitingAndClick(page.yesButton);
-
-        expect(page.sub2.isPresent()).toBe(false);
+        expect(util.getNodeByValue('Schwarzpreis ET: 05.05.2017').isPresent()).toBe(false);
     });
 
     afterAll(function () {
-        util.closeBranch(page.nod, page.sub1);
+        util.closeBranch(['31, Frühling/Sommer 2011', 'Inszenierungspunkt']);
     });
 });

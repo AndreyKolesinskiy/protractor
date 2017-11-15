@@ -4,6 +4,35 @@ function CommonUtil() {
     var that = this;
     var EC = protractor.ExpectedConditions;
 
+    /* get node by value */
+    that.getNodeByValue = function (elementValue) {
+        return element(by.tagName('body')).
+            element(by.cssContainingText('.aciTreeText', elementValue));
+    };
+    
+    /* select inner node in branch. args: nodeValue, subNodeValue, innerNodeValue */
+    that.selectBranchInnerNode = function (nodeValues) {
+        var node;
+        for (var i=0; i<nodeValues.length; i++) {
+            node = element(by.tagName('body'))
+                .element(by.cssContainingText('.aciTreeText', nodeValues[i]));
+            that.visibilityWaitingAndDoubleClick(node);
+        }
+    };
+
+    /* close branches. args: nodeValue, subNodeValue */
+    that.closeBranch = function (nodeValues) {
+        var node;
+        for (var i=nodeValues.length-1; i>=0; i--) {
+            node = element(by.tagName('body'))
+                .element(by.cssContainingText('.aciTreeText', nodeValues[i]));
+            browser.actions()
+                .click(node)
+                .sendKeys(protractor.Key.LEFT)
+                .perform();
+        }
+    };
+    
     /* generate random value */
     that.getRandomValue = function () {
         return Math.round(Math.random() * 8999 + 1000);
@@ -34,25 +63,7 @@ function CommonUtil() {
             .sendKeys(protractor.Key.ENTER)
             .perform();
     };
-    
-    /* open sub branch */
-    that.openBranch = function (node, subNodeLevel1) {
-        that.visibilityWaitingAndDoubleClick(node);
-        that.visibilityWaitingAndDoubleClick(subNodeLevel1);        
-    };
 
-    /* close branches  */
-    that.closeBranch = function (node, subNodeLevel1) {
-        browser.actions()
-            .click(subNodeLevel1)
-            .sendKeys(protractor.Key.LEFT)
-            .perform();
-        browser.actions()
-            .click(node)
-            .sendKeys(protractor.Key.LEFT)
-            .perform();
-    };
-    
     /* wait of visibility element and double click  */
     that.visibilityWaitingAndDoubleClick = function (element) {
         browser.wait(EC.visibilityOf(element), 6000);

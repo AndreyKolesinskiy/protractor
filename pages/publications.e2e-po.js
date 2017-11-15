@@ -15,9 +15,6 @@ function PublicationsPage() {
     that.priceType = element(by.model('newPublication.priceType'));
     that.description = element(by.model('newPublication.description'));
     that.okButton = element(by.buttonText('Anlegen'));
-    that.nod = element(by.tagName('body')).element(by.cssContainingText('.aciTreeText', '31, Frühling/Sommer 2011'));
-    that.sub1 = element(by.tagName('body')).element(by.cssContainingText('.aciTreeText', 'Inszenierungspunkt'));
-    that.sub2 = element(by.tagName('body')).element(by.cssContainingText('.aciTreeText', 'Schwarzpreis ET: 05.05.2017'));
     that.trashButton = element(by.css('.glyphicon-trash'));
-    that.yesButton = element(by.buttonText('Ja'));        
+    that.yesButton = element(by.buttonText('Ja'));
 }

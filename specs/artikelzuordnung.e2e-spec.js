@@ -15,32 +15,27 @@ describe('lab 6 - artikelzuordnung page', function () {
     });
 
     it('lab 6, step 2 - should set title value like menus element', function () {
-        util.openBranch(page.nod, page.sub1);
-
-        util.visibilityWaitingAndDoubleClick(page.sub2);
+        util.selectBranchInnerNode(['39, Frühling/Sommer 2015', 'Inszenierungspunkt', '3911 Schwarzpreis ET: 04.03.2016']);
         page.menuElement.click();
-        util.visibilityWaitingAndClick(page.menuSubElement);
-
+        page.menuSubElement.click();
         expect(page.title.getText()).toEqual('Artikelzuordnung');
     });
 
     it('lab 6, step 3 - 6 - should add, check and undo entered value', function () {
         page.menuElement.click();
-        util.visibilityWaitingAndClick(page.menuSubElement);
-        util.visibilityWaitingAndClick(page.plusButton);
+        page.menuSubElement.click();
+        page.plusButton.click();
         util.changeElementMenu(page.publicationPart, 'DOWN');
         util.changeElementMenu(page.page, 'DOWN');
-        util.visibilityWaitingAndClick(page.okButton);
-
+        page.okButton.click();
         expect(page.addedElement.isPresent()).toBe(true);
 
         util.focusAndSelectMenuElement();
-
         expect(page.eshopNumber.getAttribute('value')).toEqual('11250114');
 
         page.undoButton.click();
         expect(page.eshopNumber.getAttribute('value')).toEqual('');
         
-        util.closeBranch(page.nod, page.sub1);        
+        util.closeBranch(['39, Frühling/Sommer 2015', 'Inszenierungspunkt']);
     });
 });
