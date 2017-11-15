@@ -25,12 +25,12 @@ describe('lab 6 - artikelzuordnung page', function () {
         page.menuElement.click();
         page.menuSubElement.click();
         page.plusButton.click();
-        util.changeElementMenu(page.publicationPart, 'DOWN');
-        util.changeElementMenu(page.page, 'DOWN');
+        util.setDropdownMenuValue(page.publicationPart, 'DOWN');
+        util.setDropdownMenuValue(page.page, 'DOWN');
         page.okButton.click();
         expect(page.addedElement.isPresent()).toBe(true);
 
-        util.focusAndSelectMenuElement();
+        util.focusAndSetDropdownMenuValue();
         expect(page.eshopNumber.getAttribute('value')).toEqual('11250114');
 
         page.undoButton.click();

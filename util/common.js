@@ -16,7 +16,7 @@ function CommonUtil() {
         for (var i=0; i<nodeValues.length; i++) {
             node = element(by.tagName('body'))
                 .element(by.cssContainingText('.aciTreeText', nodeValues[i]));
-            that.visibilityWaitingAndDoubleClick(node);
+            that.waitVisibilityAndDoubleClick(node);
         }
     };
 
@@ -46,7 +46,7 @@ function CommonUtil() {
         if (fs.existsSync(path)) {
             fs.unlinkSync(path);
         }
-        that.visibilityWaitingAndClick(saveButton);
+        that.waitVisibilityAndClick(saveButton);
 
         browser.driver.wait(function() {
             return fs.existsSync(path);
@@ -56,7 +56,7 @@ function CommonUtil() {
     };
     
     /* focus on element and select value in menu  */
-    that.focusAndSelectMenuElement = function () {
+    that.focusAndSetDropdownMenuValue = function () {
         browser.actions()
             .sendKeys(protractor.Key.ENTER)
             .sendKeys(protractor.Key.ARROW_DOWN)
@@ -65,13 +65,13 @@ function CommonUtil() {
     };
 
     /* wait of visibility element and double click  */
-    that.visibilityWaitingAndDoubleClick = function (element) {
+    that.waitVisibilityAndDoubleClick = function (element) {
         browser.wait(EC.visibilityOf(element), 6000);
         browser.actions().doubleClick(element).perform();
     };
 
     /* wait of visibility element and click  */
-    that.visibilityWaitingAndClick = function (element) {
+    that.waitVisibilityAndClick = function (element) {
         browser.wait(EC.visibilityOf(element), 8000);
         browser.actions()
             .click(element)
@@ -79,7 +79,7 @@ function CommonUtil() {
     };
     
     /* wait of visibility and select value in menu */
-    that.changeElementMenu = function (element, value) {
+    that.setDropdownMenuValue = function (element, value) {
         browser.wait(EC.visibilityOf(element), 8000);
         if (value == 'UP') {
             browser.actions()
@@ -97,7 +97,7 @@ function CommonUtil() {
     };
 
     /* clear and set value of element */
-    that.clearAndEnterValue = function (element, value) {
+    that.setValue = function (element, value) {
         element.clear();
         element.sendKeys(value);
     };

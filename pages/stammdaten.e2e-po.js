@@ -3,8 +3,8 @@ module.exports = StammdatenPage;
 function StammdatenPage() {    
     var that = this;
 
-    that.saisonsMenuSubElement = element(by.partialLinkText('Saisons'));
-    that.vorteileMenuSubElement = element(by.partialLinkText('Vorteile'));    
+    that.seasonsMenuSubElement = element(by.partialLinkText('Saisons'));
+    that.privilegesMenuSubElement = element(by.partialLinkText('Vorteile'));
     that.menuElement = element(by.partialLinkText('STAMMDATEN'));
     that.title = element(by.binding('applicationTitle'));
     that.season = element(by.cssContainingText('.col-md-2', '34'));
