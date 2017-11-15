@@ -11,8 +11,7 @@ function StammdatenPage() {
     that.identity = element(by.model('item.identity'));
     that.name = element(by.model('item.name'));    
     that.startDate = element.all(by.model('dateItem')).first();
-    that.endDate = element.all(by.model('dateItem')).last();
-    
+    that.endDate = element.all(by.model('dateItem')).last();    
     that.firstListItem = element(by.repeater('item in items').row(0));
     that.secondListItem = element(by.repeater('item in items').row(1));
     that.plusButton = element(by.css('.glyphicon-plus'));
