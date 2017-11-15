@@ -1,6 +1,6 @@
-module.exports = ArtikelzuordnungPage;
+module.exports = AssignmentPage;
 
-function ArtikelzuordnungPage() {
+function AssignmentPage() {
     var that = this;
 
     that.productionsMenuElement = element(by.partialLinkText('Publikationspflege'));

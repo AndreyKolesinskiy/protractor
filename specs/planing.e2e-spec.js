@@ -1,8 +1,8 @@
-var SeitenplanungPage = require('../pages/seitenplanung.e2e-po.js');
+var PlaningPage = require('../pages/planing.e2e-po.js');
 var CommonUtil = require('../util/common.js');
 
 describe('lab 5 - seitenplanung page', function () {
-    var page = new SeitenplanungPage();
+    var page = new PlaningPage();
     var util = new CommonUtil();
         
     beforeEach(function () {

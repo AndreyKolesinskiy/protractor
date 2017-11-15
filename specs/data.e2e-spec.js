@@ -1,8 +1,8 @@
-var StammdatenPage = require('../pages/stammdaten.e2e-po.js');
+var DataPage = require('../pages/data.e2e-po.js');
 var CommonUtil = require('../util/common.js');
 
 describe('lab 2-3 - stammdaten page', function () {
-    var page = new StammdatenPage();
+    var page = new DataPage();
     var util = new CommonUtil();
     
     beforeEach(function () {

@@ -1,6 +1,6 @@
-module.exports = SeitenplanungPage;
+module.exports = PlaningPage;
 
-function SeitenplanungPage() {
+function PlaningPage() {
     var that = this;    
 
     that.productionsMenuElement = element(by.partialLinkText('Publikationspflege'));
