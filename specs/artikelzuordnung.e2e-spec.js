@@ -34,11 +34,7 @@ describe('stammdaten page, lab 6', function () {
 
         expect(page.addedElement.isPresent()).toBe(true);
 
-        browser.actions()
-            .sendKeys(protractor.Key.ENTER)
-            .sendKeys(protractor.Key.ARROW_DOWN)
-            .sendKeys(protractor.Key.ENTER)
-            .perform();
+        util.focusAndSelectMenuElement();
 
         expect(page.eshopNumber.getAttribute('value')).toEqual('11250114');
 
