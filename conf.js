@@ -4,17 +4,25 @@ exports.config = {
     capabilities: {
         browserName: 'chrome',
         chromeOptions: {
-            args: ['--window-size=1360,768'],
+            args: [
+                '--disable-cache',
+                '--disable-application-cache',
+                '--disable-offline-load-stale-cache',
+                '--disk-cache-size=0',
+                '--v8-cache-options=off',
+                '--window-size=1360,768',
+                'disable-infobars=true',
+                'incognito',
+                '--start-fullscreen'
+            ],
             prefs: {
                 'download': {
                     'default_directory': 'c:/'
                 }
             }
         }
-    },    
-    
-    specs: ['specs/**/*.e2e-spec.js'],
-    
+    },
+    specs: ['specs/**/*.e2e-spec.js'],    
     suites: {        
         productions: 'specs/productions.e2e-spec.js'
     }

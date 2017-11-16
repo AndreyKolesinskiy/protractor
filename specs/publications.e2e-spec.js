@@ -5,7 +5,7 @@ describe('lab 4 - publications page', function () {
     var page = new PublicationsPage();
     var util = new CommonUtil();
     
-    beforeEach(function () {
+    beforeAll(function () {
         browser.get('http://vtest16:8093/catalog-planning/#/productionsEditor');
     });
     

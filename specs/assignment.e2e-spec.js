@@ -5,7 +5,7 @@ describe('lab 6 - artikelzuordnung page', function () {
     var page = new AssignmentPage();
     var util = new CommonUtil();
 
-    beforeEach(function () {
+    beforeAll(function () {
         browser.get('http://vtest16:8093/catalog-planning/#/productionsEditor');
     });
 
@@ -22,8 +22,6 @@ describe('lab 6 - artikelzuordnung page', function () {
     });
 
     it('lab 6, step 3 - 6 - should add, check and undo entered value', function () {
-        page.menuElement.click();
-        page.menuSubElement.click();
         page.plusButton.click();
         util.setDropdownMenuValue(page.publicationPart, 'DOWN');
         util.setDropdownMenuValue(page.page, 'DOWN');
@@ -35,7 +33,9 @@ describe('lab 6 - artikelzuordnung page', function () {
 
         page.undoButton.click();
         expect(page.eshopNumber.getAttribute('value')).toEqual('');
-        
+    });
+
+    afterAll(function () {
         util.closeBranch(['39, Frühling/Sommer 2015', 'Inszenierungspunkt']);
     });
 });
