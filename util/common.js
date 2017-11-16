@@ -67,32 +67,28 @@ function CommonUtil() {
     /* wait of visibility element and double click  */
     that.waitVisibilityAndDoubleClick = function (element) {
         browser.wait(EC.visibilityOf(element), 6000);
-        browser.actions().doubleClick(element).perform();
+        browser.actions().
+            doubleClick(element)
+            .perform();
     };
 
     /* wait of visibility element and click  */
     that.waitVisibilityAndClick = function (element) {
         browser.wait(EC.visibilityOf(element), 8000);
-        browser.actions()
-            .click(element)
-            .perform();
+        element.click();
     };
     
     /* wait of visibility and select value in menu */
     that.setDropdownMenuValue = function (element, value) {
         browser.wait(EC.visibilityOf(element), 8000);
         if (value == 'UP') {
-            browser.actions()
-                .click(element)
-                .sendKeys(protractor.Key.ARROW_UP)
-                .sendKeys(protractor.Key.ENTER)
-                .perform();
+            element.click();
+            element.sendKeys(protractor.Key.ARROW_UP);
+            element.sendKeys(protractor.Key.ENTER);
         } else if (value == 'DOWN') {
-            browser.actions()
-                .click(element)
-                .sendKeys(protractor.Key.ARROW_DOWN)
-                .sendKeys(protractor.Key.ENTER)
-                .perform();
+            element.click();
+            element.sendKeys(protractor.Key.ARROW_DOWN);
+            element.sendKeys(protractor.Key.ENTER);
         }
     };
 
