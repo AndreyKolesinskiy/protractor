@@ -69,8 +69,7 @@ function CommonUtil() {
             .perform();
     };
 
-    /* wait of visibility element and click  */
-    /* TODO: need waiting for data (lab 3 - step 3, lab 3 - step 5), saveFile function */
+    /* wait of visibility element and click  */    
     that.waitVisibilityAndClick = function (element) {
         browser.wait(EC.visibilityOf(element), 8000);
         element.click();
