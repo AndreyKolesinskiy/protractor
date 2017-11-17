@@ -42,21 +42,19 @@ function CommonUtil() {
         return Math.round(Math.random() * 8999 + 1000);
     };
         
-    /* download file and expect of downloading */
+    /* download file */
     that.saveFile = function (saveButton) {
         var path = 'c:/report.xlsx';
         var fs = require('fs');
-                
+        
         if (fs.existsSync(path)) {
             fs.unlinkSync(path);
         }
         that.waitVisibilityAndClick(saveButton);
-
-        browser.driver.wait(function() {
+        
+        return browser.driver.wait(function() {
             return fs.existsSync(path);
-        }, 30000).then(function () {
-            expect(fs.existsSync(path)).toBe(true);            
-        });        
+        }, 30000);          
     };
     
     /* focus on element and select value in menu  */

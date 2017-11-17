@@ -22,7 +22,7 @@ describe('lab 5 - seitenplanung page', function () {
     });
     
     it('lab 5, step 4 - should save file', function () {
-        util.saveFile(page.saveButton);
+        expect(util.saveFile(page.saveButton)).toBe(true);
     });
 
     afterAll(function () {
