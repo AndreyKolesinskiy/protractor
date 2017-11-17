@@ -16,7 +16,7 @@ function CommonUtil() {
         for (var i=0; i<nodeValues.length; i++) {
             node = element(by.tagName('body'))
                 .element(by.cssContainingText('.aciTreeText', nodeValues[i]));
-            browser.wait(EC.visibilityOf(node), 6000);
+            browser.wait(EC.visibilityOf(node), browser.params.visibilityWaitingTime.elementDrawing);
             browser.actions()
                 .doubleClick(node)
                 .perform();
@@ -38,13 +38,13 @@ function CommonUtil() {
     };
     
     /* generate random value */
-    that.getRandomValue = function () {
-        return Math.round(Math.random() * 8999 + 1000);
+    that.getRandomValue = function () {        
+        return Math.round(Math.random() * browser.params.randomValues.multiple + browser.params.randomValues.adds);
     };
         
     /* download file */
     that.saveFile = function (saveButton) {
-        var path = 'c:/report.xlsx';
+        var path = browser.params.downloading.path;
         var fs = require('fs');
         
         if (fs.existsSync(path)) {
@@ -54,8 +54,8 @@ function CommonUtil() {
         
         return browser.driver.wait(function() {
             return fs.existsSync(path);
-        }, 30000);          
-    };
+        }, browser.params.visibilityWaitingTime.fileDownloading);        
+};
     
     /* focus on element and select value in menu  */
     /* TODO: focusAndSetDropdownMenuValue - WAITING OF NEW MONITOR */
@@ -69,7 +69,7 @@ function CommonUtil() {
 
     /* wait of visibility element and click  */    
     that.waitVisibilityAndClick = function (element) {
-        browser.wait(EC.visibilityOf(element), 8000);
+        browser.wait(EC.visibilityOf(element), browser.params.visibilityWaitingTime.elementDrawing);
         element.click();
     };
     
