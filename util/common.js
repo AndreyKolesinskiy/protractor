@@ -81,8 +81,7 @@ function CommonUtil() {
     };
     
     /* wait of visibility and select value in menu */
-    that.setDropdownMenuValue = function (element, value) {
-        browser.wait(EC.visibilityOf(element), 8000);
+    that.setDropdownMenuValue = function (element, value) {        
         if (value == 'UP') {
             element.click();
             element.sendKeys(protractor.Key.ARROW_UP);
