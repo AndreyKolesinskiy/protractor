@@ -21,6 +21,7 @@ function CommonUtil() {
     };
 
     /* close branches. args: nodeValue, subNodeValue */
+    /* TODO: closeBranch - WILL BE DELETED */
     that.closeBranch = function (nodeValues) {
         var node;
         for (var i=nodeValues.length-1; i>=0; i--) {
@@ -56,6 +57,7 @@ function CommonUtil() {
     };
     
     /* focus on element and select value in menu  */
+    /* TODO: focusAndSetDropdownMenuValue - WAITING OF NEW MONITOR */
     that.focusAndSetDropdownMenuValue = function () {
         browser.actions()
             .sendKeys(protractor.Key.ENTER)
