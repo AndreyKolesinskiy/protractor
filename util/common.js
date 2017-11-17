@@ -16,7 +16,10 @@ function CommonUtil() {
         for (var i=0; i<nodeValues.length; i++) {
             node = element(by.tagName('body'))
                 .element(by.cssContainingText('.aciTreeText', nodeValues[i]));
-            that.waitVisibilityAndDoubleClick(node);
+            browser.wait(EC.visibilityOf(node), 6000);
+            browser.actions()
+                .doubleClick(node)
+                .perform();
         }
     };
 
@@ -66,17 +69,8 @@ function CommonUtil() {
             .perform();
     };
 
-    /* wait of visibility element and double click  */
-    /* TODO: need waiting for productions (lab 1 - step 2) */
-    that.waitVisibilityAndDoubleClick = function (element) {
-        browser.wait(EC.visibilityOf(element), 6000);
-        browser.actions().
-            doubleClick(element)
-            .perform();
-    };
-
     /* wait of visibility element and click  */
-    /* TODO: need waiting for data ('lab 3 - step 3, lab 3 - step 5), saveFile function */
+    /* TODO: need waiting for data (lab 3 - step 3, lab 3 - step 5), saveFile function */
     that.waitVisibilityAndClick = function (element) {
         browser.wait(EC.visibilityOf(element), 8000);
         element.click();
