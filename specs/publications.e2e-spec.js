@@ -23,13 +23,13 @@ describe('lab 4 - publications page', function () {
         util.setValue(page.tradeDate, '05.05.2017');
         util.setDropdownMenuValue(page.priceType, 'DOWN');
         page.description.sendKeys('test');
-        util.waitVisibilityAndClick(page.okButton);
+        page.okButton.click();
         expect(util.getNodeByValue('Schwarzpreis ET: 05.05.2017').isPresent()).toBe(true);
     });
     
     it('lab 4, step 3 - should remove element', function () {
-        util.waitVisibilityAndClick(page.trashButton);
-        util.waitVisibilityAndClick(page.yesButton);
+        page.trashButton.click();
+        page.yesButton.click();
         expect(util.getNodeByValue('Schwarzpreis ET: 05.05.2017').isPresent()).toBe(false);
     });
 

@@ -11,7 +11,7 @@ describe('lab 2-3 - stammdaten page', function () {
     
     it('lab 2, step 1 - should set title value like menus element', function () {
         page.menuElement.click();
-        util.waitVisibilityAndClick(page.seasonsMenuSubElement);
+        page.seasonsMenuSubElement.click();        
         expect(page.title.getText()).toEqual('Saisons');
     });
 
@@ -24,7 +24,7 @@ describe('lab 2-3 - stammdaten page', function () {
     });
     
     it('lab 3, step 1 - should set title value like menus element', function () {
-        util.waitVisibilityAndClick(page.privilegesMenuSubElement);
+        page.privilegesMenuSubElement.click();
         expect(page.title.getText()).toEqual('Vorteile');
     });
 
@@ -46,12 +46,12 @@ describe('lab 2-3 - stammdaten page', function () {
         page.name.clear();
         page.name.sendKeys('Test_edit');
         page.saveButton.click();
-        util.waitVisibilityAndClick(page.firstListItem);
+        page.firstListItem.click();
         expect(page.name.getAttribute('value')).toEqual('Test_edit');
     });
     
     it('lab 3, step 5 - should remove element', function () {
-        util.waitVisibilityAndClick(page.firstListItem);
+        page.firstListItem.click();
         page.minusButton.click();
         page.yesButton.click();
         util.waitVisibilityAndClick(page.firstListItem);
