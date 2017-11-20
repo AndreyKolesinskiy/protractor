@@ -75,11 +75,11 @@ function CommonUtil() {
     
     /* wait of visibility and select value in menu */
     that.setDropdownMenuValue = function (element, value) {        
-        if (value == 'UP') {
+        if (value === 'UP') {
             element.click();
             element.sendKeys(protractor.Key.ARROW_UP);
             element.sendKeys(protractor.Key.ENTER);
-        } else if (value == 'DOWN') {
+        } else if (value === 'DOWN') {
             element.click();
             element.sendKeys(protractor.Key.ARROW_DOWN);
             element.sendKeys(protractor.Key.ENTER);
