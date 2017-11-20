@@ -1,3 +1,6 @@
+var dpath = require('path');
+var downloadsPath = __dirname;
+
 exports.config = {
     framework: 'jasmine',
     seleniumAddress: 'http://localhost:4444/wd/hub',
@@ -17,7 +20,8 @@ exports.config = {
             ],
             prefs: {
                 'download': {
-                    'default_directory': 'c:/'
+                    'prompt_for_download': false,
+                    'default_directory': downloadsPath
                 }
             }
         }
@@ -36,7 +40,8 @@ exports.config = {
             elementDrawing: 8000
         },
         downloading: {
-            path: 'c:/report.xlsx'
+            path: downloadsPath,
+            fileName : '/report.xlsx'
         }
     }
 };

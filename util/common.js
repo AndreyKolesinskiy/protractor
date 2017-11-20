@@ -44,7 +44,7 @@ function CommonUtil() {
         
     /* download file */
     that.saveFile = function (saveButton) {
-        var path = browser.params.downloading.path;
+        var path = browser.params.downloading.path + browser.params.downloading.fileName;
         var fs = require('fs');
         
         if (fs.existsSync(path)) {
