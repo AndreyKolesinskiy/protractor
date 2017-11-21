@@ -27,14 +27,15 @@ function CommonUtil() {
     /* TODO: closeBranch - WILL BE DELETED */
     that.closeBranch = function (nodeValues) {
         var node;
-        for (var i=nodeValues.length-1; i>=0; i--) {
+        var reverseValues = nodeValues.reverse();
+        reverseValues.forEach(function (item) {
             node = element(by.tagName('body'))
-                .element(by.cssContainingText('.aciTreeText', nodeValues[i]));
+                .element(by.cssContainingText('.aciTreeText', item));
             browser.actions()
                 .click(node)
                 .sendKeys(protractor.Key.LEFT)
                 .perform();
-        }
+        });
     };
 
     /**
