@@ -1,4 +1,4 @@
-module.exports = ProductionsPage;
+module.exports = new ProductionsPage();
 
 function ProductionsPage() {    
     var that = this;

@@ -1,4 +1,4 @@
-module.exports = CommonUtil;
+module.exports = new CommonUtil();
 
 function CommonUtil() {
     var that = this;

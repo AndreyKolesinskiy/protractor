@@ -1,9 +1,7 @@
-var AssignmentPage = require('../pages/assignment.e2e-po.js');
-var CommonUtil = require('../util/common.js');
+var page = require('../pages/assignment.e2e-po.js');
+var util = require('../util/common.js');
 
 describe('lab 6 - artikelzuordnung page', function () {
-    var page = new AssignmentPage();
-    var util = new CommonUtil();
     var that = this;
 
     beforeAll(function () {

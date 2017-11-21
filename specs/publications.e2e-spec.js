@@ -1,10 +1,8 @@
-var PublicationsPage = require('../pages/publications.e2e-po.js');
-var CommonUtil = require('../util/common.js');
+var page = require('../pages/publications.e2e-po.js');
+var util = require('../util/common.js');
 var _ = require('lodash');
 
 describe('lab 4 - publications page', function () {
-    var page = new PublicationsPage();
-    var util = new CommonUtil();
     var that = this;
     
     beforeAll(function () {

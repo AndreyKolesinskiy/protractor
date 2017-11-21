@@ -1,10 +1,8 @@
-var DataPage = require('../pages/data.e2e-po.js');
-var CommonUtil = require('../util/common.js');
+var page = require('../pages/data.e2e-po.js');
+var util = require('../util/common.js');
 
 describe('lab 2-3 - stammdaten page', function () {
-    var page = new DataPage();
-    var util = new CommonUtil();
-    
+
     beforeAll(function () {
         browser.get('http://vtest16:8093/catalog-planning/#/productionsEditor');
     });

@@ -1,4 +1,4 @@
-module.exports = AssignmentPage;
+module.exports = new AssignmentPage();
 
 function AssignmentPage() {
     var that = this;

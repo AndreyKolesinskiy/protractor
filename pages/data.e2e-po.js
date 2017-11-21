@@ -1,4 +1,4 @@
-module.exports = DataPage;
+module.exports = new DataPage();
 
 function DataPage() {    
     var that = this;

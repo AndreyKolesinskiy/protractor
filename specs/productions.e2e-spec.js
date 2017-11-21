@@ -1,10 +1,8 @@
-var ProductionsPage = require('../pages/productions.e2e-po.js');
-var CommonUtil = require('../util/common.js');
+var page = require('../pages/productions.e2e-po.js');
+var util = require('../util/common.js');
 
 describe('lab 1 - productions page', function () {
-    var page = new ProductionsPage();
-    var util = new CommonUtil();
-    
+
     beforeAll(function () {
         browser.get('http://vtest16:8093/catalog-planning/#/productionsEditor');
     });

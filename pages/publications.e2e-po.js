@@ -1,4 +1,4 @@
-module.exports = PublicationsPage;
+module.exports = new PublicationsPage();
 
 function PublicationsPage() {    
     var that = this;

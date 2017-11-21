@@ -1,4 +1,4 @@
-module.exports = PlaningPage;
+module.exports = new PlaningPage();
 
 function PlaningPage() {
     var that = this;    
