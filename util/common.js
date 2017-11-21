@@ -46,9 +46,7 @@ function CommonUtil() {
      */
     that.waitVisibilityAndClick = function (element) {
         browser.wait(EC.visibilityOf(element), browser.params.visibilityWaitingTime.elementDrawing, element + ' is not visible.')
-            .then(
-                element.click()
-            );
+            .then(element.click());
     };
 
     /**
@@ -58,14 +56,14 @@ function CommonUtil() {
      */
     that.setDropdownMenuValue = function (element, value) {        
         if (value === 'UP') {
-            new Promise(function () {
-                element.click();
-            }).then(element.sendKeys(protractor.Key.ARROW_UP))
+            browser.sleep()
+                .then(element.click())
+                .then(element.sendKeys(protractor.Key.ARROW_UP))
                 .then(element.sendKeys(protractor.Key.ENTER));
         } else if (value === 'DOWN') {
-            new Promise(function () {
-                element.click();
-            }).then(element.sendKeys(protractor.Key.ARROW_DOWN))
+            browser.sleep()
+                .then(element.click())
+                .then(element.sendKeys(protractor.Key.ARROW_DOWN))
                 .then(element.sendKeys(protractor.Key.ENTER));
         }
     };
@@ -76,10 +74,8 @@ function CommonUtil() {
      * @param {string} value - значение
      */
     that.setValue = function (element, value) {
-        new Promise(function () {
-            element.clear();
-        }).then(
-            element.sendKeys(value)
-        );
+        browser.sleep()
+            .then(element.clear())
+            .then(element.sendKeys(value));
     };
 }
