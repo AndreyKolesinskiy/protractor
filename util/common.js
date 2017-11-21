@@ -10,14 +10,14 @@ function CommonUtil() {
      */
     that.selectBranchInnerNode = function (nodeValues) {
         var node;
-        for (var i=0; i<nodeValues.length; i++) {
+        nodeValues.forEach(function (item) {
             node = element(by.tagName('body'))
-                .element(by.cssContainingText('.aciTreeText', nodeValues[i]));
+                .element(by.cssContainingText('.aciTreeText', item));
             browser.wait(EC.visibilityOf(node), browser.params.visibilityWaitingTime.elementDrawing);
             browser.actions()
                 .doubleClick(node)
                 .perform();
-        }
+        });
     };
 
     /**
