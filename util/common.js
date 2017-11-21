@@ -13,10 +13,13 @@ function CommonUtil() {
         nodeValues.forEach(function (item) {
             node = element(by.tagName('body'))
                 .element(by.cssContainingText('.aciTreeText', item));
-            browser.wait(EC.visibilityOf(node), browser.params.visibilityWaitingTime.elementDrawing, item + ' is not visible.');
-            browser.actions()
-                .doubleClick(node)
-                .perform();
+            new Promise(function () {
+                browser.wait(EC.visibilityOf(node), browser.params.visibilityWaitingTime.elementDrawing, item + ' is not visible.');
+            }).then(
+                browser.actions()
+                    .doubleClick(node)
+                    .perform()
+            );
         });
     };
 
@@ -43,8 +46,11 @@ function CommonUtil() {
      * @param {element} element - элемент, на который необходимо нажать
      */
     that.waitVisibilityAndClick = function (element) {
-        browser.wait(EC.visibilityOf(element), browser.params.visibilityWaitingTime.elementDrawing, element + ' is not visible.');
-        element.click();
+        new Promise(function () {
+            browser.wait(EC.visibilityOf(element), browser.params.visibilityWaitingTime.elementDrawing, element + ' is not visible.');
+        }).then(
+            element.click()
+        );
     };
 
     /**
@@ -54,13 +60,15 @@ function CommonUtil() {
      */
     that.setDropdownMenuValue = function (element, value) {        
         if (value === 'UP') {
-            element.click();
-            element.sendKeys(protractor.Key.ARROW_UP);
-            element.sendKeys(protractor.Key.ENTER);
+            new Promise(function () {
+                element.click();
+            }).then(element.sendKeys(protractor.Key.ARROW_UP))
+                .then(element.sendKeys(protractor.Key.ENTER));
         } else if (value === 'DOWN') {
-            element.click();
-            element.sendKeys(protractor.Key.ARROW_DOWN);
-            element.sendKeys(protractor.Key.ENTER);
+            new Promise(function () {
+                element.click();
+            }).then(element.sendKeys(protractor.Key.ARROW_DOWN))
+                .then(element.sendKeys(protractor.Key.ENTER));
         }
     };
 
@@ -70,7 +78,10 @@ function CommonUtil() {
      * @param {string} value - значение
      */
     that.setValue = function (element, value) {
-        element.clear();
-        element.sendKeys(value);
+        new Promise(function () {
+            element.clear();
+        }).then(
+            element.sendKeys(value)
+        );
     };
 }
