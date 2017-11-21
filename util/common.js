@@ -4,13 +4,20 @@ function CommonUtil() {
     var that = this;
     var EC = protractor.ExpectedConditions;
 
-    /* get node by value */
+    /**
+     * Получить элемент узла дерева по текстовому значение
+     * @param {string} elementValue - текстовое значение
+     * @returns {element} - элемент узла дерева
+     */
     that.getNodeByValue = function (elementValue) {
         return element(by.tagName('body')).
             element(by.cssContainingText('.aciTreeText', elementValue));
     };
-    
-    /* select inner node in branch. args: nodeValue, subNodeValue, innerNodeValue */
+
+    /**
+     * Раскрывает ветку элементов и выделяет внутренний элемент
+     * @param {string[]} nodeValues - массив из названий узлов, начиная с внешнего
+     */
     that.selectBranchInnerNode = function (nodeValues) {
         var node;
         for (var i=0; i<nodeValues.length; i++) {
@@ -23,7 +30,10 @@ function CommonUtil() {
         }
     };
 
-    /* close branches. args: nodeValue, subNodeValue */
+    /**
+     * Сворачивает ветку элементов
+     * @param {string[]} nodeValues - массив из названий узлов, начиная с внешнего, без внутреннего
+     */
     /* TODO: closeBranch - WILL BE DELETED */
     that.closeBranch = function (nodeValues) {
         var node;
@@ -36,13 +46,20 @@ function CommonUtil() {
                 .perform();
         }
     };
-    
-    /* generate random value */
+
+    /**
+     * Генерирует случайное четырёхзначное число
+     * @returns {number} - число
+     */
     that.getRandomValue = function () {        
         return Math.round(Math.random() * browser.params.randomValues.multiple + browser.params.randomValues.adds);
     };
-        
-    /* download file */
+
+    /**
+     * Скачивает файл
+     * @param {element} saveButton - кнопка, после нажатия которой начинается скачивание
+     * @returns {boolean} - статус загрузки
+     */
     that.saveFile = function (saveButton) {
         var path = browser.params.downloading.path + browser.params.downloading.fileName;
         var fs = require('fs');
@@ -55,9 +72,11 @@ function CommonUtil() {
         return browser.driver.wait(function() {
             return fs.existsSync(path);
         }, browser.params.visibilityWaitingTime.fileDownloading);        
-};
-    
-    /* focus on element and select value in menu  */
+    };
+
+    /**
+     * Фокусировка на текущем элементе и присвоение ему значения из выпадающего списка
+     */
     /* TODO: focusAndSetDropdownMenuValue - WAITING OF NEW MONITOR */
     that.focusAndSetDropdownMenuValue = function () {
         browser.actions()
@@ -67,13 +86,20 @@ function CommonUtil() {
             .perform();
     };
 
-    /* wait of visibility element and click  */    
+    /**
+     * Ожидает прорисовку элемента и кликает на него
+     * @param {element} element - элемент, на который необходимо нажать
+     */
     that.waitVisibilityAndClick = function (element) {
         browser.wait(EC.visibilityOf(element), browser.params.visibilityWaitingTime.elementDrawing);
         element.click();
     };
-    
-    /* wait of visibility and select value in menu */
+
+    /**
+     * Выбирает значение для элемента в выпадающем списке, согласно направлению относительно текущего
+     * @param {element} element - элемент, которому необходимо присвоить значение
+     * @param {string} value - направление, относительно текущего значения в списке
+     */
     that.setDropdownMenuValue = function (element, value) {        
         if (value === 'UP') {
             element.click();
@@ -86,7 +112,11 @@ function CommonUtil() {
         }
     };
 
-    /* clear and set value of element */
+    /**
+     * Устанавливает значение элементу
+     * @param {element} element - элемент, которому необходимо присвоить значение
+     * @param {string} value - значение
+     */
     that.setValue = function (element, value) {
         element.clear();
         element.sendKeys(value);
