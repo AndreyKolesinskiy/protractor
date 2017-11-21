@@ -13,13 +13,12 @@ function CommonUtil() {
         nodeValues.forEach(function (item) {
             node = element(by.tagName('body'))
                 .element(by.cssContainingText('.aciTreeText', item));
-            new Promise(function () {
-                browser.wait(EC.visibilityOf(node), browser.params.visibilityWaitingTime.elementDrawing, item + ' is not visible.');
-            }).then(
-                browser.actions()
-                    .doubleClick(node)
-                    .perform()
-            );
+            browser.wait(EC.visibilityOf(node), browser.params.visibilityWaitingTime.elementDrawing, item + ' is not visible.')
+                .then(
+                    browser.actions()
+                        .doubleClick(node)
+                        .perform()
+                );
         });
     };
 
@@ -46,11 +45,10 @@ function CommonUtil() {
      * @param {element} element - элемент, на который необходимо нажать
      */
     that.waitVisibilityAndClick = function (element) {
-        new Promise(function () {
-            browser.wait(EC.visibilityOf(element), browser.params.visibilityWaitingTime.elementDrawing, element + ' is not visible.');
-        }).then(
-            element.click()
-        );
+        browser.wait(EC.visibilityOf(element), browser.params.visibilityWaitingTime.elementDrawing, element + ' is not visible.')
+            .then(
+                element.click()
+            );
     };
 
     /**
