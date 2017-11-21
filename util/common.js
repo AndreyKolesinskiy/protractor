@@ -1,4 +1,5 @@
 module.exports = CommonUtil;
+var _ = require('lodash');
 
 function CommonUtil() {
     var that = this;
@@ -51,8 +52,8 @@ function CommonUtil() {
      * Генерирует случайное четырёхзначное число
      * @returns {number} - число
      */
-    that.getRandomValue = function () {        
-        return Math.round(Math.random() * browser.params.randomValues.multiple + browser.params.randomValues.adds);
+    that.getRandomValue = function () {
+        return Math.round(_.random(browser.params.randomValues.from, browser.params.randomValues.to));
     };
 
     /**

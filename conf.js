@@ -1,4 +1,3 @@
-var dpath = require('path');
 var downloadsPath = __dirname;
 
 exports.config = {
@@ -32,8 +31,8 @@ exports.config = {
     },
     params: {
         randomValues: {
-            multiple: 8999,
-            adds: 1000
+            from: 1111,
+            to: 9999
         },
         visibilityWaitingTime: {
             fileDownloading: 30000,
