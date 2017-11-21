@@ -4,6 +4,7 @@ var CommonUtil = require('../util/common.js');
 describe('lab 6 - artikelzuordnung page', function () {
     var page = new AssignmentPage();
     var util = new CommonUtil();
+    var that = this;
 
     beforeAll(function () {
         browser.get('http://vtest16:8093/catalog-planning/#/productionsEditor');
@@ -28,12 +29,24 @@ describe('lab 6 - artikelzuordnung page', function () {
         page.okButton.click();
         expect(page.addedElement.isPresent()).toBe(true);
 
-        util.focusAndSetDropdownMenuValue();
+        that.focusAndSetDropdownMenuValue();
         expect(page.eshopNumber.getAttribute('value')).toEqual('11250114');
 
         page.undoButton.click();
         expect(page.eshopNumber.getAttribute('value')).toEqual('');
     });
+
+    /**
+     * Фокусировка на текущем элементе и присвоение ему значения из выпадающего списка
+     */
+    /* TODO: focusAndSetDropdownMenuValue - WAITING OF NEW MONITOR */
+    that.focusAndSetDropdownMenuValue = function () {
+        browser.actions()
+            .sendKeys(protractor.Key.ENTER)
+            .sendKeys(protractor.Key.ARROW_DOWN)
+            .sendKeys(protractor.Key.ENTER)
+            .perform();
+    };
 
     afterAll(function () {
         util.closeBranch(['39, Frühling/Sommer 2015', 'Inszenierungspunkt']);

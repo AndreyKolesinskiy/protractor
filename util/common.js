@@ -1,19 +1,8 @@
 module.exports = CommonUtil;
-var _ = require('lodash');
 
 function CommonUtil() {
     var that = this;
     var EC = protractor.ExpectedConditions;
-
-    /**
-     * Получить элемент узла дерева по текстовому значение
-     * @param {string} elementValue - текстовое значение
-     * @returns {element} - элемент узла дерева
-     */
-    that.getNodeByValue = function (elementValue) {
-        return element(by.tagName('body')).
-            element(by.cssContainingText('.aciTreeText', elementValue));
-    };
 
     /**
      * Раскрывает ветку элементов и выделяет внутренний элемент
@@ -46,45 +35,6 @@ function CommonUtil() {
                 .sendKeys(protractor.Key.LEFT)
                 .perform();
         }
-    };
-
-    /**
-     * Генерирует случайное четырёхзначное число
-     * @returns {number} - число
-     */
-    that.getRandomValue = function () {
-        return Math.round(_.random(browser.params.randomValues.from, browser.params.randomValues.to));
-    };
-
-    /**
-     * Скачивает файл
-     * @param {element} saveButton - кнопка, после нажатия которой начинается скачивание
-     * @returns {boolean} - статус загрузки
-     */
-    that.saveFile = function (saveButton) {
-        var path = browser.params.downloading.path + browser.params.downloading.fileName;
-        var fs = require('fs');
-        
-        if (fs.existsSync(path)) {
-            fs.unlinkSync(path);
-        }
-        that.waitVisibilityAndClick(saveButton);
-        
-        return browser.driver.wait(function() {
-            return fs.existsSync(path);
-        }, browser.params.visibilityWaitingTime.fileDownloading);        
-    };
-
-    /**
-     * Фокусировка на текущем элементе и присвоение ему значения из выпадающего списка
-     */
-    /* TODO: focusAndSetDropdownMenuValue - WAITING OF NEW MONITOR */
-    that.focusAndSetDropdownMenuValue = function () {
-        browser.actions()
-            .sendKeys(protractor.Key.ENTER)
-            .sendKeys(protractor.Key.ARROW_DOWN)
-            .sendKeys(protractor.Key.ENTER)
-            .perform();
     };
 
     /**

@@ -4,6 +4,7 @@ var CommonUtil = require('../util/common.js');
 describe('lab 5 - seitenplanung page', function () {
     var page = new PlaningPage();
     var util = new CommonUtil();
+    var that = this;
         
     beforeAll(function () {
         browser.get('http://vtest16:8093/catalog-planning/#/productionsEditor');
@@ -22,8 +23,27 @@ describe('lab 5 - seitenplanung page', function () {
     });
     
     it('lab 5, step 4 - should save file', function () {
-        expect(util.saveFile(page.saveButton)).toBe(true);
+        expect(that.saveFile(page.saveButton)).toBe(true);
     });
+
+    /**
+     * Скачивает файл
+     * @param {element} saveButton - кнопка, после нажатия которой начинается скачивание
+     * @returns {boolean} - статус загрузки
+     */
+    that.saveFile = function (saveButton) {
+        var path = browser.params.downloading.path + browser.params.downloading.fileName;
+        var fs = require('fs');
+
+        if (fs.existsSync(path)) {
+            fs.unlinkSync(path);
+        }
+        util.waitVisibilityAndClick(saveButton);
+
+        return browser.driver.wait(function() {
+            return fs.existsSync(path);
+        }, browser.params.visibilityWaitingTime.fileDownloading);
+    };
 
     afterAll(function () {
         util.closeBranch(['39, Frühling/Sommer 2015', 'Inszenierungspunkt']);
