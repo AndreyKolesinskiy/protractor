@@ -56,15 +56,21 @@ function CommonUtil() {
      */
     that.setDropdownMenuValue = function (element, value) {        
         if (value === 'UP') {
-            browser.sleep()
-                .then(element.click())
-                .then(element.sendKeys(protractor.Key.ARROW_UP))
-                .then(element.sendKeys(protractor.Key.ENTER));
+            element.click()
+                .then(function () {
+                    return element.sendKeys(protractor.Key.ARROW_UP);
+                })
+                .then(function () {
+                    return element.sendKeys(protractor.Key.ENTER);
+                });
         } else if (value === 'DOWN') {
-            browser.sleep()
-                .then(element.click())
-                .then(element.sendKeys(protractor.Key.ARROW_DOWN))
-                .then(element.sendKeys(protractor.Key.ENTER));
+            element.click()
+                .then(function () {
+                    return element.sendKeys(protractor.Key.ARROW_DOWN);
+                })
+                .then(function () {
+                    return element.sendKeys(protractor.Key.ENTER);
+                });
         }
     };
 
@@ -74,8 +80,9 @@ function CommonUtil() {
      * @param {string} value - значение
      */
     that.setValue = function (element, value) {
-        browser.sleep()
-            .then(element.clear())
-            .then(element.sendKeys(value));
+        element.clear()
+            .then(function () {
+                return element.sendKeys(value);
+            });
     };
 }
