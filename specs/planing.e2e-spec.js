@@ -1,5 +1,6 @@
 var page = require('../pages/planing.e2e-po.js');
 var util = require('../util/common.js');
+var data = require('../data/planing.e2e-data.json');
 
 describe('lab 5 - seitenplanung page', function () {
     var that = this;
@@ -10,14 +11,14 @@ describe('lab 5 - seitenplanung page', function () {
 
     it('lab 5, step 1 - should set title value by menu element', function () {
         page.productionsMenuElement.click();
-        expect(page.title.getText()).toEqual('Publikationspflege');
+        expect(page.title.getText()).toEqual(data.productionsMenuElement);
     });
 
     it('lab 5, step 2 - 3 - should set title value like menus element', function () {
-        util.selectBranchInnerNode(['39, Frühling/Sommer 2015', 'Inszenierungspunkt', '3911 Schwarzpreis ET: 04.03.2016']);
+        util.selectBranchInnerNode(data.nodes);
         page.menuElement.click();
         page.menuSubElement.click();
-        expect(page.title.getText()).toEqual('Seitenplanung');
+        expect(page.title.getText()).toEqual(data.menuSubElement);
     });
     
     it('lab 5, step 4 - should save file', function () {
@@ -44,6 +45,6 @@ describe('lab 5 - seitenplanung page', function () {
     };
 
     afterAll(function () {
-        util.closeBranch(['39, Frühling/Sommer 2015', 'Inszenierungspunkt']);
+        util.closeBranch([data.nodes[0], data.nodes[1]]);
     });    
 });

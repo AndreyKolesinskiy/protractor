@@ -1,0 +1,19 @@
+{
+  "productionsMenuElement" : "Publikationspflege",
+  "cancelMessage" : "Noch nichts geändert",
+
+  "nodes" :
+      ["40, Herbst/Winter 2015/2016",
+        "Prospekt",
+        "6556 Schwarzpreis ET: 02.03.2017"],
+
+  "number" : "6556",
+  "type" : "1",
+  "date" : "02.03.2017",
+  "price" : "0",
+
+  "testNumber" : "121",
+  "testType" : "21",
+  "testDate" : "01.02.2007",
+  "testPrice" : "1"
+}

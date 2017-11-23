@@ -2,10 +2,12 @@ module.exports = new ProductionsPage();
 
 function ProductionsPage() {    
     var that = this;
+    var data = require('../data/productions.e2e-data.json');
+
+    that.productionsMenuElement = element(by.partialLinkText(data.productionsMenuElement));
+    that.cancelMessage = element(by.cssContainingText('.cp-text-color', data.cancelMessage));
 
     that.cancelButton = element(by.css('.fa-undo'));
-    that.cancelMessage = element(by.cssContainingText('.cp-text-color', 'Noch nichts geändert'));
-    that.productionsMenuElement = element(by.partialLinkText('Publikationspflege'));
     that.title = element(by.binding('applicationTitle'));
     that.number = element(by.model('publication.name'));
     that.type = element(by.model('publication.type'));

@@ -1,5 +1,6 @@
 var page = require('../pages/assignment.e2e-po.js');
 var util = require('../util/common.js');
+var data = require('../data/assignment.e2e-data.json');
 
 describe('lab 6 - artikelzuordnung page', function () {
     var that = this;
@@ -10,14 +11,14 @@ describe('lab 6 - artikelzuordnung page', function () {
 
     it('lab 6, step 1 - should set title value by menu element', function () {
         page.productionsMenuElement.click();
-        expect(page.title.getText()).toEqual('Publikationspflege');
+        expect(page.title.getText()).toEqual(data.productionsMenuElement);
     });
 
     it('lab 6, step 2 - should set title value like menus element', function () {
-        util.selectBranchInnerNode(['39, Frühling/Sommer 2015', 'Inszenierungspunkt', '3911 Schwarzpreis ET: 04.03.2016']);
+        util.selectBranchInnerNode(data.nodes);
         page.menuElement.click();
         page.menuSubElement.click();
-        expect(page.title.getText()).toEqual('Artikelzuordnung');
+        expect(page.title.getText()).toEqual(data.title);
     });
 
     it('lab 6, step 3 - 6 - should add, check and undo entered value', function () {
@@ -28,7 +29,7 @@ describe('lab 6 - artikelzuordnung page', function () {
         expect(page.addedElement.isPresent()).toBe(true);
 
         that.focusAndSetDropdownMenuValue();
-        expect(page.eshopNumber.getAttribute('value')).toEqual('11250114');
+        expect(page.eshopNumber.getAttribute('value')).toEqual(data.eshopNumber);
 
         page.undoButton.click();
         expect(page.eshopNumber.getAttribute('value')).toEqual('');
@@ -47,6 +48,6 @@ describe('lab 6 - artikelzuordnung page', function () {
     };
 
     afterAll(function () {
-        util.closeBranch(['39, Frühling/Sommer 2015', 'Inszenierungspunkt']);
+        util.closeBranch([data.nodes[0], data.nodes[1]]);
     });
 });

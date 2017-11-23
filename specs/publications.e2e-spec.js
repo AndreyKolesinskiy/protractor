@@ -1,6 +1,7 @@
 var page = require('../pages/publications.e2e-po.js');
 var util = require('../util/common.js');
 var _ = require('lodash');
+var data = require('../data/publications.e2e-data.json');
 
 describe('lab 4 - publications page', function () {
     var that = this;
@@ -11,26 +12,26 @@ describe('lab 4 - publications page', function () {
     
     it('lab 4, step 1 - should set title value by menu element', function () {
         page.productionsMenuElement.click();
-        expect(page.title.getText()).toEqual('Publikationspflege');
+        expect(page.title.getText()).toEqual(data.productionsMenuElement);
     });
     
     it('lab 4, step 2 - should add element', function () {
         page.plusButton.click();
-        page.season.sendKeys(31);        
+        page.season.sendKeys(data.season);
         page.newNumber.sendKeys(that.getRandomValue());
         util.setDropdownMenuValue(page.type, 'DOWN');
-        util.setValue(page.mainDate, '05.05.2017');
-        util.setValue(page.tradeDate, '05.05.2017');
+        util.setValue(page.mainDate, data.mainDate);
+        util.setValue(page.tradeDate, data.tradeDate);
         util.setDropdownMenuValue(page.priceType, 'DOWN');
-        page.description.sendKeys('test');
+        page.description.sendKeys(data.description);
         page.okButton.click();
-        expect(that.getNodeByValue('Schwarzpreis ET: 05.05.2017').isPresent()).toBe(true);
+        expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(true);
     });
     
     it('lab 4, step 3 - should remove element', function () {
         page.trashButton.click();
         page.yesButton.click();
-        expect(that.getNodeByValue('Schwarzpreis ET: 05.05.2017').isPresent()).toBe(false);
+        expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(false);
     });
 
     /**
@@ -52,6 +53,6 @@ describe('lab 4 - publications page', function () {
     };
 
     afterAll(function () {
-        util.closeBranch(['31, Frühling/Sommer 2011', 'Inszenierungspunkt']);
+        util.closeBranch([data.nodes[0], data.nodes[1]]);
     });
 });

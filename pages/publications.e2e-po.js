@@ -2,8 +2,10 @@ module.exports = new PublicationsPage();
 
 function PublicationsPage() {    
     var that = this;
+    var data = require('../data/publications.e2e-data.json');
 
-    that.productionsMenuElement = element(by.partialLinkText('Publikationspflege'));
+    that.productionsMenuElement = element(by.partialLinkText(data.productionsMenuElement));
+
     that.title = element(by.binding('applicationTitle'));
     that.plusButton = element(by.css('.glyphicon-plus'));
     that.minusButton = element(by.css('.glyphicon-minus'));

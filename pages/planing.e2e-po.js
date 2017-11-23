@@ -1,11 +1,13 @@
 module.exports = new PlaningPage();
 
 function PlaningPage() {
-    var that = this;    
+    var that = this;
+    var data = require('../data/planing.e2e-data.json');
 
-    that.productionsMenuElement = element(by.partialLinkText('Publikationspflege'));
-    that.title = element(by.binding('applicationTitle'));    
-    that.menuElement = element(by.partialLinkText('EINKAUF'));
-    that.menuSubElement = element(by.partialLinkText('Seitenplanung'));
+    that.productionsMenuElement = element(by.partialLinkText(data.productionsMenuElement));
+    that.menuElement = element(by.partialLinkText(data.menuElement));
+    that.menuSubElement = element(by.partialLinkText(data.menuSubElement));
+
+    that.title = element(by.binding('applicationTitle'));
     that.saveButton = element(by.css('.glyphicon-file'));
 }

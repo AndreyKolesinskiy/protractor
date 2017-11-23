@@ -1,0 +1,13 @@
+{
+  "productionsMenuElement" : "Publikationspflege",
+
+  "season" : "31",
+  "mainDate" : "05.05.2017",
+  "tradeDate" : "05.05.2017",
+  "description" : "test",
+  "addedNode" : "Schwarzpreis ET: 05.05.2017",
+
+  "nodes" :
+      ["31, Frühling/Sommer 2011",
+        "Inszenierungspunkt"]
+}

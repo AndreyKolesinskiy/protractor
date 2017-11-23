@@ -2,10 +2,12 @@ module.exports = new DataPage();
 
 function DataPage() {    
     var that = this;
+    var data = require('../data/data.e2e-data.json');
 
-    that.seasonsMenuSubElement = element(by.partialLinkText('Saisons'));
-    that.privilegesMenuSubElement = element(by.partialLinkText('Vorteile'));
-    that.menuElement = element(by.partialLinkText('STAMMDATEN'));
+    that.seasonsMenuSubElement = element(by.partialLinkText(data.seasonsMenuSubElement));
+    that.privilegesMenuSubElement = element(by.partialLinkText(data.privilegesMenuSubElement));
+    that.menuElement = element(by.partialLinkText(data.menuElement));
+
     that.title = element(by.binding('applicationTitle'));
     that.season = element(by.cssContainingText('.col-md-2', '34'));
     that.identity = element(by.model('item.identity'));
