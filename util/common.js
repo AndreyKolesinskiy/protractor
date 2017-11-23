@@ -10,16 +10,21 @@ function CommonUtil() {
      */
     that.selectBranchInnerNode = function (nodeValues) {
         var node;
-        nodeValues.forEach(function (item) {
-            node = element(by.tagName('body'))
-                .element(by.cssContainingText('.aciTreeText', item));
-            browser.wait(EC.visibilityOf(node), browser.params.visibilityWaitingTime.elementDrawing, item + ' is not visible.')
+        for (var i = 0; i < nodeValues.length; i++) {
+            if (i === 0) {
+                node = element(by.tagName('body'))
+                    .element(by.cssContainingText('.aciTreeText', nodeValues[i]));
+            } else if (i > 0) {
+                node = element(by.tagName('body'))
+                    .element(by.cssContainingText('.aciTreeBranch .aciTreeText', nodeValues[i]));
+            }
+            browser.wait(EC.visibilityOf(node), browser.params.visibilityWaitingTime.elementDrawing, nodeValues[i] + ' is not visible.')
                 .then(
                     browser.actions()
                         .doubleClick(node)
                         .perform()
                 );
-        });
+        }
     };
 
     /**
@@ -29,15 +34,19 @@ function CommonUtil() {
     /* TODO: closeBranch - WILL BE DELETED */
     that.closeBranch = function (nodeValues) {
         var node;
-        var reverseValues = nodeValues.reverse();
-        reverseValues.forEach(function (item) {
-            node = element(by.tagName('body'))
-                .element(by.cssContainingText('.aciTreeText', item));
+        for (var i = nodeValues.length-1; i >= 0 ; i--) {
+            if (i === 0) {
+                node = element(by.tagName('body'))
+                    .element(by.cssContainingText('.aciTreeText', nodeValues[i]));
+            } else if (i > 0) {
+                node = element(by.tagName('body'))
+                    .element(by.cssContainingText('.aciTreeBranch .aciTreeText', nodeValues[i]));
+            }
             browser.actions()
                 .click(node)
                 .sendKeys(protractor.Key.LEFT)
                 .perform();
-        });
+        }
     };
 
     /**
@@ -45,7 +54,7 @@ function CommonUtil() {
      * @param {element} element - элемент, на который необходимо нажать
      */
     that.waitVisibilityAndClick = function (element) {
-        browser.wait(EC.visibilityOf(element), browser.params.visibilityWaitingTime.elementDrawing, element + ' is not visible.')
+        browser.wait(EC.visibilityOf(element), browser.params.visibilityWaitingTime.elementDrawing, 'cant click, element is not visible.')
             .then(element.click());
     };
 
