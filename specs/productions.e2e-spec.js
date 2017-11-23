@@ -5,7 +5,7 @@ var data = require('../data/productions.e2e-data.json');
 describe('lab 1 - productions page', function () {
 
     beforeAll(function () {
-        browser.get('http://vtest16:8093/catalog-planning/#/productionsEditor');
+        browser.get(browser.params.baseUrl);
     });
     
     it('lab 1, step 1 - should set title value by menu element', function () {

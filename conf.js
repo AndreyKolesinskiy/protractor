@@ -30,6 +30,7 @@ exports.config = {
         productions: 'specs/productions.e2e-spec.js'
     },
     params: {
+        baseUrl: 'http://vtest16:8093/catalog-planning/#/productionsEditor',
         randomValues: {
             from: 1111,
             to: 9999

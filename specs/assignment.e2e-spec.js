@@ -6,7 +6,7 @@ describe('lab 6 - artikelzuordnung page', function () {
     var that = this;
 
     beforeAll(function () {
-        browser.get('http://vtest16:8093/catalog-planning/#/productionsEditor');
+        browser.get(browser.params.baseUrl);
     });
 
     it('lab 6, step 1 - should set title value by menu element', function () {

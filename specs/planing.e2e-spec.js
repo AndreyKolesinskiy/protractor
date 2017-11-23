@@ -6,7 +6,7 @@ describe('lab 5 - seitenplanung page', function () {
     var that = this;
         
     beforeAll(function () {
-        browser.get('http://vtest16:8093/catalog-planning/#/productionsEditor');
+        browser.get(browser.params.baseUrl);
     });
 
     it('lab 5, step 1 - should set title value by menu element', function () {
