@@ -27,7 +27,7 @@ exports.config = {
     },
     specs: ['specs/**/*.e2e-spec.js'],    
     suites: {        
-        productions: 'specs/productions.e2e-spec.js'
+        productions: 'specs/lab-1.e2e-spec.js'
     },
     params: {
         baseUrl: 'http://vtest16:8093/catalog-planning/#/productionsEditor',

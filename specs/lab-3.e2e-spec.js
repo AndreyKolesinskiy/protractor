@@ -1,5 +1,5 @@
 var util = require('../util/common.js');
-var data = require('../data/lab3.e2e-data.json');
+var data = require('../data/lab-3.e2e-data.json');
 
 var pageTitle = require('../po/common/page/pageTitle.js');
 var editItems = require('../po/common/table/editItems.js');

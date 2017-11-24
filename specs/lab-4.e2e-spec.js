@@ -1,6 +1,6 @@
 var util = require('../util/common.js');
 var _ = require('lodash');
-var data = require('../data/publications.e2e-data.json');
+var data = require('../data/lab-4.e2e-data.json');
 
 var pageTitle = require('../po/common/page/pageTitle.js');
 var editItems = require('../po/common/table/editItems.js');

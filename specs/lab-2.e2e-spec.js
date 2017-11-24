@@ -1,4 +1,4 @@
-var data = require('../data/data.e2e-data.json');
+var data = require('../data/lab-2.e2e-data.json');
 
 var pageTitle = require('../po/common/page/pageTitle.js');
 var seasonData = require('../po/specific/season/seasonData.js');
