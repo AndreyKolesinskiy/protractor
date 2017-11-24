@@ -43,7 +43,7 @@ describe('lab 6 - artikelzuordnung page', function () {
         that.focusAndSetDropdownMenuValue();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual(data.eshopNumber);
 
-        saveData.undoButton.click();
+        saveData.cancelButton.click();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual('');
     });
 
