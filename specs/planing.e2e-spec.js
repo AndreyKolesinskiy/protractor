@@ -1,6 +1,12 @@
-var page = require('../pages/planing.e2e-po.js');
 var util = require('../util/common.js');
 var data = require('../data/planing.e2e-data.json');
+
+var pageTitle = require('../po/common/page/pageTitle.js');
+var editItems = require('../po/common/table/editItems.js');
+
+var MainMenu = require('../po/common/page/mainMenu.js');
+
+var mainMenu = new MainMenu(data);
 
 describe('lab 5 - seitenplanung page', function () {
     var that = this;
@@ -10,19 +16,19 @@ describe('lab 5 - seitenplanung page', function () {
     });
 
     it('lab 5, step 1 - should set title value by menu element', function () {
-        page.productionsMenuElement.click();
-        expect(page.title.getText()).toEqual(data.productionsMenuElement);
+        mainMenu.productionsMenuElement.click();
+        expect(pageTitle.title.getText()).toEqual(data.productionsMenuElement);
     });
 
     it('lab 5, step 2 - 3 - should set title value like menus element', function () {
         util.selectBranchInnerNode(data.nodes);
-        page.menuElement.click();
-        page.menuSubElement.click();
-        expect(page.title.getText()).toEqual(data.menuSubElement);
+        mainMenu.menuElement.click();
+        mainMenu.menuSubElement.click();
+        expect(pageTitle.title.getText()).toEqual(data.menuSubElement);
     });
     
     it('lab 5, step 4 - should save file', function () {
-        expect(that.saveFile(page.saveButton)).toBe(true);
+        expect(that.saveFile(editItems.saveFileButton)).toBe(true);
     });
 
     /**

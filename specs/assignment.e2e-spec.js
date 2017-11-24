@@ -1,6 +1,18 @@
-var page = require('../pages/assignment.e2e-po.js');
 var util = require('../util/common.js');
 var data = require('../data/assignment.e2e-data.json');
+
+var pageTitle = require('../po/common/page/pageTitle.js');
+var editItems = require('../po/common/table/editItems.js');
+var addingPopup = require('../po/common/popup/addingPopup.js');
+var assignmentAddingPopup = require('../po/specific/assignment/assignmentAddingPopup.js');
+var assignmentData = require('../po/specific/assignment/assignmentData.js');
+var assignmentTable = require('../po/specific/assignment/assignmentTable.js');
+
+var MainMenu = require('../po/common/page/mainMenu.js');
+var SaveData = require('../po/common/data/saveData.js');
+
+var mainMenu = new MainMenu(data);
+var saveData = new SaveData(data);
 
 describe('lab 6 - artikelzuordnung page', function () {
     var that = this;
@@ -10,29 +22,29 @@ describe('lab 6 - artikelzuordnung page', function () {
     });
 
     it('lab 6, step 1 - should set title value by menu element', function () {
-        page.productionsMenuElement.click();
-        expect(page.title.getText()).toEqual(data.productionsMenuElement);
+        mainMenu.productionsMenuElement.click();
+        expect(pageTitle.title.getText()).toEqual(data.productionsMenuElement);
     });
 
     it('lab 6, step 2 - should set title value like menus element', function () {
         util.selectBranchInnerNode(data.nodes);
-        page.menuElement.click();
-        page.menuSubElement.click();
-        expect(page.title.getText()).toEqual(data.title);
+        mainMenu.menuElement.click();
+        mainMenu.menuSubElement.click();
+        expect(pageTitle.title.getText()).toEqual(data.title);
     });
 
     it('lab 6, step 3 - 6 - should add, check and undo entered value', function () {
-        page.plusButton.click();
-        util.setDropdownMenuValue(page.publicationPart, 'DOWN');
-        util.setDropdownMenuValue(page.page, 'DOWN');
-        page.okButton.click();
-        expect(page.addedElement.isPresent()).toBe(true);
+        editItems.plusButton.click();
+        util.setDropdownMenuValue(assignmentAddingPopup.publicationPart, 'DOWN');
+        util.setDropdownMenuValue(assignmentAddingPopup.page, 'DOWN');
+        addingPopup.okButton.click();
+        expect(assignmentTable.addedElement.isPresent()).toBe(true);
 
         that.focusAndSetDropdownMenuValue();
-        expect(page.eshopNumber.getAttribute('value')).toEqual(data.eshopNumber);
+        expect(assignmentData.eshopNumber.getAttribute('value')).toEqual(data.eshopNumber);
 
-        page.undoButton.click();
-        expect(page.eshopNumber.getAttribute('value')).toEqual('');
+        saveData.undoButton.click();
+        expect(assignmentData.eshopNumber.getAttribute('value')).toEqual('');
     });
 
     /**

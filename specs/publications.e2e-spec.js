@@ -1,7 +1,16 @@
-var page = require('../pages/publications.e2e-po.js');
 var util = require('../util/common.js');
 var _ = require('lodash');
 var data = require('../data/publications.e2e-data.json');
+
+var pageTitle = require('../po/common/page/pageTitle.js');
+var editItems = require('../po/common/table/editItems.js');
+var addingPopup = require('../po/common/popup/addingPopup.js');
+var deletingPopup = require('../po/common/popup/deletingPopup.js');
+var publicationAddingPopup = require('../po/specific/publication/publicationAddingPopup.js');
+
+var MainMenu = require('../po/common/page/mainMenu.js');
+
+var mainMenu = new MainMenu(data);
 
 describe('lab 4 - publications page', function () {
     var that = this;
@@ -11,26 +20,26 @@ describe('lab 4 - publications page', function () {
     });
     
     it('lab 4, step 1 - should set title value by menu element', function () {
-        page.productionsMenuElement.click();
-        expect(page.title.getText()).toEqual(data.productionsMenuElement);
+        mainMenu.productionsMenuElement.click();
+        expect(pageTitle.title.getText()).toEqual(data.productionsMenuElement);
     });
     
     it('lab 4, step 2 - should add element', function () {
-        page.plusButton.click();
-        page.season.sendKeys(data.season);
-        page.newNumber.sendKeys(that.getRandomValue());
-        util.setDropdownMenuValue(page.type, 'DOWN');
-        util.setValue(page.mainDate, data.mainDate);
-        util.setValue(page.tradeDate, data.tradeDate);
-        util.setDropdownMenuValue(page.priceType, 'DOWN');
-        page.description.sendKeys(data.description);
-        page.okButton.click();
+        editItems.plusButton.click();
+        publicationAddingPopup.season.sendKeys(data.season);
+        publicationAddingPopup.newNumber.sendKeys(that.getRandomValue());
+        util.setDropdownMenuValue(publicationAddingPopup.type, 'DOWN');
+        util.setValue(publicationAddingPopup.mainDate, data.mainDate);
+        util.setValue(publicationAddingPopup.tradeDate, data.tradeDate);
+        util.setDropdownMenuValue(publicationAddingPopup.priceType, 'DOWN');
+        publicationAddingPopup.description.sendKeys(data.description);
+        addingPopup.okButton.click();
         expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(true);
     });
     
     it('lab 4, step 3 - should remove element', function () {
-        page.trashButton.click();
-        page.yesButton.click();
+        editItems.trashButton.click();
+        deletingPopup.yesButton.click();
         expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(false);
     });
 
