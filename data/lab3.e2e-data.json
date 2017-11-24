@@ -1,0 +1,9 @@
+{
+  "privilegesMenuSubElement": "Vorteile",
+  "menuElement": "STAMMDATEN",
+
+  "itemNameFirst" : "VR_1",
+  "itemNameSecond" : "VR_2",
+  "testCreateItemName" : "Test_create",
+  "testEditItemName" : "Test_edit"
+}

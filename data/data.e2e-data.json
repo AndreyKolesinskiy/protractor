@@ -6,10 +6,5 @@
   "identity": "34",
   "name": "Herbst/Winter 2012/2013",
   "startDate": "01.09.2012",
-  "endDate": "28.02.2013",
-
-  "itemNameFirst" : "VR_1",
-  "itemNameSecond" : "VR_2",
-  "testCreateItemName" : "Test_create",
-  "testEditItemName" : "Test_edit"
+  "endDate": "28.02.2013"
 }
