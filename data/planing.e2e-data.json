@@ -1,7 +1,7 @@
 {
-  "productionsMenuElement" : "Publikationspflege",
   "menuElement" : "EINKAUF",
-  "menuSubElement" : "Seitenplanung",
+  "productionsMenuSubElement" : "Publikationspflege",
+  "pageMenuSubElement" : "Seitenplanung",
 
   "nodes" :
       ["39, Frühling/Sommer 2015",

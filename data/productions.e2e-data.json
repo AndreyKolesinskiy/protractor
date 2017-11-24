@@ -1,5 +1,6 @@
 {
-  "productionsMenuElement" : "Publikationspflege",
+  "productionsMenuSubElement" : "Publikationspflege",
+
   "cancelMessage" : "Noch nichts geändert",
 
   "nodes" :

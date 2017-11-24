@@ -16,15 +16,15 @@ describe('lab 5 - seitenplanung page', function () {
     });
 
     it('lab 5, step 1 - should set title value by menu element', function () {
-        mainMenu.productionsMenuElement.click();
-        expect(pageTitle.title.getText()).toEqual(data.productionsMenuElement);
+        mainMenu.productionsMenuSubElement.click();
+        expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
     });
 
     it('lab 5, step 2 - 3 - should set title value like menus element', function () {
         util.selectBranchInnerNode(data.nodes);
         mainMenu.menuElement.click();
-        mainMenu.menuSubElement.click();
-        expect(pageTitle.title.getText()).toEqual(data.menuSubElement);
+        mainMenu.pageMenuSubElement.click();
+        expect(pageTitle.title.getText()).toEqual(data.pageMenuSubElement);
     });
     
     it('lab 5, step 4 - should save file', function () {

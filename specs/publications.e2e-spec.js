@@ -20,8 +20,8 @@ describe('lab 4 - publications page', function () {
     });
     
     it('lab 4, step 1 - should set title value by menu element', function () {
-        mainMenu.productionsMenuElement.click();
-        expect(pageTitle.title.getText()).toEqual(data.productionsMenuElement);
+        mainMenu.productionsMenuSubElement.click();
+        expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
     });
     
     it('lab 4, step 2 - should add element', function () {

@@ -22,14 +22,14 @@ describe('lab 6 - artikelzuordnung page', function () {
     });
 
     it('lab 6, step 1 - should set title value by menu element', function () {
-        mainMenu.productionsMenuElement.click();
-        expect(pageTitle.title.getText()).toEqual(data.productionsMenuElement);
+        mainMenu.productionsMenuSubElement.click();
+        expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
     });
 
     it('lab 6, step 2 - should set title value like menus element', function () {
         util.selectBranchInnerNode(data.nodes);
         mainMenu.menuElement.click();
-        mainMenu.menuSubElement.click();
+        mainMenu.articleMenuSubElement.click();
         expect(pageTitle.title.getText()).toEqual(data.title);
     });
 

@@ -5,9 +5,10 @@ function MainMenu(data) {
     that.data = data;
 
     that.menuElement = element(by.partialLinkText(data.menuElement));
-    that.menuSubElement = element(by.partialLinkText(data.menuSubElement));
 
-    that.productionsMenuElement = element(by.partialLinkText(data.productionsMenuElement));
+    that.pageMenuSubElement = element(by.partialLinkText(data.pageMenuSubElement));
+    that.articleMenuSubElement = element(by.partialLinkText(data.articleMenuSubElement));
+    that.productionsMenuSubElement = element(by.partialLinkText(data.productionsMenuSubElement));
     that.seasonsMenuSubElement = element(by.partialLinkText(data.seasonsMenuSubElement));
     that.privilegesMenuSubElement = element(by.partialLinkText(data.privilegesMenuSubElement));
 }
