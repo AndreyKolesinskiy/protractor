@@ -1,5 +1,7 @@
 module.exports = new CommonUtil();
 
+var publicationTree = require('../po/specific/publication/publicationTree.js');
+
 function CommonUtil() {
     var that = this;
     var EC = protractor.ExpectedConditions;
@@ -11,20 +13,7 @@ function CommonUtil() {
     that.selectBranchInnerNode = function (nodeValues) {
         var node;
         for (var i = 0; i < nodeValues.length; i++) {
-            switch (i) {
-                case(0) :
-                    node = element(by.tagName('body'))
-                        .element(by.cssContainingText('.aciTreeText', nodeValues[i]));
-                    break;
-                case(1) :
-                    node = element(by.tagName('body'))
-                        .element(by.cssContainingText('.aciTreeLevel0 .aciTreeText', nodeValues[i]));
-                    break;
-                case(2) :
-                    node = element(by.tagName('body'))
-                        .element(by.cssContainingText('.aciTreeLevel1 .aciTreeText', nodeValues[i]));
-                    break;
-            }
+            node = publicationTree.getNodeElementByLevelNumberAndValue(i, nodeValues[i]);
             browser.wait(EC.visibilityOf(node), browser.params.visibilityWaitingTime.elementDrawing, nodeValues[i] + ' is not visible.')
                 .then(
                     browser.actions()
@@ -42,20 +31,7 @@ function CommonUtil() {
     that.closeBranch = function (nodeValues) {
         var node;
         for (var i = nodeValues.length-1; i >= 0 ; i--) {
-            switch (i) {
-                case(0) :
-                    node = element(by.tagName('body'))
-                        .element(by.cssContainingText('.aciTreeText', nodeValues[i]));
-                    break;
-                case(1) :
-                    node = element(by.tagName('body'))
-                        .element(by.cssContainingText('.aciTreeLevel0 .aciTreeText', nodeValues[i]));
-                    break;
-                case(2) :
-                    node = element(by.tagName('body'))
-                        .element(by.cssContainingText('.aciTreeLevel1 .aciTreeText', nodeValues[i]));
-                    break;
-            }
+            node = publicationTree.getNodeElementByLevelNumberAndValue(i, nodeValues[i]);
             browser.actions()
                 .click(node)
                 .sendKeys(protractor.Key.LEFT)
