@@ -51,51 +51,51 @@ function CommonUtil() {
 
     /**
      * Ожидает прорисовку элемента и кликает на него
-     * @param {element} element - элемент, на который необходимо нажать
+     * @param {element} elem - элемент, на который необходимо нажать
      */
-    that.waitVisibilityAndClick = function (element) {
+    that.waitVisibilityAndClick = function (elem) {
         browser
             .wait(
-                EC.visibilityOf(element),
+                EC.visibilityOf(elem),
                 browser.params.visibilityWaitingTime.elementDrawing,
                 'cant click, element is not visible.')
-            .then(element.click());
+            .then(elem.click());
     };
 
     /**
      * Выбирает значение для элемента в выпадающем списке, согласно направлению относительно текущего
-     * @param {element} element - элемент, которому необходимо присвоить значение
+     * @param {element} elem - элемент, которому необходимо присвоить значение
      * @param {string} value - направление, относительно текущего значения в списке
      */
-    that.setDropdownMenuValue = function (element, value) {        
+    that.setDropdownMenuValue = function (elem, value) {
         if (value === 'UP') {
-            element.click()
+            elem.click()
                 .then(function () {
-                    return element.sendKeys(protractor.Key.ARROW_UP);
+                    return elem.sendKeys(protractor.Key.ARROW_UP);
                 })
                 .then(function () {
-                    return element.sendKeys(protractor.Key.ENTER);
+                    return elem.sendKeys(protractor.Key.ENTER);
                 });
         } else if (value === 'DOWN') {
-            element.click()
+            elem.click()
                 .then(function () {
-                    return element.sendKeys(protractor.Key.ARROW_DOWN);
+                    return elem.sendKeys(protractor.Key.ARROW_DOWN);
                 })
                 .then(function () {
-                    return element.sendKeys(protractor.Key.ENTER);
+                    return elem.sendKeys(protractor.Key.ENTER);
                 });
         }
     };
 
     /**
      * Устанавливает значение элементу
-     * @param {element} element - элемент, которому необходимо присвоить значение
+     * @param {element} elem - элемент, которому необходимо присвоить значение
      * @param {string} value - значение
      */
-    that.setValue = function (element, value) {
-        element.clear()
+    that.setValue = function (elem, value) {
+        elem.clear()
             .then(function () {
-                return element.sendKeys(value);
+                return elem.sendKeys(value);
             });
     };
 }
