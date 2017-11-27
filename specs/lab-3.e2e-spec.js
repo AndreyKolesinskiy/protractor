@@ -9,10 +9,7 @@ var seasonData = require('../po/specific/season/seasonData.js');
 var privilegeTable = require('../po/specific/privilege/privilegeTable.js');
 var privilegeAddingPopup = require('../po/specific/privilege/privilegeAddingPopup.js');
 var privilegeData = require('../po/specific/privilege/privilegeData.js');
-
-var MainMenu = require('../po/common/page/mainMenu.js');
-
-var mainMenu = new MainMenu(data);
+var mainMenu = require('../po/common/page/mainMenu.js');
 
 describe('lab 3', function () {
 
@@ -21,8 +18,8 @@ describe('lab 3', function () {
     });
 
     it('should set title value like menus element', function () {
-        mainMenu.menuElement.click();
-        mainMenu.privilegesMenuSubElement.click();
+        mainMenu.open(data.menuElement);
+        mainMenu.open(data.privilegesMenuSubElement);
         expect(pageTitle.title.getText()).toEqual(data.privilegesMenuSubElement);
     });
 

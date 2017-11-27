@@ -3,10 +3,7 @@ var data = require('../data/lab-5.e2e-data.json');
 
 var pageTitle = require('../po/common/page/pageTitle.js');
 var editItems = require('../po/common/table/editItems.js');
-
-var MainMenu = require('../po/common/page/mainMenu.js');
-
-var mainMenu = new MainMenu(data);
+var mainMenu = require('../po/common/page/mainMenu.js');
 
 describe('lab 5', function () {
     var that = this;
@@ -16,14 +13,14 @@ describe('lab 5', function () {
     });
 
     it('should set title value by menu element', function () {
-        mainMenu.productionsMenuSubElement.click();
+        mainMenu.open(data.productionsMenuSubElement);
         expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
     });
 
     it('should set title value like menus element', function () {
         util.selectBranchInnerNode(data.nodes);
-        mainMenu.menuElement.click();
-        mainMenu.pageMenuSubElement.click();
+        mainMenu.open(data.menuElement);
+        mainMenu.open(data.pageMenuSubElement);
         expect(pageTitle.title.getText()).toEqual(data.pageMenuSubElement);
     });
     

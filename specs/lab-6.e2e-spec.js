@@ -7,11 +7,9 @@ var addingPopup = require('../po/common/popup/addingPopup.js');
 var assignmentAddingPopup = require('../po/specific/assignment/assignmentAddingPopup.js');
 var assignmentData = require('../po/specific/assignment/assignmentData.js');
 var assignmentTable = require('../po/specific/assignment/assignmentTable.js');
+var mainMenu = require('../po/common/page/mainMenu.js');
 
-var MainMenu = require('../po/common/page/mainMenu.js');
 var SaveData = require('../po/common/data/saveData.js');
-
-var mainMenu = new MainMenu(data);
 var saveData = new SaveData(data);
 
 describe('lab 6', function () {
@@ -22,14 +20,14 @@ describe('lab 6', function () {
     });
 
     it('should set title value by menu element', function () {
-        mainMenu.productionsMenuSubElement.click();
+        mainMenu.open(data.productionsMenuSubElement);
         expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
     });
 
     it('should set title value like menus element', function () {
         util.selectBranchInnerNode(data.nodes);
-        mainMenu.menuElement.click();
-        mainMenu.articleMenuSubElement.click();
+        mainMenu.open(data.menuElement);
+        mainMenu.open(data.articleMenuSubElement);
         expect(pageTitle.title.getText()).toEqual(data.title);
     });
 

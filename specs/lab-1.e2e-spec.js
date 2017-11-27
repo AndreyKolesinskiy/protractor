@@ -3,11 +3,9 @@ var data = require('../data/lab-1.e2e-data.json');
 
 var pageTitle = require('../po/common/page/pageTitle.js');
 var publicationData = require('../po/specific/publication/publicationData.js');
+var mainMenu = require('../po/common/page/mainMenu.js');
 
-var MainMenu = require('../po/common/page/mainMenu.js');
 var SaveData = require('../po/common/data/saveData.js');
-
-var mainMenu = new MainMenu(data);
 var saveData = new SaveData(data);
 
 describe('lab 1', function () {
@@ -17,7 +15,7 @@ describe('lab 1', function () {
     });
     
     it('should set title value by menu element', function () {
-        mainMenu.productionsMenuSubElement.click();
+        mainMenu.open(data.productionsMenuSubElement);
         expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
     });
     

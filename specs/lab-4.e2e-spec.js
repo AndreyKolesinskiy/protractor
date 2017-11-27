@@ -7,10 +7,7 @@ var editItems = require('../po/common/table/editItems.js');
 var addingPopup = require('../po/common/popup/addingPopup.js');
 var deletingPopup = require('../po/common/popup/deletingPopup.js');
 var publicationAddingPopup = require('../po/specific/publication/publicationAddingPopup.js');
-
-var MainMenu = require('../po/common/page/mainMenu.js');
-
-var mainMenu = new MainMenu(data);
+var mainMenu = require('../po/common/page/mainMenu.js');
 
 describe('lab 4', function () {
     var that = this;
@@ -20,7 +17,7 @@ describe('lab 4', function () {
     });
     
     it('should set title value by menu element', function () {
-        mainMenu.productionsMenuSubElement.click();
+        mainMenu.open(data.productionsMenuSubElement);
         expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
     });
     

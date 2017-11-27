@@ -2,11 +2,9 @@ var data = require('../data/lab-2.e2e-data.json');
 
 var pageTitle = require('../po/common/page/pageTitle.js');
 var seasonData = require('../po/specific/season/seasonData.js');
+var mainMenu = require('../po/common/page/mainMenu.js');
 
-var MainMenu = require('../po/common/page/mainMenu.js');
 var SeasonTable = require('../po/specific/season/seasonTable.js');
-
-var mainMenu = new MainMenu(data);
 var seasonTable = new SeasonTable(data);
 
 describe('lab 2', function () {
@@ -16,8 +14,8 @@ describe('lab 2', function () {
     });
     
     it('should set title value like menus element', function () {
-        mainMenu.menuElement.click();
-        mainMenu.seasonsMenuSubElement.click();
+        mainMenu.open(data.menuElement);
+        mainMenu.open(data.seasonsMenuSubElement);
         expect(pageTitle.title.getText()).toEqual(data.seasonsMenuSubElement);
     });
 
