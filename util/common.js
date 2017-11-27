@@ -14,9 +14,14 @@ function CommonUtil() {
         var node;
         for (var i = 0; i < nodeValues.length; i++) {
             node = publicationTree.getNodeElementByLevelNumberAndValue(i, nodeValues[i]);
-            browser.wait(EC.visibilityOf(node), browser.params.visibilityWaitingTime.elementDrawing, nodeValues[i] + ' is not visible.')
+            browser
+                .wait(
+                    EC.visibilityOf(node),
+                    browser.params.visibilityWaitingTime.elementDrawing,
+                    nodeValues[i] + ' is not visible.')
                 .then(
-                    browser.actions()
+                    browser
+                        .actions()
                         .doubleClick(node)
                         .perform()
                 );
@@ -32,7 +37,8 @@ function CommonUtil() {
         var node;
         for (var i = nodeValues.length-1; i >= 0 ; i--) {
             node = publicationTree.getNodeElementByLevelNumberAndValue(i, nodeValues[i]);
-            browser.actions()
+            browser
+                .actions()
                 .click(node)
                 .sendKeys(protractor.Key.LEFT)
                 .perform();
@@ -44,7 +50,11 @@ function CommonUtil() {
      * @param {element} element - элемент, на который необходимо нажать
      */
     that.waitVisibilityAndClick = function (element) {
-        browser.wait(EC.visibilityOf(element), browser.params.visibilityWaitingTime.elementDrawing, 'cant click, element is not visible.')
+        browser
+            .wait(
+                EC.visibilityOf(element),
+                browser.params.visibilityWaitingTime.elementDrawing,
+                'cant click, element is not visible.')
             .then(element.click());
     };
 

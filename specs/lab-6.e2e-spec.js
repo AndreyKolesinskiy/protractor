@@ -52,7 +52,8 @@ describe('lab 6 - artikelzuordnung page', function () {
      */
     /* TODO: focusAndSetDropdownMenuValue - WAITING OF NEW MONITOR */
     that.focusAndSetDropdownMenuValue = function () {
-        browser.actions()
+        browser
+            .actions()
             .sendKeys(protractor.Key.ENTER)
             .sendKeys(protractor.Key.ARROW_DOWN)
             .sendKeys(protractor.Key.ENTER)

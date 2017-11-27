@@ -45,9 +45,14 @@ describe('lab 5 - seitenplanung page', function () {
         }
         util.waitVisibilityAndClick(saveButton);
 
-        return browser.driver.wait(function() {
-            return fs.existsSync(path);
-        }, browser.params.visibilityWaitingTime.fileDownloading);
+        return browser
+            .driver
+            .wait(function () {
+                return fs.existsSync(path);
+            }, browser
+                .params
+                .visibilityWaitingTime
+                .fileDownloading);
     };
 
     afterAll(function () {
