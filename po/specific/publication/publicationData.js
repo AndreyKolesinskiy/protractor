@@ -1,7 +1,7 @@
 module.exports = PublicationData;
 
-var ValueSetter = require('../../parent/inputs.js');
-var DropdownMenu = require('../../parent/dropdown.js');
+var ValueSetter = require('../../common/inputs.js');
+var DropdownMenu = require('../../common/dropdown.js');
 
 function PublicationData() {
     var that = this;

@@ -1,6 +1,6 @@
 module.exports = AssignmentAddingPopup;
 
-var DropdownMenu = require('../../parent/dropdown.js');
+var DropdownMenu = require('../../common/dropdown.js');
 
 function AssignmentAddingPopup() {
     var that = this;
