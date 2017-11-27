@@ -12,20 +12,22 @@ function CommonUtil() {
      */
     that.selectBranchInnerNode = function (nodeValues) {
         var node;
-        for (var i = 0; i < nodeValues.length; i++) {
-            node = publicationTree.getNodeElementByLevelNumberAndValue(i, nodeValues[i]);
+
+        nodeValues.forEach(function (item, i) {
+            node = publicationTree.getNodeElementByLevelNumberAndValue(i, item);
             browser
                 .wait(
                     EC.visibilityOf(node),
                     browser.params.visibilityWaitingTime.elementDrawing,
-                    nodeValues[i] + ' is not visible.')
+                    item + ' is not visible.')
                 .then(
                     browser
                         .actions()
                         .doubleClick(node)
                         .perform()
                 );
-        }
+            }
+        );
     };
 
     /**
@@ -35,14 +37,16 @@ function CommonUtil() {
     /* TODO: closeBranch - WILL BE DELETED */
     that.closeBranch = function (nodeValues) {
         var node;
-        for (var i = nodeValues.length-1; i >= 0 ; i--) {
-            node = publicationTree.getNodeElementByLevelNumberAndValue(i, nodeValues[i]);
+        nodeValues = nodeValues.reverse();
+        nodeValues.forEach(function (item, i) {
+            node = publicationTree.getNodeElementByLevelNumberAndValue(i, item);
             browser
                 .actions()
                 .click(node)
                 .sendKeys(protractor.Key.LEFT)
                 .perform();
-        }
+            }
+        );
     };
 
     /**
