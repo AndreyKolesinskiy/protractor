@@ -42,7 +42,7 @@ describe('lab 1', function () {
     });
 
     afterAll(function () {
-        util.closeBranch([data.nodes[0], data.nodes[1]]);
+        util.closeBranch(data.nodes);
     });
 });
 

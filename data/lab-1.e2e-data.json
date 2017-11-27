@@ -3,10 +3,11 @@
 
   "cancelMessage" : "Noch nichts geändert",
 
-  "nodes" :
-      ["40, Herbst/Winter 2015/2016",
-        "Prospekt",
-        "6556 Schwarzpreis ET: 02.03.2017"],
+  "nodes" : {
+    "level0" : "40, Herbst/Winter 2015/2016",
+    "level1" : "Prospekt",
+    "level2" : "6556 Schwarzpreis ET: 02.03.2017"
+  },
 
   "number" : "6556",
   "type" : "1",

@@ -53,6 +53,6 @@ describe('lab 5', function () {
     };
 
     afterAll(function () {
-        util.closeBranch([data.nodes[0], data.nodes[1]]);
+        util.closeBranch(data.nodes);
     });    
 });
