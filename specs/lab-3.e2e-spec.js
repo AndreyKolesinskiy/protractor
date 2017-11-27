@@ -14,24 +14,24 @@ var MainMenu = require('../po/common/page/mainMenu.js');
 
 var mainMenu = new MainMenu(data);
 
-describe('lab 3 - stammdaten page', function () {
+describe('lab 3', function () {
 
     beforeAll(function () {
         browser.get(browser.params.baseUrl);
     });
 
-    it('lab 3, step 1 - should set title value like menus element', function () {
+    it('should set title value like menus element', function () {
         mainMenu.menuElement.click();
         mainMenu.privilegesMenuSubElement.click();
         expect(pageTitle.title.getText()).toEqual(data.privilegesMenuSubElement);
     });
 
-    it('lab 3, step 2 - should set name by selected element', function () {
+    it('should set name by selected element', function () {
         privilegeTable.secondListItem.click();
         expect(seasonData.name.getAttribute('value')).toEqual(data.itemNameSecond);
     });
 
-    it('lab 3, step 3 - should add new element', function () {
+    it('should add new element', function () {
         editItems.plusButton.click();
         privilegeAddingPopup.popupNameField.sendKeys('Test_create');
         addingPopup.okButton.click();
@@ -39,7 +39,7 @@ describe('lab 3 - stammdaten page', function () {
         expect(privilegeData.name.getAttribute('value')).toEqual(data.testCreateItemName);
     });
 
-    it('lab 3, step 4 - should edit element', function () {
+    it('should edit element', function () {
         privilegeTable.firstListItem.click();
         privilegeData.name.clear();
         privilegeData.name.sendKeys('Test_edit');
@@ -48,7 +48,7 @@ describe('lab 3 - stammdaten page', function () {
         expect(privilegeData.name.getAttribute('value')).toEqual(data.testEditItemName);
     });
 
-    it('lab 3, step 5 - should remove element', function () {
+    it('should remove element', function () {
         privilegeTable.firstListItem.click();
         editItems.minusButton.click();
         deletingPopup.yesButton.click();

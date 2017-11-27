@@ -10,18 +10,18 @@ var SaveData = require('../po/common/data/saveData.js');
 var mainMenu = new MainMenu(data);
 var saveData = new SaveData(data);
 
-describe('lab 1 - productions page', function () {
+describe('lab 1', function () {
 
     beforeAll(function () {
         browser.get(browser.params.baseUrl);
     });
     
-    it('lab 1, step 1 - should set title value by menu element', function () {
+    it('should set title value by menu element', function () {
         mainMenu.productionsMenuSubElement.click();
         expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
     });
     
-    it('lab 1, step 2 - should set fields values after click on branch element', function () {
+    it('should set fields values after click on branch element', function () {
         util.selectBranchInnerNode(data.nodes);
         expect(publicationData.number.getAttribute('value')).toEqual(data.number);
         expect(publicationData.type.getAttribute('value')).toEqual(data.type);
@@ -29,7 +29,7 @@ describe('lab 1 - productions page', function () {
         expect(publicationData.price.getAttribute('value')).toEqual(data.price);
     });
     
-    it('lab 1, step 3 - 4 - should set fields new values after click on trees element, rollback', function () {        
+    it('should set fields new values after click on trees element, rollback', function () {
         util.setValue(publicationData.number, data.testNumber);
         util.setDropdownMenuValue(publicationData.type, 'UP');
         util.setValue(publicationData.date, data.testDate);

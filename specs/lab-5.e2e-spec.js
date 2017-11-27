@@ -8,26 +8,26 @@ var MainMenu = require('../po/common/page/mainMenu.js');
 
 var mainMenu = new MainMenu(data);
 
-describe('lab 5 - seitenplanung page', function () {
+describe('lab 5', function () {
     var that = this;
         
     beforeAll(function () {
         browser.get(browser.params.baseUrl);
     });
 
-    it('lab 5, step 1 - should set title value by menu element', function () {
+    it('should set title value by menu element', function () {
         mainMenu.productionsMenuSubElement.click();
         expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
     });
 
-    it('lab 5, step 2 - 3 - should set title value like menus element', function () {
+    it('should set title value like menus element', function () {
         util.selectBranchInnerNode(data.nodes);
         mainMenu.menuElement.click();
         mainMenu.pageMenuSubElement.click();
         expect(pageTitle.title.getText()).toEqual(data.pageMenuSubElement);
     });
     
-    it('lab 5, step 4 - should save file', function () {
+    it('should save file', function () {
         expect(that.saveFile(editItems.saveFileButton)).toBe(true);
     });
 

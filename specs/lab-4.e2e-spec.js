@@ -12,19 +12,19 @@ var MainMenu = require('../po/common/page/mainMenu.js');
 
 var mainMenu = new MainMenu(data);
 
-describe('lab 4 - publications page', function () {
+describe('lab 4', function () {
     var that = this;
     
     beforeAll(function () {
         browser.get(browser.params.baseUrl);
     });
     
-    it('lab 4, step 1 - should set title value by menu element', function () {
+    it('should set title value by menu element', function () {
         mainMenu.productionsMenuSubElement.click();
         expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
     });
     
-    it('lab 4, step 2 - should add element', function () {
+    it('should add element', function () {
         editItems.plusButton.click();
         publicationAddingPopup.season.sendKeys(data.season);
         publicationAddingPopup.newNumber.sendKeys(that.getRandomValue());
@@ -37,7 +37,7 @@ describe('lab 4 - publications page', function () {
         expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(true);
     });
     
-    it('lab 4, step 3 - should remove element', function () {
+    it('should remove element', function () {
         editItems.trashButton.click();
         deletingPopup.yesButton.click();
         expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(false);
