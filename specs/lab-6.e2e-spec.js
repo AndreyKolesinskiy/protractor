@@ -1,17 +1,16 @@
 var data = require('../data/lab-6.e2e-data.json');
 
-var pageTitle = require('../po/common/page/pageTitle.js');
-var editItems = require('../po/common/table/editItems.js');
-var addingPopup = require('../po/common/popup/addingPopup.js');
+var pageTitle = require('../po/common/title.js');
+var popup = require('../po/common/popups.js');
 var assignmentData = require('../po/specific/assignment/assignmentData.js');
 var assignmentTable = require('../po/specific/assignment/assignmentTable.js');
-var mainMenu = require('../po/common/page/mainMenu.js');
+var mainMenu = require('../po/common/menu.js');
 var publicationTree = require('../po/specific/publication/publicationTree.js');
 
 var AssignmentAddingPopup = require('../po/specific/assignment/assignmentAddingPopup.js');
-var SaveData = require('../po/common/data/saveData.js');
+var ButtonPanels = require('../po/common/buttons.js');
 
-var saveData = new SaveData(data);
+var buttonPanels = new ButtonPanels(data);
 var assignmentAddingPopup = new AssignmentAddingPopup();
 
 describe('lab 6', function () {
@@ -34,16 +33,16 @@ describe('lab 6', function () {
     });
 
     it('should add, check and undo entered value', function () {
-        editItems.plusButton.click();
+        buttonPanels.plusButton.click();
         assignmentAddingPopup.setDropdownMenuValue(assignmentAddingPopup.publicationPart, 'DOWN');
         assignmentAddingPopup.setDropdownMenuValue(assignmentAddingPopup.page, 'DOWN');
-        addingPopup.okButton.click();
+        popup.okButton.click();
         expect(assignmentTable.addedElement.isPresent()).toBe(true);
 
         that.focusAndSetDropdownMenuValue();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual(data.eshopNumber);
 
-        saveData.cancelButton.click();
+        buttonPanels.cancelButton.click();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual('');
     });
 

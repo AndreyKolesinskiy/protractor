@@ -1,8 +1,8 @@
 var data = require('../data/lab-2.e2e-data.json');
 
-var pageTitle = require('../po/common/page/pageTitle.js');
+var pageTitle = require('../po/common/title.js');
 var seasonData = require('../po/specific/season/seasonData.js');
-var mainMenu = require('../po/common/page/mainMenu.js');
+var mainMenu = require('../po/common/menu.js');
 
 var SeasonTable = require('../po/specific/season/seasonTable.js');
 var seasonTable = new SeasonTable(data);

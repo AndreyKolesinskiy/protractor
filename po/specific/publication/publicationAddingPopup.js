@@ -1,7 +1,7 @@
 module.exports = PublicationAddingPopup;
 
-var ValueSetter = require('../../parent/valueSetter.js');
-var DropdownMenu = require('../../parent/dropdownMenu.js');
+var ValueSetter = require('../../parent/inputs.js');
+var DropdownMenu = require('../../parent/dropdown.js');
 
 function PublicationAddingPopup() {
     var that = this;

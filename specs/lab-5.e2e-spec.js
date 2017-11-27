@@ -1,10 +1,12 @@
 var util = require('../util/common.js');
 var data = require('../data/lab-5.e2e-data.json');
 
-var pageTitle = require('../po/common/page/pageTitle.js');
-var editItems = require('../po/common/table/editItems.js');
-var mainMenu = require('../po/common/page/mainMenu.js');
+var pageTitle = require('../po/common/title.js');
+var mainMenu = require('../po/common/menu.js');
 var publicationTree = require('../po/specific/publication/publicationTree.js');
+
+var ButtonPanels = require('../po/common/buttons.js');
+var buttonPanels = new ButtonPanels(data);
 
 describe('lab 5', function () {
     var that = this;
@@ -26,7 +28,7 @@ describe('lab 5', function () {
     });
     
     it('should save file', function () {
-        expect(that.saveFile(editItems.saveFileButton)).toBe(true);
+        expect(that.saveFile(buttonPanels.saveFileButton)).toBe(true);
     });
 
     /**

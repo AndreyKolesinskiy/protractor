@@ -1,13 +1,13 @@
 var data = require('../data/lab-1.e2e-data.json');
 
-var pageTitle = require('../po/common/page/pageTitle.js');
-var mainMenu = require('../po/common/page/mainMenu.js');
+var pageTitle = require('../po/common/title.js');
+var mainMenu = require('../po/common/menu.js');
 var publicationTree = require('../po/specific/publication/publicationTree.js');
 
-var SaveData = require('../po/common/data/saveData.js');
+var ButtonPanels = require('../po/common/buttons.js');
 var PublicationData = require('../po/specific/publication/publicationData.js');
 
-var saveData = new SaveData(data);
+var buttonPanels = new ButtonPanels(data);
 var publicationData = new PublicationData();
 
 describe('lab 1', function () {
@@ -39,8 +39,8 @@ describe('lab 1', function () {
         expect(publicationData.date.getAttribute('value')).toEqual(data.testDate);
         expect(publicationData.price.getAttribute('value')).toEqual(data.testPrice);
 
-        saveData.cancelButton.click();
-        expect(saveData.cancelMessage.isPresent()).toBe(true);
+        buttonPanels.cancelButton.click();
+        expect(buttonPanels.cancelMessage.isPresent()).toBe(true);
     });
 
     afterAll(function () {

@@ -1,6 +1,6 @@
 module.exports = new MainMenu();
 
-var util = require('../../../util/common.js');
+var util = require('../../util/common.js');
 
 function MainMenu() {
     var that = this;
