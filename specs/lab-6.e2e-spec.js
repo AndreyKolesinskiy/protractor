@@ -1,16 +1,18 @@
-var util = require('../util/common.js');
 var data = require('../data/lab-6.e2e-data.json');
 
 var pageTitle = require('../po/common/page/pageTitle.js');
 var editItems = require('../po/common/table/editItems.js');
 var addingPopup = require('../po/common/popup/addingPopup.js');
-var assignmentAddingPopup = require('../po/specific/assignment/assignmentAddingPopup.js');
 var assignmentData = require('../po/specific/assignment/assignmentData.js');
 var assignmentTable = require('../po/specific/assignment/assignmentTable.js');
 var mainMenu = require('../po/common/page/mainMenu.js');
+var publicationTree = require('../po/specific/publication/publicationTree.js');
 
+var AssignmentAddingPopup = require('../po/specific/assignment/assignmentAddingPopup.js');
 var SaveData = require('../po/common/data/saveData.js');
+
 var saveData = new SaveData(data);
+var assignmentAddingPopup = new AssignmentAddingPopup();
 
 describe('lab 6', function () {
     var that = this;
@@ -25,7 +27,7 @@ describe('lab 6', function () {
     });
 
     it('should set title value like menus element', function () {
-        util.selectBranchInnerNode(data.nodes);
+        publicationTree.selectBranchInnerNode(data.nodes);
         mainMenu.open(data.menuElement);
         mainMenu.open(data.articleMenuSubElement);
         expect(pageTitle.title.getText()).toEqual(data.title);
@@ -33,8 +35,8 @@ describe('lab 6', function () {
 
     it('should add, check and undo entered value', function () {
         editItems.plusButton.click();
-        util.setDropdownMenuValue(assignmentAddingPopup.publicationPart, 'DOWN');
-        util.setDropdownMenuValue(assignmentAddingPopup.page, 'DOWN');
+        assignmentAddingPopup.setDropdownMenuValue(assignmentAddingPopup.publicationPart, 'DOWN');
+        assignmentAddingPopup.setDropdownMenuValue(assignmentAddingPopup.page, 'DOWN');
         addingPopup.okButton.click();
         expect(assignmentTable.addedElement.isPresent()).toBe(true);
 
@@ -59,6 +61,6 @@ describe('lab 6', function () {
     };
 
     afterAll(function () {
-        util.closeBranch(data.nodes);
+        publicationTree.closeBranch(data.nodes);
     });
 });

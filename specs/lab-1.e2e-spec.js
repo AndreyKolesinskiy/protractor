@@ -1,12 +1,14 @@
-var util = require('../util/common.js');
 var data = require('../data/lab-1.e2e-data.json');
 
 var pageTitle = require('../po/common/page/pageTitle.js');
-var publicationData = require('../po/specific/publication/publicationData.js');
 var mainMenu = require('../po/common/page/mainMenu.js');
+var publicationTree = require('../po/specific/publication/publicationTree.js');
 
 var SaveData = require('../po/common/data/saveData.js');
+var PublicationData = require('../po/specific/publication/publicationData.js');
+
 var saveData = new SaveData(data);
+var publicationData = new PublicationData();
 
 describe('lab 1', function () {
 
@@ -20,7 +22,7 @@ describe('lab 1', function () {
     });
     
     it('should set fields values after click on branch element', function () {
-        util.selectBranchInnerNode(data.nodes);
+        publicationTree.selectBranchInnerNode(data.nodes);
         expect(publicationData.number.getAttribute('value')).toEqual(data.number);
         expect(publicationData.type.getAttribute('value')).toEqual(data.type);
         expect(publicationData.date.getAttribute('value')).toEqual(data.date);
@@ -28,10 +30,10 @@ describe('lab 1', function () {
     });
     
     it('should set fields new values after click on trees element, rollback', function () {
-        util.setValue(publicationData.number, data.testNumber);
-        util.setDropdownMenuValue(publicationData.type, 'UP');
-        util.setValue(publicationData.date, data.testDate);
-        util.setDropdownMenuValue(publicationData.price, 'DOWN');
+        publicationData.setValue(publicationData.number, data.testNumber);
+        publicationData.setDropdownMenuValue(publicationData.type, 'UP');
+        publicationData.setValue(publicationData.date, data.testDate);
+        publicationData.setDropdownMenuValue(publicationData.price, 'DOWN');
         expect(publicationData.number.getAttribute('value')).toEqual(data.testNumber);
         expect(publicationData.type.getAttribute('value')).toEqual(data.testType);
         expect(publicationData.date.getAttribute('value')).toEqual(data.testDate);
@@ -42,7 +44,7 @@ describe('lab 1', function () {
     });
 
     afterAll(function () {
-        util.closeBranch(data.nodes);
+        publicationTree.closeBranch(data.nodes);
     });
 });
 

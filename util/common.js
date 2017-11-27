@@ -1,7 +1,5 @@
 module.exports = new CommonUtil();
 
-var publicationTree = require('../po/specific/publication/publicationTree.js');
-
 function CommonUtil() {
     var that = this;
     var EC = protractor.ExpectedConditions;
@@ -73,42 +71,5 @@ function CommonUtil() {
                 browser.params.visibilityWaitingTime.elementDrawing,
                 'cant click, element is not visible.')
             .then(elem.click());
-    };
-
-    /**
-     * Выбирает значение для элемента в выпадающем списке, согласно направлению относительно текущего
-     * @param {element} elem - элемент, которому необходимо присвоить значение
-     * @param {string} value - направление, относительно текущего значения в списке
-     */
-    that.setDropdownMenuValue = function (elem, value) {
-        if (value === 'UP') {
-            elem.click()
-                .then(function () {
-                    return elem.sendKeys(protractor.Key.ARROW_UP);
-                })
-                .then(function () {
-                    return elem.sendKeys(protractor.Key.ENTER);
-                });
-        } else if (value === 'DOWN') {
-            elem.click()
-                .then(function () {
-                    return elem.sendKeys(protractor.Key.ARROW_DOWN);
-                })
-                .then(function () {
-                    return elem.sendKeys(protractor.Key.ENTER);
-                });
-        }
-    };
-
-    /**
-     * Устанавливает значение элементу
-     * @param {element} elem - элемент, которому необходимо присвоить значение
-     * @param {string} value - значение
-     */
-    that.setValue = function (elem, value) {
-        elem.clear()
-            .then(function () {
-                return elem.sendKeys(value);
-            });
     };
 }

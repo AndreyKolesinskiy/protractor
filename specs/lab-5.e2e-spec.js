@@ -4,6 +4,7 @@ var data = require('../data/lab-5.e2e-data.json');
 var pageTitle = require('../po/common/page/pageTitle.js');
 var editItems = require('../po/common/table/editItems.js');
 var mainMenu = require('../po/common/page/mainMenu.js');
+var publicationTree = require('../po/specific/publication/publicationTree.js');
 
 describe('lab 5', function () {
     var that = this;
@@ -18,7 +19,7 @@ describe('lab 5', function () {
     });
 
     it('should set title value like menus element', function () {
-        util.selectBranchInnerNode(data.nodes);
+        publicationTree.selectBranchInnerNode(data.nodes);
         mainMenu.open(data.menuElement);
         mainMenu.open(data.pageMenuSubElement);
         expect(pageTitle.title.getText()).toEqual(data.pageMenuSubElement);
@@ -53,6 +54,6 @@ describe('lab 5', function () {
     };
 
     afterAll(function () {
-        util.closeBranch(data.nodes);
+        publicationTree.closeBranch(data.nodes);
     });    
 });

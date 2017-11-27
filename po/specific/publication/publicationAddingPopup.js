@@ -1,7 +1,13 @@
-module.exports = new PublicationAddingPopup();
+module.exports = PublicationAddingPopup;
+
+var ValueSetter = require('../../parent/valueSetter.js');
+var DropdownMenu = require('../../parent/dropdownMenu.js');
 
 function PublicationAddingPopup() {
     var that = this;
+
+    ValueSetter.call(that);
+    DropdownMenu.call(that);
 
     that.season = element(by.model('newPublication.season'));
     that.newNumber = element(by.model('newPublication.name'));

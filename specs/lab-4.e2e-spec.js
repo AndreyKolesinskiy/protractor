@@ -1,4 +1,3 @@
-var util = require('../util/common.js');
 var _ = require('lodash');
 var data = require('../data/lab-4.e2e-data.json');
 
@@ -6,8 +5,13 @@ var pageTitle = require('../po/common/page/pageTitle.js');
 var editItems = require('../po/common/table/editItems.js');
 var addingPopup = require('../po/common/popup/addingPopup.js');
 var deletingPopup = require('../po/common/popup/deletingPopup.js');
-var publicationAddingPopup = require('../po/specific/publication/publicationAddingPopup.js');
 var mainMenu = require('../po/common/page/mainMenu.js');
+var publicationTree = require('../po/specific/publication/publicationTree.js');
+
+var PublicationAddingPopup = require('../po/specific/publication/publicationAddingPopup.js');
+
+var publicationAddingPopup = new PublicationAddingPopup();
+
 
 describe('lab 4', function () {
     var that = this;
@@ -25,10 +29,10 @@ describe('lab 4', function () {
         editItems.plusButton.click();
         publicationAddingPopup.season.sendKeys(data.season);
         publicationAddingPopup.newNumber.sendKeys(that.getRandomValue());
-        util.setDropdownMenuValue(publicationAddingPopup.type, 'DOWN');
-        util.setValue(publicationAddingPopup.mainDate, data.mainDate);
-        util.setValue(publicationAddingPopup.tradeDate, data.tradeDate);
-        util.setDropdownMenuValue(publicationAddingPopup.priceType, 'DOWN');
+        publicationAddingPopup.setDropdownMenuValue(publicationAddingPopup.type, 'DOWN');
+        publicationAddingPopup.setValue(publicationAddingPopup.mainDate, data.mainDate);
+        publicationAddingPopup.setValue(publicationAddingPopup.tradeDate, data.tradeDate);
+        publicationAddingPopup.setDropdownMenuValue(publicationAddingPopup.priceType, 'DOWN');
         publicationAddingPopup.description.sendKeys(data.description);
         addingPopup.okButton.click();
         expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(true);
@@ -59,6 +63,6 @@ describe('lab 4', function () {
     };
 
     afterAll(function () {
-        util.closeBranch(data.nodes);
+        publicationTree.closeBranch(data.nodes);
     });
 });
