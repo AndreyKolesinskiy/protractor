@@ -34,8 +34,8 @@ describe('lab 6', function () {
 
     it('should add, check and undo entered value', function () {
         button.plusButton.click();
-        assignmentPopup.setDropdownMenuValue(assignmentPopup.publicationPart, 'DOWN');
-        assignmentPopup.setDropdownMenuValue(assignmentPopup.page, 'DOWN');
+        assignmentPopup.setDropdownValueToUpper(assignmentPopup.publicationPart, false);
+        assignmentPopup.setDropdownValueToUpper(assignmentPopup.page, false);
         popup.okButton.click();
         expect(assignmentTable.addedElement.isPresent()).toBe(true);
 

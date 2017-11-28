@@ -6,25 +6,19 @@ function Dropdown() {
     /**
      * Выбирает значение для элемента в выпадающем списке, согласно направлению относительно текущего
      * @param {element} elem - элемент, которому необходимо присвоить значение
-     * @param {string} value - направление, относительно текущего значения в списке
+     * @param {boolean} upFlag - направление, относительно текущего значения в списке
      */
-    that.setDropdownMenuValue = function (elem, value) {
-        if (value === 'UP') {
-            elem.click()
-                .then(function () {
+    that.setDropdownValueToUpper = function (elem, upFlag) {
+        return elem.click()
+            .then(function () {
+                if (upFlag) {
                     return elem.sendKeys(protractor.Key.ARROW_UP);
-                })
-                .then(function () {
-                    return elem.sendKeys(protractor.Key.ENTER);
-                });
-        } else if (value === 'DOWN') {
-            elem.click()
-                .then(function () {
+                } else {
                     return elem.sendKeys(protractor.Key.ARROW_DOWN);
-                })
-                .then(function () {
-                    return elem.sendKeys(protractor.Key.ENTER);
-                });
-        }
+                }
+            })
+            .then(function () {
+                return elem.sendKeys(protractor.Key.ENTER);
+            });
     };
 }

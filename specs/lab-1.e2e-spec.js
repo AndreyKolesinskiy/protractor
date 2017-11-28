@@ -31,9 +31,9 @@ describe('lab 1', function () {
     
     it('should set fields new values after click on trees element, rollback', function () {
         publicationData.setValue(publicationData.number, data.testNumber);
-        publicationData.setDropdownMenuValue(publicationData.type, 'UP');
+        publicationData.setDropdownValueToUpper(publicationData.type, true);
         publicationData.setValue(publicationData.date, data.testDate);
-        publicationData.setDropdownMenuValue(publicationData.price, 'DOWN');
+        publicationData.setDropdownValueToUpper(publicationData.price, false);
         expect(publicationData.number.getAttribute('value')).toEqual(data.testNumber);
         expect(publicationData.type.getAttribute('value')).toEqual(data.testType);
         expect(publicationData.date.getAttribute('value')).toEqual(data.testDate);

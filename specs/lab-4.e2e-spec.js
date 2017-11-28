@@ -29,10 +29,10 @@ describe('lab 4', function () {
         button.plusButton.click();
         publicationPopup.season.sendKeys(data.season);
         publicationPopup.newNumber.sendKeys(that.getRandomValue());
-        publicationPopup.setDropdownMenuValue(publicationPopup.type, 'DOWN');
+        publicationPopup.setDropdownValueToUpper(publicationPopup.type, false);
         publicationPopup.setValue(publicationPopup.mainDate, data.mainDate);
         publicationPopup.setValue(publicationPopup.tradeDate, data.tradeDate);
-        publicationPopup.setDropdownMenuValue(publicationPopup.priceType, 'DOWN');
+        publicationPopup.setDropdownValueToUpper(publicationPopup.priceType, false);
         publicationPopup.description.sendKeys(data.description);
         popup.okButton.click();
         expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(true);
