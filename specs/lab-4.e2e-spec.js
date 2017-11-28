@@ -50,8 +50,8 @@ describe('lab 4', function () {
      * @returns {element} - элемент узла дерева
      */
     this.getNodeByValue = function (elementValue) {
-        return element(by.tagName('body')).
-        element(by.cssContainingText('.aciTreeText', elementValue));
+        return element(by.tagName('body'))
+            .element(by.cssContainingText('.aciTreeText', elementValue));
     };
 
     /**

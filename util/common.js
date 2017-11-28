@@ -14,6 +14,8 @@ function CommonUtil() {
                 EC.visibilityOf(elem),
                 browser.params.visibilityWaitingTime.elementDrawing,
                 'cant click, element is not visible.')
-            .then(elem.click());
+            .then(function () {
+                return elem.click();
+            });
     };
 }
