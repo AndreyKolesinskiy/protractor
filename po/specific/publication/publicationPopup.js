@@ -1,13 +1,13 @@
-module.exports = PublicationAddingPopup;
+module.exports = PublicationPopup;
 
-var ValueSetter = require('../../common/inputs.js');
-var DropdownMenu = require('../../common/dropdown.js');
+var Input = require('../../common/input.js');
+var Dropdown = require('../../common/dropdown.js');
 
-function PublicationAddingPopup() {
+function PublicationPopup() {
     var that = this;
 
-    ValueSetter.call(that);
-    DropdownMenu.call(that);
+    Input.call(that);
+    Dropdown.call(that);
 
     that.season = element(by.model('newPublication.season'));
     that.newNumber = element(by.model('newPublication.name'));

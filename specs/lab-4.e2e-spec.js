@@ -1,16 +1,16 @@
 var _ = require('lodash');
 var data = require('../data/lab-4.e2e-data.json');
 
-var pageTitle = require('../po/common/title.js');
-var popup = require('../po/common/popups.js');
-var mainMenu = require('../po/common/menu.js');
+var title = require('../po/common/title.js');
+var popup = require('../po/common/popup.js');
+var menu = require('../po/common/menu.js');
 var publicationTree = require('../po/specific/publication/publicationTree.js');
 
-var ButtonPanels = require('../po/common/buttons.js');
-var PublicationAddingPopup = require('../po/specific/publication/publicationAddingPopup.js');
+var Button = require('../po/common/button.js');
+var PublicationPopup = require('../po/specific/publication/publicationPopup.js');
 
-var buttonPanels = new ButtonPanels(data);
-var publicationAddingPopup = new PublicationAddingPopup();
+var button = new Button(data);
+var publicationPopup = new PublicationPopup();
 
 
 describe('lab 4', function () {
@@ -21,25 +21,25 @@ describe('lab 4', function () {
     });
     
     it('should set title value by menu element', function () {
-        mainMenu.open(data.productionsMenuSubElement);
-        expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
+        menu.open(data.productionsMenuSubElement);
+        expect(title.title.getText()).toEqual(data.productionsMenuSubElement);
     });
     
     it('should add element', function () {
-        buttonPanels.plusButton.click();
-        publicationAddingPopup.season.sendKeys(data.season);
-        publicationAddingPopup.newNumber.sendKeys(that.getRandomValue());
-        publicationAddingPopup.setDropdownMenuValue(publicationAddingPopup.type, 'DOWN');
-        publicationAddingPopup.setValue(publicationAddingPopup.mainDate, data.mainDate);
-        publicationAddingPopup.setValue(publicationAddingPopup.tradeDate, data.tradeDate);
-        publicationAddingPopup.setDropdownMenuValue(publicationAddingPopup.priceType, 'DOWN');
-        publicationAddingPopup.description.sendKeys(data.description);
+        button.plusButton.click();
+        publicationPopup.season.sendKeys(data.season);
+        publicationPopup.newNumber.sendKeys(that.getRandomValue());
+        publicationPopup.setDropdownMenuValue(publicationPopup.type, 'DOWN');
+        publicationPopup.setValue(publicationPopup.mainDate, data.mainDate);
+        publicationPopup.setValue(publicationPopup.tradeDate, data.tradeDate);
+        publicationPopup.setDropdownMenuValue(publicationPopup.priceType, 'DOWN');
+        publicationPopup.description.sendKeys(data.description);
         popup.okButton.click();
         expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(true);
     });
     
     it('should remove element', function () {
-        buttonPanels.trashButton.click();
+        button.trashButton.click();
         popup.yesButton.click();
         expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(false);
     });

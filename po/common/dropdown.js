@@ -1,6 +1,6 @@
-module.exports = DropdownMenu;
+module.exports = Dropdown;
 
-function DropdownMenu() {
+function Dropdown() {
     var that = this;
 
     /**

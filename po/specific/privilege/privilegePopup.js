@@ -1,6 +1,6 @@
-module.exports = new PrivilegeAddingPopup();
+module.exports = new PrivilegePopup();
 
-function PrivilegeAddingPopup() {
+function PrivilegePopup() {
     var that = this;
 
     that.popupNameField = element.all(by.model('item.name')).last();

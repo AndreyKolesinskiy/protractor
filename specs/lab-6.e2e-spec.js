@@ -1,17 +1,17 @@
 var data = require('../data/lab-6.e2e-data.json');
 
-var pageTitle = require('../po/common/title.js');
-var popup = require('../po/common/popups.js');
+var title = require('../po/common/title.js');
+var popup = require('../po/common/popup.js');
 var assignmentData = require('../po/specific/assignment/assignmentData.js');
 var assignmentTable = require('../po/specific/assignment/assignmentTable.js');
-var mainMenu = require('../po/common/menu.js');
+var menu = require('../po/common/menu.js');
 var publicationTree = require('../po/specific/publication/publicationTree.js');
 
-var AssignmentAddingPopup = require('../po/specific/assignment/assignmentAddingPopup.js');
-var ButtonPanels = require('../po/common/buttons.js');
+var AssignmentPopup = require('../po/specific/assignment/assignmentPopup.js');
+var Button = require('../po/common/button.js');
 
-var buttonPanels = new ButtonPanels(data);
-var assignmentAddingPopup = new AssignmentAddingPopup();
+var button = new Button(data);
+var assignmentPopup = new AssignmentPopup();
 
 describe('lab 6', function () {
     var that = this;
@@ -21,28 +21,28 @@ describe('lab 6', function () {
     });
 
     it('should set title value by menu element', function () {
-        mainMenu.open(data.productionsMenuSubElement);
-        expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
+        menu.open(data.productionsMenuSubElement);
+        expect(title.title.getText()).toEqual(data.productionsMenuSubElement);
     });
 
     it('should set title value like menus element', function () {
         publicationTree.selectBranchInnerNode(data.nodes);
-        mainMenu.open(data.menuElement);
-        mainMenu.open(data.articleMenuSubElement);
-        expect(pageTitle.title.getText()).toEqual(data.title);
+        menu.open(data.menuElement);
+        menu.open(data.articleMenuSubElement);
+        expect(title.title.getText()).toEqual(data.title);
     });
 
     it('should add, check and undo entered value', function () {
-        buttonPanels.plusButton.click();
-        assignmentAddingPopup.setDropdownMenuValue(assignmentAddingPopup.publicationPart, 'DOWN');
-        assignmentAddingPopup.setDropdownMenuValue(assignmentAddingPopup.page, 'DOWN');
+        button.plusButton.click();
+        assignmentPopup.setDropdownMenuValue(assignmentPopup.publicationPart, 'DOWN');
+        assignmentPopup.setDropdownMenuValue(assignmentPopup.page, 'DOWN');
         popup.okButton.click();
         expect(assignmentTable.addedElement.isPresent()).toBe(true);
 
         that.focusAndSetDropdownMenuValue();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual(data.eshopNumber);
 
-        buttonPanels.cancelButton.click();
+        button.cancelButton.click();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual('');
     });
 

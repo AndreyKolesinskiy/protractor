@@ -1,6 +1,6 @@
-module.exports = new PageTitle();
+module.exports = new Title();
 
-function PageTitle() {
+function Title() {
     var that = this;
 
     that.title = element(by.binding('applicationTitle'));

@@ -1,6 +1,6 @@
-module.exports = ValueSetter;
+module.exports = Input;
 
-function ValueSetter() {
+function Input() {
     var that = this;
 
     /**

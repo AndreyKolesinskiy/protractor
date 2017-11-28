@@ -1,13 +1,13 @@
 var data = require('../data/lab-1.e2e-data.json');
 
-var pageTitle = require('../po/common/title.js');
-var mainMenu = require('../po/common/menu.js');
+var title = require('../po/common/title.js');
+var menu = require('../po/common/menu.js');
 var publicationTree = require('../po/specific/publication/publicationTree.js');
 
-var ButtonPanels = require('../po/common/buttons.js');
+var Button = require('../po/common/button.js');
 var PublicationData = require('../po/specific/publication/publicationData.js');
 
-var buttonPanels = new ButtonPanels(data);
+var button = new Button(data);
 var publicationData = new PublicationData();
 
 describe('lab 1', function () {
@@ -17,8 +17,8 @@ describe('lab 1', function () {
     });
     
     it('should set title value by menu element', function () {
-        mainMenu.open(data.productionsMenuSubElement);
-        expect(pageTitle.title.getText()).toEqual(data.productionsMenuSubElement);
+        menu.open(data.productionsMenuSubElement);
+        expect(title.title.getText()).toEqual(data.productionsMenuSubElement);
     });
     
     it('should set fields values after click on branch element', function () {
@@ -39,8 +39,8 @@ describe('lab 1', function () {
         expect(publicationData.date.getAttribute('value')).toEqual(data.testDate);
         expect(publicationData.price.getAttribute('value')).toEqual(data.testPrice);
 
-        buttonPanels.cancelButton.click();
-        expect(buttonPanels.cancelMessage.isPresent()).toBe(true);
+        button.cancelButton.click();
+        expect(button.cancelMessage.isPresent()).toBe(true);
     });
 
     afterAll(function () {

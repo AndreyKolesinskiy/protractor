@@ -1,13 +1,13 @@
 module.exports = PublicationData;
 
-var ValueSetter = require('../../common/inputs.js');
-var DropdownMenu = require('../../common/dropdown.js');
+var Input = require('../../common/input.js');
+var Dropdown = require('../../common/dropdown.js');
 
 function PublicationData() {
     var that = this;
 
-    ValueSetter.call(that);
-    DropdownMenu.call(that);
+    Input.call(that);
+    Dropdown.call(that);
 
     that.number = element(by.model('publication.name'));
     that.type = element(by.model('publication.type'));

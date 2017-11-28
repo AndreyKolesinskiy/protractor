@@ -1,6 +1,6 @@
-module.exports = ButtonPanels;
+module.exports = Button;
 
-function ButtonPanels(data) {
+function Button(data) {
     var that = this;
     that.data = data;
 
