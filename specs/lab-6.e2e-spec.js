@@ -51,7 +51,7 @@ describe('lab 6', function () {
      */
     /* TODO: focusAndSetDropdownMenuValue - WAITING OF NEW MONITOR */
     that.focusAndSetDropdownMenuValue = function () {
-        browser
+        return browser
             .actions()
             .sendKeys(protractor.Key.ENTER)
             .sendKeys(protractor.Key.ARROW_DOWN)

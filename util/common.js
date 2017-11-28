@@ -9,7 +9,7 @@ function CommonUtil() {
      * @param {element} elem - элемент, на который необходимо нажать
      */
     that.waitVisibilityAndClick = function (elem) {
-        browser
+        return browser
             .wait(
                 EC.visibilityOf(elem),
                 browser.params.visibilityWaitingTime.elementDrawing,

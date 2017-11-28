@@ -7,6 +7,6 @@ function Menu() {
 
     that.open = function (menuText) {
         var menuElement = element(by.partialLinkText(menuText));
-        util.waitVisibilityAndClick(menuElement);
+        return util.waitVisibilityAndClick(menuElement);
     }
 }

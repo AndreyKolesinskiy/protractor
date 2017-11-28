@@ -9,7 +9,7 @@ function Input() {
      * @param {string} value - значение
      */
     that.setValue = function (elem, value) {
-        elem.clear()
+        return elem.clear()
             .then(function () {
                 return elem.sendKeys(value);
             });
