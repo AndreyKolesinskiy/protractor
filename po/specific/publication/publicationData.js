@@ -11,6 +11,6 @@ function PublicationData() {
 
     that.number = element(by.model('publication.name'));
     that.type = element(by.model('publication.type'));
-    that.date = element(by.model('dateItem'));
+    that.date = element.all(by.model('dateItem')).first();
     that.price = element(by.model('publication.priceType'));
 }
