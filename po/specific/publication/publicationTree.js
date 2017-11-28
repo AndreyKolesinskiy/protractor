@@ -6,7 +6,7 @@ function PublicationTree() {
 
     /**
      * Раскрывает ветку элементов и выделяет внутренний элемент
-     * @param {Object} nodeMap - массив из названий узлов, начиная с внешнего
+     * @param {Object} nodeMap - объект с заполненными полями (уровень вложенности = текст узла)
      */
     that.selectBranchInnerNode = function (nodeMap) {
         var node;
@@ -31,7 +31,7 @@ function PublicationTree() {
 
     /**
      * Сворачивает ветку элементов
-     * @param {Object} nodeMap - массив из названий узлов, начиная с внешнего, без внутреннего
+     * @param {Object} nodeMap - объект с заполненными полями (уровень вложенности = текст узла), без внутреннего
      */
     /* TODO: closeBranch - WILL BE DELETED */
     that.closeBranch = function (nodeMap) {
@@ -60,6 +60,12 @@ function PublicationTree() {
         });
     };
 
+    /**
+     * Возвращает элемент согласно уровню вложенности и тексту
+     * @param {string} levelNumber - уровень вложенности
+     * @param {string} value - текстовое значение элемента
+     * @returns {ElementFinder} - элемент узла дерева
+     */
     that.getNodeElementByLevelNumberAndValue = function (levelNumber, value)  {
         switch (levelNumber) {
             case('level0') :

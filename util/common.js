@@ -6,7 +6,8 @@ function CommonUtil() {
 
     /**
      * Ожидает прорисовку элемента и кликает на него
-     * @param {element} elem - элемент, на который необходимо нажать
+     * @param {ElementFinder} elem - элемент, на который необходимо нажать
+     * @returns {Promise.<void>}
      */
     that.waitVisibilityAndClick = function (elem) {
         return browser

@@ -48,6 +48,7 @@ describe('lab 6', function () {
 
     /**
      * Фокусировка на текущем элементе и присвоение ему значения из выпадающего списка
+     * @returns {Promise.<void>}
      */
     /* TODO: focusAndSetDropdownMenuValue - WAITING OF NEW MONITOR */
     that.focusAndSetDropdownMenuValue = function () {

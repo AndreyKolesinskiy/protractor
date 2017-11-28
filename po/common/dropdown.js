@@ -5,8 +5,9 @@ function Dropdown() {
 
     /**
      * Выбирает значение для элемента в выпадающем списке, согласно направлению относительно текущего
-     * @param {element} elem - элемент, которому необходимо присвоить значение
+     * @param {ElementFinder} elem - элемент, которому необходимо присвоить значение
      * @param {boolean} upFlag - направление, относительно текущего значения в списке
+     * @returns {Promise.<void>}
      */
     that.setDropdownValueToUpper = function (elem, upFlag) {
         return elem.click()

@@ -47,7 +47,7 @@ describe('lab 4', function () {
     /**
      * Получить элемент узла дерева по текстовому значение
      * @param {string} elementValue - текстовое значение
-     * @returns {element} - элемент узла дерева
+     * @returns {ElementFinder} - элемент узла дерева
      */
     this.getNodeByValue = function (elementValue) {
         return element(by.tagName('body'))
@@ -55,7 +55,7 @@ describe('lab 4', function () {
     };
 
     /**
-     * Генерирует случайное четырёхзначное число
+     * Генерирует случайное четырёхзначное число в заданном диапазоне
      * @returns {number} - число
      */
     that.getRandomValue = function () {

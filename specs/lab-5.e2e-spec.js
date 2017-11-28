@@ -33,8 +33,8 @@ describe('lab 5', function () {
 
     /**
      * Скачивает файл
-     * @param {element} saveButton - кнопка, после нажатия которой начинается скачивание
-     * @returns {boolean} - статус загрузки
+     * @param {ElementFinder} saveButton - кнопка, после нажатия которой начинается скачивание
+     * @returns {Promise.<boolean>} - статус загрузки
      */
     that.saveFile = function (saveButton) {
         var path = browser.params.downloading.path + browser.params.downloading.fileName;

@@ -5,8 +5,9 @@ function Input() {
 
     /**
      * Устанавливает значение элементу
-     * @param {element} elem - элемент, которому необходимо присвоить значение
+     * @param {ElementFinder} elem - элемент, которому необходимо присвоить значение
      * @param {string} value - значение
+     * @returns {Promise.<void>}
      */
     that.setValue = function (elem, value) {
         return elem.clear()
