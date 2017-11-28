@@ -15,7 +15,7 @@ var button = new Button(data);
 describe('lab 3', function () {
 
     beforeAll(function () {
-        browser.get(browser.params.baseUrl);
+        util.loadPage();
     });
 
     it('should set title value like menus element', function () {

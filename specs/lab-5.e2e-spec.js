@@ -12,7 +12,7 @@ describe('lab 5', function () {
     var that = this;
         
     beforeAll(function () {
-        browser.get(browser.params.baseUrl);
+        util.loadPage();
     });
 
     it('should set title value by menu element', function () {

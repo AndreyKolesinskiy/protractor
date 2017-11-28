@@ -19,4 +19,12 @@ function CommonUtil() {
                 return elem.click();
             });
     };
+
+    /*
+    * Загружает страницу по указанному url
+    * */
+    that.loadPage = function () {
+        browser.get(browser.params.baseUrl);
+    };
+
 }

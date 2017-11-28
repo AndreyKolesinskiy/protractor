@@ -1,3 +1,4 @@
+var util = require('../util/common.js');
 var data = require('../data/lab-1.e2e-data.json');
 
 var title = require('../po/common/title.js');
@@ -13,7 +14,7 @@ var publicationData = new PublicationData();
 describe('lab 1', function () {
 
     beforeAll(function () {
-        browser.get(browser.params.baseUrl);
+        util.loadPage();
     });
     
     it('should set title value by menu element', function () {

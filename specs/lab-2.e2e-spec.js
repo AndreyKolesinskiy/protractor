@@ -1,3 +1,4 @@
+var util = require('../util/common.js');
 var data = require('../data/lab-2.e2e-data.json');
 
 var title = require('../po/common/title.js');
@@ -10,7 +11,7 @@ var seasonTable = new SeasonTable(data);
 describe('lab 2', function () {
 
     beforeAll(function () {
-        browser.get(browser.params.baseUrl);
+        util.loadPage();
     });
     
     it('should set title value like menus element', function () {

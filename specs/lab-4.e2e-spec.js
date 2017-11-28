@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var util = require('../util/common.js');
 var data = require('../data/lab-4.e2e-data.json');
 
 var title = require('../po/common/title.js');
@@ -17,7 +18,7 @@ describe('lab 4', function () {
     var that = this;
     
     beforeAll(function () {
-        browser.get(browser.params.baseUrl);
+        util.loadPage();
     });
     
     it('should set title value by menu element', function () {
