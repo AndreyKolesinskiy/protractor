@@ -9,7 +9,7 @@ function Button(data) {
     that.cancelButton = element(by.css('.fa-undo'));
 
     /* edit items panel */
-    that.plusButton = element.all(by.css('.glyphicon-plus')).first();
+    that.plusButton = element(by.css('.btn-toolbar')).$('.glyphicon-plus');
     that.minusButton = element(by.css('.glyphicon-minus'));
     that.saveButton = element(by.css('.fa-floppy-o'));
     that.saveFileButton = element(by.css('.glyphicon-file'));
