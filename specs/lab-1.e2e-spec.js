@@ -7,7 +7,6 @@ var publicationTree = require('../po/specific/publication/publicationTree.js');
 var button = require('../po/common/button.js');
 
 var PublicationData = require('../po/specific/publication/publicationData.js');
-
 var publicationData = new PublicationData();
 
 describe('lab 1', function () {
@@ -47,19 +46,3 @@ describe('lab 1', function () {
         publicationTree.closeBranch(data.nodes);
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

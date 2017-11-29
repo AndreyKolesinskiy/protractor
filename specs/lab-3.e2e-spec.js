@@ -10,7 +10,6 @@ var privilegeData = require('../po/specific/privilege/privilegeData.js');
 var menu = require('../po/common/menu.js');
 var button = require('../po/common/button.js');
 
-
 describe('lab 3', function () {
 
     beforeAll(function () {
@@ -53,19 +52,3 @@ describe('lab 3', function () {
         expect(privilegeData.name.getAttribute('value')).toEqual(data.itemNameFirst);
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
