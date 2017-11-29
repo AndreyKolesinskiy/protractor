@@ -14,6 +14,6 @@ function PublicationPopup() {
     that.type = element(by.model('newPublication.type'));
     that.priceType = element(by.model('newPublication.priceType'));
     that.description = element(by.model('newPublication.description'));
-    that.mainDate = element(by.cssContainingText('.row.smallspacer', 'Haupt-ET')).$('.form-control');
-    that.tradeDate = element(by.css('.modal-content')).all(by.model('dateItem')).last();
+    that.mainDate = element(by.cssContainingText('.modal-content .row.smallspacer', 'Haupt-ET')).$('.form-control');
+    that.tradeDate = element(by.cssContainingText('.modal-content .row.smallspacer', 'Warenabgabe')).$('.form-control');
 }
