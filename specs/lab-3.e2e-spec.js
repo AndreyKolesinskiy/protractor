@@ -8,9 +8,8 @@ var privilegeTable = require('../po/specific/privilege/privilegeTable.js');
 var privilegePopup = require('../po/specific/privilege/privilegePopup.js');
 var privilegeData = require('../po/specific/privilege/privilegeData.js');
 var menu = require('../po/common/menu.js');
+var button = require('../po/common/button.js');
 
-var Button = require('../po/common/button.js');
-var button = new Button(data);
 
 describe('lab 3', function () {
 

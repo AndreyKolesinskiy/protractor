@@ -1,11 +1,10 @@
-module.exports = Button;
+module.exports = new Button();
 
-function Button(data) {
+function Button() {
     var that = this;
-    that.data = data;
 
     /* save data panel */
-    that.cancelMessage = element(by.cssContainingText('.cp-text-color', data.cancelMessage));
+    that.cancelMessage = element(by.cssContainingText('.cp-text-color', 'Noch nichts geändert'));
     that.cancelButton = element(by.css('.fa-undo'));
 
     /* edit items panel */

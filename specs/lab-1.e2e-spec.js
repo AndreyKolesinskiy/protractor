@@ -4,11 +4,10 @@ var data = require('../data/lab-1.e2e-data.json');
 var title = require('../po/common/title.js');
 var menu = require('../po/common/menu.js');
 var publicationTree = require('../po/specific/publication/publicationTree.js');
+var button = require('../po/common/button.js');
 
-var Button = require('../po/common/button.js');
 var PublicationData = require('../po/specific/publication/publicationData.js');
 
-var button = new Button(data);
 var publicationData = new PublicationData();
 
 describe('lab 1', function () {

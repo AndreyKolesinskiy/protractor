@@ -7,11 +7,9 @@ var assignmentData = require('../po/specific/assignment/assignmentData.js');
 var assignmentTable = require('../po/specific/assignment/assignmentTable.js');
 var menu = require('../po/common/menu.js');
 var publicationTree = require('../po/specific/publication/publicationTree.js');
+var button = require('../po/common/button.js');
 
 var AssignmentPopup = require('../po/specific/assignment/assignmentPopup.js');
-var Button = require('../po/common/button.js');
-
-var button = new Button(data);
 var assignmentPopup = new AssignmentPopup();
 
 describe('lab 6', function () {
