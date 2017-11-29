@@ -11,7 +11,6 @@ function PublicationData() {
 
     that.number = element(by.model('publication.name'));
     that.type = element(by.model('publication.type'));
-
     that.date = element(by.xpath("//input[@placeholder='ET']"));
     that.price = element(by.model('publication.priceType'));
 }
