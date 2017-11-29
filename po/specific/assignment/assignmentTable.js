@@ -3,5 +3,5 @@ module.exports = new AssignmentsTable();
 function AssignmentsTable() {
     var that = this;
 
-    that.addedElement = element(by.tagName('body')).all(by.css('.htAutocomplete.current')).last();
+    that.addedElement = element(by.css('.ht_clone_left.handsontable .htAutocomplete.current'));
 }
