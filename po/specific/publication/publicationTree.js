@@ -13,10 +13,12 @@ function PublicationTree() {
         var nodeKeys = Object.keys(nodeMap);
         nodeKeys.sort();
 
+        var branchPromise = Promise.resolve();
+
         nodeKeys.forEach(function (key) {
             node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
-            browser
-                .wait(
+            branchPromise = branchPromise
+                .then(
                     EC.visibilityOf(node),
                     browser.params.visibilityWaitingTime.elementDrawing,
                     nodeMap[key] + ' is not visible.')
@@ -27,6 +29,7 @@ function PublicationTree() {
                         .perform()
                 );
         });
+        return branchPromise;
     };
 
     /**
@@ -43,10 +46,12 @@ function PublicationTree() {
             delete nodeKeys[nodeKeys[0]];
         }
 
+        var branchPromise = Promise.resolve();
+
         nodeKeys.forEach(function (key) {
             node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
-            browser
-                .wait(
+            branchPromise = branchPromise
+                .then(
                     EC.visibilityOf(node),
                     browser.params.visibilityWaitingTime.elementDrawing,
                     nodeMap[key] + ' is not visible.')
@@ -58,6 +63,7 @@ function PublicationTree() {
                         .perform()
                 );
         });
+        return branchPromise;
     };
 
     /**
