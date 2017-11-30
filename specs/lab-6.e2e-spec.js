@@ -9,7 +9,7 @@ mainMenu = require('../po/common/mainMenu.js'),
 publicationTree = require('../po/specific/publication/publicationTree.js'),
 
 AssignmentPopup = require('../po/specific/assignment/assignmentPopup.js'),
-assignmentPopup = new AssignmentPopup();
+assignmentPopup = new AssignmentPopup(data);
 
 describe('lab 6', function () {
     var that = this;
@@ -32,8 +32,8 @@ describe('lab 6', function () {
 
     it('should add, check and undo entered value', function () {
         assignmentData.plusButton.click();
-        assignmentPopup.setDropdownValueToUpper(assignmentPopup.publicationPart, false);
-        assignmentPopup.setDropdownValueToUpper(assignmentPopup.page, false);
+        assignmentPopup.setPublicationPart(data);
+        assignmentPopup.setPage(data);
         popup.okButton.click();
         expect(assignmentTable.addedElement.isPresent()).toBe(true);
 
