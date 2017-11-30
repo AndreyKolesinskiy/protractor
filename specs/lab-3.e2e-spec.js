@@ -7,8 +7,7 @@ seasonData = require('../po/specific/season/seasonData.js'),
 privilegeTable = require('../po/specific/privilege/privilegeTable.js'),
 privilegePopup = require('../po/specific/privilege/privilegePopup.js'),
 privilegeData = require('../po/specific/privilege/privilegeData.js'),
-mainMenu = require('../po/common/mainMenu.js'),
-button = require('../po/common/button.js');
+mainMenu = require('../po/common/mainMenu.js');
 
 describe('lab 3', function () {
 
@@ -28,7 +27,7 @@ describe('lab 3', function () {
     });
 
     it('should add new element', function () {
-        button.plusButton.click();
+        seasonData.plusButton.click();
         privilegePopup.popupNameField.sendKeys('Test_create');
         popup.okButton.click();
         util.waitVisibilityAndClick(privilegeTable.firstListItem);
@@ -39,14 +38,14 @@ describe('lab 3', function () {
         privilegeTable.firstListItem.click();
         privilegeData.name.clear();
         privilegeData.name.sendKeys('Test_edit');
-        button.saveButton.click();
+        seasonData.saveButton.click();
         privilegeTable.firstListItem.click();
         expect(privilegeData.name.getAttribute('value')).toEqual(data.testEditItemName);
     });
 
     it('should remove element', function () {
         privilegeTable.firstListItem.click();
-        button.minusButton.click();
+        seasonData.minusButton.click();
         popup.yesButton.click();
         util.waitVisibilityAndClick(privilegeTable.firstListItem);
         expect(privilegeData.name.getAttribute('value')).toEqual(data.itemNameFirst);

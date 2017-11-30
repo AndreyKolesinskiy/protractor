@@ -16,4 +16,6 @@ function PublicationPopup() {
     that.description = element(by.model('newPublication.description'));
     that.mainDate = element(by.cssContainingText('.modal-content .row.smallspacer', 'Haupt-ET')).$('.form-control');
     that.tradeDate = element(by.cssContainingText('.modal-content .row.smallspacer', 'Warenabgabe')).$('.form-control');
+    that.plusButton = element(by.css('.btn-toolbar')).$('.glyphicon-plus');
+    that.trashButton = element(by.css('.glyphicon-trash'));
 }

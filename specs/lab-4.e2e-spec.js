@@ -6,7 +6,6 @@ title = require('../po/common/title.js'),
 popup = require('../po/common/popup.js'),
 mainMenu = require('../po/common/mainMenu.js'),
 publicationTree = require('../po/specific/publication/publicationTree.js'),
-button = require('../po/common/button.js'),
 
 PublicationPopup = require('../po/specific/publication/publicationPopup.js'),
 publicationPopup = new PublicationPopup();
@@ -24,7 +23,7 @@ describe('lab 4', function () {
     });
     
     it('should add element', function () {
-        button.plusButton.click();
+        publicationPopup.plusButton.click();
         publicationPopup.season.sendKeys(data.season);
         publicationPopup.newNumber.sendKeys(that.getRandomValue());
         publicationPopup.setDropdownValueToUpper(publicationPopup.type, false);
@@ -37,7 +36,7 @@ describe('lab 4', function () {
     });
     
     it('should remove element', function () {
-        button.trashButton.click();
+        publicationPopup.trashButton.click();
         popup.yesButton.click();
         expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(false);
     });

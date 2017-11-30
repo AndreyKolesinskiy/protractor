@@ -7,7 +7,6 @@ assignmentData = require('../po/specific/assignment/assignmentData.js'),
 assignmentTable = require('../po/specific/assignment/assignmentTable.js'),
 mainMenu = require('../po/common/mainMenu.js'),
 publicationTree = require('../po/specific/publication/publicationTree.js'),
-button = require('../po/common/button.js'),
 
 AssignmentPopup = require('../po/specific/assignment/assignmentPopup.js'),
 assignmentPopup = new AssignmentPopup();
@@ -32,7 +31,7 @@ describe('lab 6', function () {
     });
 
     it('should add, check and undo entered value', function () {
-        button.plusButton.click();
+        assignmentData.plusButton.click();
         assignmentPopup.setDropdownValueToUpper(assignmentPopup.publicationPart, false);
         assignmentPopup.setDropdownValueToUpper(assignmentPopup.page, false);
         popup.okButton.click();
@@ -41,7 +40,7 @@ describe('lab 6', function () {
         that.focusAndSetDropdownMenuValue();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual(data.eshopNumber);
 
-        button.cancelButton.click();
+        assignmentData.cancelButton.click();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual('');
     });
 

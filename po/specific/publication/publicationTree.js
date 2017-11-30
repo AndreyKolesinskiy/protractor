@@ -4,6 +4,8 @@ function PublicationTree() {
     var that = this,
     EC = protractor.ExpectedConditions;
 
+    that.saveFileButton = element(by.css('.glyphicon-file'));
+
     /**
      * Раскрывает ветку элементов и выделяет внутренний элемент
      * @param {Object} nodeMap - объект с заполненными полями (уровень вложенности = текст узла)

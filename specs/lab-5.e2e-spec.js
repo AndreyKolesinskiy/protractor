@@ -3,8 +3,7 @@ data = require('../data/lab-5.e2e-data.json'),
 
 title = require('../po/common/title.js'),
 mainMenu = require('../po/common/mainMenu.js'),
-publicationTree = require('../po/specific/publication/publicationTree.js'),
-button = require('../po/common/button.js');
+publicationTree = require('../po/specific/publication/publicationTree.js');
 
 describe('lab 5', function () {
     var that = this;
@@ -26,7 +25,7 @@ describe('lab 5', function () {
     });
     
     it('should save file', function () {
-        expect(that.saveFile(button.saveFileButton)).toBe(true);
+        expect(that.saveFile(publicationTree.saveFileButton)).toBe(true);
     });
 
     /**
