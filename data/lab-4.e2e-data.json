@@ -7,7 +7,7 @@
   "description" : "test",
   "addedNode" : "Schwarzpreis ET: 05.05.2017",
 
-  "nodes" : {
+  "outerNodes" : {
     "level0" : "31, Frühling/Sommer 2011",
     "level1" : "Inszenierungspunkt"
   },

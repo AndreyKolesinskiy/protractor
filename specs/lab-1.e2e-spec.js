@@ -20,7 +20,8 @@ describe('lab 1', function () {
     });
 
     it('should set fields values after click on branch element', function () {
-        publicationTree.selectBranchInnerNode(data.nodes);
+        publicationTree.openCloseBranch(data.outerNodes, true);
+        publicationTree.nodeDoubleClick(data.innerNode);
         expect(publicationData.number.getAttribute('value')).toEqual(data.number);
         expect(publicationData.type.getAttribute('value')).toEqual(data.type);
         expect(publicationData.date.getAttribute('value')).toEqual(data.date);
@@ -42,6 +43,6 @@ describe('lab 1', function () {
     });
 
     afterAll(function () {
-        publicationTree.closeBranch(data.nodes);
+        publicationTree.openCloseBranch(data.outerNodes, false);
     });
 });

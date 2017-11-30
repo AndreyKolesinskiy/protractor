@@ -7,44 +7,38 @@ function PublicationTree() {
     that.saveFileButton = element(by.css('.glyphicon-file'));
 
     /**
-     * Раскрывает ветку элементов и выделяет внутренний элемент
-     * @param {Object} nodeMap - объект с заполненными полями (уровень вложенности = текст узла)
+     * Кликает по элементу после ожидания прорисовки
+     * @param {string} value - текст элемента меню
+     * @returns {Promise.<void>}
      */
-    that.selectBranchInnerNode = function (nodeMap) {
-        var branchPromise = Promise.resolve(),
-        node,
-        nodeKeys = Object.keys(nodeMap);
-        nodeKeys.sort();
-
-        nodeKeys.forEach(function (key) {
-            node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
-            branchPromise = branchPromise
-                .then(browser
-                        .wait(EC.visibilityOf(node),
-                            browser.params.visibilityWaitingTime.elementDrawing,
-                            nodeMap[key] + ' is not visible.')
-                )
-                .then(browser
-                        .actions()
-                        .doubleClick(node)
-                        .perform()
-                );
-        });
-        return branchPromise;
+    that.nodeDoubleClick = function (value) {
+        var node = element(by.tagName('body'))
+            .element(by.cssContainingText('.aciTreeLevel1 .aciTreeText', value));
+        return browser
+            .wait(EC.visibilityOf(node),
+                browser.params.visibilityWaitingTime.elementDrawing,
+                node + ' is not visible.')
+            .then(browser
+                .actions()
+                .doubleClick(node)
+                .perform()
+            );
     };
 
     /**
-     * Сворачивает ветку элементов
-     * @param {Object} nodeMap - объект с заполненными полями (уровень вложенности = текст узла), без внутреннего
+     * Раскрывает\ сворачивает ветку элементов в зависимости от флага
+     * @param {Object} nodeMap - объект с заполненными полями (уровень вложенности = текст узла)
+     * @param {boolean} openFlag - флаг открытия-закрытия ветки
+     * @returns {Promise}
      */
-    /* TODO: closeBranch - WILL BE DELETED */
-    that.closeBranch = function (nodeMap) {
+    that.openCloseBranch = function (nodeMap, openFlag) {
         var branchPromise = Promise.resolve(),
-        node,
-        nodeKeys = Object.keys(nodeMap);
-        nodeKeys.sort().reverse();
-        if (nodeKeys.length > 2) {
-            delete nodeKeys[nodeKeys[0]];
+        node, nodeKeys = Object.keys(nodeMap);
+
+        if (openFlag) {
+            nodeKeys.sort();
+        } else {
+            nodeKeys.sort().reverse();
         }
 
         nodeKeys.forEach(function (key) {
@@ -54,13 +48,24 @@ function PublicationTree() {
                         .wait(EC.visibilityOf(node),
                             browser.params.visibilityWaitingTime.elementDrawing,
                             nodeMap[key] + ' is not visible.')
-                )
-                .then(browser
+                );
+            if (openFlag) {
+                branchPromise = branchPromise
+                    .then(browser
+                        .actions()
+                        .doubleClick(node)
+                        .perform()
+                    );
+            } else {
+                branchPromise = branchPromise
+                    .then(browser
                         .actions()
                         .click(node)
                         .sendKeys(protractor.Key.LEFT)
                         .perform()
-                );
+                    );
+            }
+
         });
         return branchPromise;
     };
@@ -80,10 +85,6 @@ function PublicationTree() {
             case('level1') :
                 return element(by.tagName('body'))
                     .element(by.cssContainingText('.aciTreeLevel0 .aciTreeText', value));
-                break;
-            case('level2') :
-                return element(by.tagName('body'))
-                    .element(by.cssContainingText('.aciTreeLevel1 .aciTreeText', value));
                 break;
         }
     }

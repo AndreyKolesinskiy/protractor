@@ -1,10 +1,11 @@
 {
   "productionsMenuSubElement" : "Publikationspflege",
 
-  "nodes" : {
+  "innerNode" : "6556 Schwarzpreis ET: 02.03.2017",
+
+  "outerNodes" : {
     "level0" : "40, Herbst/Winter 2015/2016",
-    "level1" : "Prospekt",
-    "level2" : "6556 Schwarzpreis ET: 02.03.2017"
+    "level1" : "Prospekt"
   },
 
   "number" : "6556",

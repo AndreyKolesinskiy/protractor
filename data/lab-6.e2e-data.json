@@ -3,10 +3,11 @@
   "productionsMenuSubElement" : "Publikationspflege",
   "articleMenuSubElement" : "Artikelzuordnung",
 
-  "nodes" : {
+  "innerNode" : "3911 Schwarzpreis ET: 04.03.2016",
+
+  "outerNodes" : {
     "level0" : "39, Frühling/Sommer 2015",
-    "level1" : "Inszenierungspunkt",
-    "level2" : "3911 Schwarzpreis ET: 04.03.2016"
+    "level1" : "Inszenierungspunkt"
   },
 
   "title" : "Artikelzuordnung",

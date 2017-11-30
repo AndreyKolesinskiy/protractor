@@ -24,7 +24,8 @@ describe('lab 6', function () {
     });
 
     it('should set title value like menus element', function () {
-        publicationTree.selectBranchInnerNode(data.nodes);
+        publicationTree.openCloseBranch(data.outerNodes, true);
+        publicationTree.nodeDoubleClick(data.innerNode);
         mainMenu.open(data.menuElement);
         mainMenu.open(data.articleMenuSubElement);
         expect(title.title.getText()).toEqual(data.title);
@@ -59,6 +60,6 @@ describe('lab 6', function () {
     };
 
     afterAll(function () {
-        publicationTree.closeBranch(data.nodes);
+        publicationTree.openCloseBranch(data.outerNodes, false);
     });
 });
