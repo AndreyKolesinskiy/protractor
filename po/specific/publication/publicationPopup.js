@@ -3,8 +3,9 @@ module.exports = PublicationPopup;
 var Input = require('../../common/input.js'),
 Dropdown = require('../../common/dropdown.js');
 
-function PublicationPopup() {
+function PublicationPopup(data) {
     var that = this;
+    that.data = data;
 
     Input.call(that);
     Dropdown.call(that);
@@ -18,4 +19,12 @@ function PublicationPopup() {
     that.tradeDate = element(by.cssContainingText('.modal-content .row.smallspacer', 'Warenabgabe')).$('.form-control');
     that.plusButton = element(by.css('.btn-toolbar')).$('.glyphicon-plus');
     that.trashButton = element(by.css('.glyphicon-trash'));
+
+    that.setType = function () {
+        element(by.model('newPublication.type')).$("[value='" + that.data.testType + "']").click();
+    };
+
+    that.setPrice = function () {
+        element(by.model('newPublication.priceType')).$("[value='" + that.data.testPrice + "']").click();
+    };
 }

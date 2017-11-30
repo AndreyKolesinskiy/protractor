@@ -8,7 +8,7 @@ mainMenu = require('../po/common/mainMenu.js'),
 publicationTree = require('../po/specific/publication/publicationTree.js'),
 
 PublicationPopup = require('../po/specific/publication/publicationPopup.js'),
-publicationPopup = new PublicationPopup();
+publicationPopup = new PublicationPopup(data);
 
 describe('lab 4', function () {
     var that = this;
@@ -26,10 +26,10 @@ describe('lab 4', function () {
         publicationPopup.plusButton.click();
         publicationPopup.season.sendKeys(data.season);
         publicationPopup.newNumber.sendKeys(that.getRandomValue());
-        publicationPopup.setDropdownValueToUpper(publicationPopup.type, false);
+        publicationPopup.setType(data);
         publicationPopup.setValue(publicationPopup.mainDate, data.mainDate);
         publicationPopup.setValue(publicationPopup.tradeDate, data.tradeDate);
-        publicationPopup.setDropdownValueToUpper(publicationPopup.priceType, false);
+        publicationPopup.setPrice(data);
         publicationPopup.description.sendKeys(data.description);
         popup.okButton.click();
         expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(true);

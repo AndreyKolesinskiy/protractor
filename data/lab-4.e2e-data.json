@@ -10,5 +10,8 @@
   "nodes" : {
     "level0" : "31, Frühling/Sommer 2011",
     "level1" : "Inszenierungspunkt"
-  }
+  },
+
+  "testType" : "21",
+  "testPrice" : "0"
 }
