@@ -1,16 +1,16 @@
-var util = require('../util/common.js');
-var data = require('../data/lab-6.e2e-data.json');
+var util = require('../util/common.js'),
+data = require('../data/lab-6.e2e-data.json'),
 
-var title = require('../po/common/title.js');
-var popup = require('../po/common/popup.js');
-var assignmentData = require('../po/specific/assignment/assignmentData.js');
-var assignmentTable = require('../po/specific/assignment/assignmentTable.js');
-var menu = require('../po/common/menu.js');
-var publicationTree = require('../po/specific/publication/publicationTree.js');
-var button = require('../po/common/button.js');
+title = require('../po/common/title.js'),
+popup = require('../po/common/popup.js'),
+assignmentData = require('../po/specific/assignment/assignmentData.js'),
+assignmentTable = require('../po/specific/assignment/assignmentTable.js'),
+menu = require('../po/common/menu.js'),
+publicationTree = require('../po/specific/publication/publicationTree.js'),
+button = require('../po/common/button.js'),
 
-var AssignmentPopup = require('../po/specific/assignment/assignmentPopup.js');
-var assignmentPopup = new AssignmentPopup();
+AssignmentPopup = require('../po/specific/assignment/assignmentPopup.js'),
+assignmentPopup = new AssignmentPopup();
 
 describe('lab 6', function () {
     var that = this;

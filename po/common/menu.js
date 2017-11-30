@@ -11,7 +11,6 @@ function Menu() {
      * @returns {Promise.<void>}
      */
     that.open = function (menuText) {
-        var menuElement = element(by.partialLinkText(menuText));
-        return util.waitVisibilityAndClick(menuElement);
+        return util.waitVisibilityAndClick(element(by.partialLinkText(menuText)));
     }
 }

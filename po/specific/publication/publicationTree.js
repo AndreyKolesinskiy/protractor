@@ -1,17 +1,17 @@
 module.exports = new PublicationTree();
 
 function PublicationTree() {
-    var that = this;
-    var EC = protractor.ExpectedConditions;
+    var that = this,
+    EC = protractor.ExpectedConditions;
 
     /**
      * Раскрывает ветку элементов и выделяет внутренний элемент
      * @param {Object} nodeMap - объект с заполненными полями (уровень вложенности = текст узла)
      */
     that.selectBranchInnerNode = function (nodeMap) {
-        var branchPromise = Promise.resolve();
-        var node;
-        var nodeKeys = Object.keys(nodeMap);
+        var branchPromise = Promise.resolve(),
+        node,
+        nodeKeys = Object.keys(nodeMap);
         nodeKeys.sort();
 
         nodeKeys.forEach(function (key) {
@@ -37,9 +37,9 @@ function PublicationTree() {
      */
     /* TODO: closeBranch - WILL BE DELETED */
     that.closeBranch = function (nodeMap) {
-        var branchPromise = Promise.resolve();
-        var node;
-        var nodeKeys = Object.keys(nodeMap);
+        var branchPromise = Promise.resolve(),
+        node,
+        nodeKeys = Object.keys(nodeMap);
         nodeKeys.sort();
         nodeKeys.reverse();
         if (nodeKeys.length > 2) {

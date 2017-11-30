@@ -1,12 +1,12 @@
-var util = require('../util/common.js');
-var data = require('../data/lab-2.e2e-data.json');
+var util = require('../util/common.js'),
+data = require('../data/lab-2.e2e-data.json'),
 
-var title = require('../po/common/title.js');
-var seasonData = require('../po/specific/season/seasonData.js');
-var menu = require('../po/common/menu.js');
+title = require('../po/common/title.js'),
+seasonData = require('../po/specific/season/seasonData.js'),
+menu = require('../po/common/menu.js'),
 
-var SeasonTable = require('../po/specific/season/seasonTable.js');
-var seasonTable = new SeasonTable(data);
+SeasonTable = require('../po/specific/season/seasonTable.js'),
+seasonTable = new SeasonTable(data);
 
 describe('lab 2', function () {
 

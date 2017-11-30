@@ -1,13 +1,13 @@
-var util = require('../util/common.js');
-var data = require('../data/lab-1.e2e-data.json');
+var util = require('../util/common.js'),
+data = require('../data/lab-1.e2e-data.json'),
 
-var title = require('../po/common/title.js');
-var menu = require('../po/common/menu.js');
-var publicationTree = require('../po/specific/publication/publicationTree.js');
-var button = require('../po/common/button.js');
+title = require('../po/common/title.js'),
+menu = require('../po/common/menu.js'),
+publicationTree = require('../po/specific/publication/publicationTree.js'),
+button = require('../po/common/button.js'),
 
-var PublicationData = require('../po/specific/publication/publicationData.js');
-var publicationData = new PublicationData();
+PublicationData = require('../po/specific/publication/publicationData.js'),
+publicationData = new PublicationData();
 
 describe('lab 1', function () {
 

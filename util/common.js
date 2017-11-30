@@ -1,8 +1,8 @@
 module.exports = new CommonUtil();
 
 function CommonUtil() {
-    var that = this;
-    var EC = protractor.ExpectedConditions;
+    var that = this,
+    EC = protractor.ExpectedConditions;
 
     /**
      * Ожидает прорисовку элемента и кликает на него

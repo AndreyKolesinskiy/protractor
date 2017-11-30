@@ -1,15 +1,15 @@
-var _ = require('lodash');
-var util = require('../util/common.js');
-var data = require('../data/lab-4.e2e-data.json');
+var _ = require('lodash'),
+util = require('../util/common.js'),
+data = require('../data/lab-4.e2e-data.json'),
 
-var title = require('../po/common/title.js');
-var popup = require('../po/common/popup.js');
-var menu = require('../po/common/menu.js');
-var publicationTree = require('../po/specific/publication/publicationTree.js');
-var button = require('../po/common/button.js');
+title = require('../po/common/title.js'),
+popup = require('../po/common/popup.js'),
+menu = require('../po/common/menu.js'),
+publicationTree = require('../po/specific/publication/publicationTree.js'),
+button = require('../po/common/button.js'),
 
-var PublicationPopup = require('../po/specific/publication/publicationPopup.js');
-var publicationPopup = new PublicationPopup();
+PublicationPopup = require('../po/specific/publication/publicationPopup.js'),
+publicationPopup = new PublicationPopup();
 
 describe('lab 4', function () {
     var that = this;

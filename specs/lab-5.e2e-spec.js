@@ -1,10 +1,10 @@
-var util = require('../util/common.js');
-var data = require('../data/lab-5.e2e-data.json');
+var util = require('../util/common.js'),
+data = require('../data/lab-5.e2e-data.json'),
 
-var title = require('../po/common/title.js');
-var menu = require('../po/common/menu.js');
-var publicationTree = require('../po/specific/publication/publicationTree.js');
-var button = require('../po/common/button.js');
+title = require('../po/common/title.js'),
+menu = require('../po/common/menu.js'),
+publicationTree = require('../po/specific/publication/publicationTree.js'),
+button = require('../po/common/button.js');
 
 describe('lab 5', function () {
     var that = this;
