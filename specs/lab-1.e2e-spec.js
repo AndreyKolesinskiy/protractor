@@ -6,7 +6,7 @@ mainMenu = require('../po/common/mainMenu.js'),
 publicationTree = require('../po/specific/publication/publicationTree.js'),
 
 PublicationData = require('../po/specific/publication/publicationData.js'),
-publicationData = new PublicationData();
+publicationData = new PublicationData(data);
 
 describe('lab 1', function () {
 
@@ -29,9 +29,9 @@ describe('lab 1', function () {
     
     it('should set fields new values after click on trees element, rollback', function () {
         publicationData.setValue(publicationData.number, data.testNumber);
-        publicationData.setDropdownValueToUpper(publicationData.type, true);
+        publicationData.setType(data);
         publicationData.setValue(publicationData.date, data.testDate);
-        publicationData.setDropdownValueToUpper(publicationData.price, false);
+        publicationData.setPrice(data);
         expect(publicationData.number.getAttribute('value')).toEqual(data.testNumber);
         expect(publicationData.type.getAttribute('value')).toEqual(data.testType);
         expect(publicationData.date.getAttribute('value')).toEqual(data.testDate);
