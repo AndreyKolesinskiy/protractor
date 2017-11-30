@@ -40,8 +40,7 @@ function PublicationTree() {
         var branchPromise = Promise.resolve(),
         node,
         nodeKeys = Object.keys(nodeMap);
-        nodeKeys.sort();
-        nodeKeys.reverse();
+        nodeKeys.sort().reverse();
         if (nodeKeys.length > 2) {
             delete nodeKeys[nodeKeys[0]];
         }
