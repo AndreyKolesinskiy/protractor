@@ -28,9 +28,9 @@ describe('lab 1', function () {
     });
 
     it('should set fields new values after click on trees element, rollback', function () {
-        publicationData.setValue(publicationData.number, data.testNumber);
+        publicationData.setElementValue(publicationData.number, data.testNumber);
         publicationData.setType(data);
-        publicationData.setValue(publicationData.date, data.testDate);
+        publicationData.setElementValue(publicationData.date, data.testDate);
         publicationData.setPrice(data);
         expect(publicationData.number.getAttribute('value')).toEqual(data.testNumber);
         expect(publicationData.type.getAttribute('value')).toEqual(data.testType);

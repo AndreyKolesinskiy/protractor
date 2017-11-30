@@ -1,12 +1,8 @@
 module.exports = PublicationPopup;
 
-var Input = require('../../common/input.js');
-
 function PublicationPopup(data) {
     var that = this;
     that.data = data;
-
-    Input.call(that);
 
     that.season = element(by.model('newPublication.season'));
     that.newNumber = element(by.model('newPublication.name'));
@@ -18,11 +14,32 @@ function PublicationPopup(data) {
     that.plusButton = element(by.css('.btn-toolbar')).$('.glyphicon-plus');
     that.trashButton = element(by.css('.glyphicon-trash'));
 
+    /**
+     * Устанавливает значение элементу type в выпадающем меню
+     * @returns {Promise.<void>}
+     */
     that.setType = function () {
-        element(by.model('newPublication.type')).$("[value='" + that.data.testType + "']").click();
+        return element(by.model('newPublication.type')).$("[value='" + that.data.testType + "']").click();
     };
 
+    /**
+     * Устанавливает значение элементу price в выпадающем меню
+     * @returns {Promise.<void>}
+     */
     that.setPrice = function () {
-        element(by.model('newPublication.priceType')).$("[value='" + that.data.testPrice + "']").click();
+        return element(by.model('newPublication.priceType')).$("[value='" + that.data.testPrice + "']").click();
+    };
+
+    /**
+     * Устанавливает значение элементу
+     * @param {ElementFinder} elem - элемент, которому необходимо присвоить значение
+     * @param {string} value - значение
+     * @returns {Promise.<void>}
+     */
+    that.setElementValue = function (elem, value) {
+        return elem.clear()
+            .then(function () {
+                return elem.sendKeys(value);
+            });
     };
 }
