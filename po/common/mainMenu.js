@@ -1,8 +1,8 @@
-module.exports = new Menu();
+module.exports = new MainMenu();
 
 var util = require('../../util/common.js');
 
-function Menu() {
+function MainMenu() {
     var that = this;
 
     /**

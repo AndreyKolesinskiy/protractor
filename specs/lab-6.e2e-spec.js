@@ -5,7 +5,7 @@ title = require('../po/common/title.js'),
 popup = require('../po/common/popup.js'),
 assignmentData = require('../po/specific/assignment/assignmentData.js'),
 assignmentTable = require('../po/specific/assignment/assignmentTable.js'),
-menu = require('../po/common/menu.js'),
+mainMenu = require('../po/common/mainMenu.js'),
 publicationTree = require('../po/specific/publication/publicationTree.js'),
 button = require('../po/common/button.js'),
 
@@ -20,14 +20,14 @@ describe('lab 6', function () {
     });
 
     it('should set title value by menu element', function () {
-        menu.open(data.productionsMenuSubElement);
+        mainMenu.open(data.productionsMenuSubElement);
         expect(title.title.getText()).toEqual(data.productionsMenuSubElement);
     });
 
     it('should set title value like menus element', function () {
         publicationTree.selectBranchInnerNode(data.nodes);
-        menu.open(data.menuElement);
-        menu.open(data.articleMenuSubElement);
+        mainMenu.open(data.menuElement);
+        mainMenu.open(data.articleMenuSubElement);
         expect(title.title.getText()).toEqual(data.title);
     });
 
