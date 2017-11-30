@@ -1,12 +1,8 @@
 module.exports = AssignmentPopup;
 
-var Dropdown = require('../../common/dropdown.js');
-
 function AssignmentPopup(data) {
     var that = this;
     that.data = data;
-
-    Dropdown.call(that);
 
     that.publicationPart = element(by.model('item.publicationPart'));
     that.page = element(by.model('item.page'));

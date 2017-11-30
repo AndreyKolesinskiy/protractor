@@ -1,14 +1,12 @@
 module.exports = PublicationPopup;
 
-var Input = require('../../common/input.js'),
-Dropdown = require('../../common/dropdown.js');
+var Input = require('../../common/input.js');
 
 function PublicationPopup(data) {
     var that = this;
     that.data = data;
 
     Input.call(that);
-    Dropdown.call(that);
 
     that.season = element(by.model('newPublication.season'));
     that.newNumber = element(by.model('newPublication.name'));
