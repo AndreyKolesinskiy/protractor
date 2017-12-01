@@ -19,9 +19,9 @@ function PublicationTree() {
                 browser.params.visibilityWaitingTime.elementDrawing,
                 node + ' is not visible.')
             .then(browser
-                .actions()
-                .doubleClick(node)
-                .perform()
+                    .actions()
+                    .doubleClick(node)
+                    .perform()
             );
     };
 
@@ -33,39 +33,41 @@ function PublicationTree() {
      */
     that.openCloseBranch = function (nodeMap, openFlag) {
         var branchPromise = Promise.resolve(),
-        node, nodeKeys = Object.keys(nodeMap);
+            node,
+            nodeKeys = Object.keys(nodeMap).sort();
 
-        if (openFlag) {
-            nodeKeys.sort();
-        } else {
-            nodeKeys.sort().reverse();
+        /* смена очерёдности */
+        if (!openFlag) {
+            nodeKeys.reverse();
         }
 
         nodeKeys.forEach(function (key) {
             node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
+
+            /* ожидание прорисовки */
             branchPromise = branchPromise
                 .then(browser
                         .wait(EC.visibilityOf(node),
                             browser.params.visibilityWaitingTime.elementDrawing,
                             nodeMap[key] + ' is not visible.')
                 );
+
+            /* открытие\закрытие веток */
             if (openFlag) {
                 branchPromise = branchPromise
                     .then(browser
-                        .actions()
-                        .doubleClick(node)
-                        .perform()
-                    );
+                            .actions()
+                            .doubleClick(node)
+                            .perform());
             } else {
                 branchPromise = branchPromise
                     .then(browser
-                        .actions()
-                        .click(node)
-                        .sendKeys(protractor.Key.LEFT)
-                        .perform()
+                            .actions()
+                            .click(node)
+                            .sendKeys(protractor.Key.LEFT)
+                            .perform()
                     );
             }
-
         });
         return branchPromise;
     };
