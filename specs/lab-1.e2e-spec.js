@@ -30,9 +30,9 @@ describe('lab 1', function () {
 
     it('should set fields new values after click on trees element, rollback', function () {
         publicationData.setElementValue(publicationData.number, data.testNumber);
-        publicationData.setType(data);
+        publicationData.setType();
         publicationData.setElementValue(publicationData.date, data.testDate);
-        publicationData.setPrice(data);
+        publicationData.setPrice();
         expect(publicationData.number.getAttribute('value')).toEqual(data.testNumber);
         expect(publicationData.type.getAttribute('value')).toEqual(data.testType);
         expect(publicationData.date.getAttribute('value')).toEqual(data.testDate);
