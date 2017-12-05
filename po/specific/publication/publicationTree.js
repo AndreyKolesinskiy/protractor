@@ -46,8 +46,8 @@ function PublicationTree() {
 
             /* ожидание прорисовки */
             branchPromise = branchPromise
-                .then(browser
-                        .wait(EC.visibilityOf(node),
+                .then(browser.wait(
+                            EC.visibilityOf(node),
                             browser.params.visibilityWaitingTime.elementDrawing,
                             nodeMap[key] + ' is not visible.')
                 );
