@@ -11,7 +11,7 @@ function PublicationData (data) {
 
     that.number = element(by.model('publication.name'));
     that.type = element(by.model('publication.type'));
-    that.date = element(by.xpath("//input[@placeholder='ET']"));
+    that.date = element.all(by.model('dateItem')).first();
     that.price = element(by.model('publication.priceType'));
     that.cancelButton = element(by.css('.fa-undo'));
     that.cancelMessage = element(by.cssContainingText('.cp-text-color', 'Noch nichts geändert'));
