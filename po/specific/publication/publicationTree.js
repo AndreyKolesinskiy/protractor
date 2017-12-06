@@ -14,15 +14,16 @@ function PublicationTree() {
     that.nodeDoubleClick = function (value) {
         var node = element(by.tagName('body'))
             .element(by.cssContainingText('.aciTreeLevel1 .aciTreeText', value));
-        return browser
-            .wait(EC.visibilityOf(node),
+        return browser.wait(
+                EC.visibilityOf(node),
                 browser.params.visibilityWaitingTime.elementDrawing,
                 node + ' is not visible.')
-            .then(browser
-                    .actions()
-                    .doubleClick(node)
-                    .perform()
-            );
+            .then(function () {
+                    return browser
+                        .actions()
+                        .doubleClick(node)
+                        .perform()
+            });
     };
 
     /**
@@ -41,32 +42,42 @@ function PublicationTree() {
             nodeKeys.reverse();
         }
 
+        /* открытие\закрытие веток */
         nodeKeys.forEach(function (key) {
-            node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
-
-            /* ожидание прорисовки */
-            branchPromise = branchPromise
-                .then(browser.wait(
+            if (openFlag) {
+                branchPromise = branchPromise
+                    .then(function () {
+                        node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
+                        return browser.wait(
                             EC.visibilityOf(node),
                             browser.params.visibilityWaitingTime.elementDrawing,
                             nodeMap[key] + ' is not visible.')
-                );
-
-            /* открытие\закрытие веток */
-            if (openFlag) {
-                branchPromise = branchPromise
-                    .then(browser
+                    })
+                    .then(function () {
+                        node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
+                        return browser
                             .actions()
                             .doubleClick(node)
-                            .perform());
+                            .perform()
+                    })
+                    ;
             } else {
                 branchPromise = branchPromise
-                    .then(browser
+                    .then(function () {
+                        node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
+                        return browser.wait(
+                            EC.visibilityOf(node),
+                            browser.params.visibilityWaitingTime.elementDrawing,
+                            nodeMap[key] + ' is not visible.')
+                    })
+                    .then(function () {
+                        node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
+                        return browser
                             .actions()
                             .click(node)
                             .sendKeys(protractor.Key.LEFT)
                             .perform()
-                    );
+                    });
             }
         });
         return branchPromise;
