@@ -9,7 +9,6 @@ function Input() {
      */
     that.setType = function (type) {
         return element(by.model('publication.type')).$("[value='" + type + "']").click();
-        // return element(by.model('publication.type')).$("[value='" + that.data.testType + "']").click();
     };
 
     /**
@@ -18,7 +17,6 @@ function Input() {
      */
     that.setPrice = function (price) {
         return element(by.model('publication.priceType')).$("[value='" + price + "']").click();
-        // return element(by.model('publication.priceType')).$("[value='" + that.data.testPrice + "']").click();
     };
 
     /**
