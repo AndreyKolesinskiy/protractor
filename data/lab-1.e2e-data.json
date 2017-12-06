@@ -8,13 +8,17 @@
     "level1" : "Prospekt"
   },
 
-  "number" : "6556",
-  "type" : "1",
-  "date" : "02.03.2017",
-  "price" : "0",
+  "publication" : {
+    "number" : "6556",
+    "type" : "1",
+    "date" : "02.03.2017",
+    "price" : "0"
+  },
 
-  "testNumber" : "121",
-  "testType" : "21",
-  "testDate" : "01.02.2007",
-  "testPrice" : "1"
+  "testPublication" : {
+    "number" : "121",
+    "type" : "21",
+    "date" : "01.02.2007",
+    "price" : "1"
+  }
 }

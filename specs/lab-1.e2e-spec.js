@@ -1,4 +1,5 @@
 var util = require('../util/common.js'),
+    matchers = require('../matchers/common.js'),
     data = require('../data/lab-1.e2e-data.json'),
 
     title = require('../po/common/title.js'),
@@ -9,6 +10,7 @@ var util = require('../util/common.js'),
     publicationData = new PublicationData(data);
 
 describe('lab 1', function () {
+    beforeEach(matchers);
 
     beforeAll(function () {
         util.loadPage();
@@ -22,21 +24,15 @@ describe('lab 1', function () {
     it('should set fields values after click on branch element', function () {
         publicationTree.openCloseBranch(data.outerNodes, true);
         publicationTree.nodeDoubleClick(data.innerNode);
-        expect(publicationData.number.getAttribute('value')).toEqual(data.number);
-        expect(publicationData.type.getAttribute('value')).toEqual(data.type);
-        expect(publicationData.date.getAttribute('value')).toEqual(data.date);
-        expect(publicationData.price.getAttribute('value')).toEqual(data.price);
+        expect(publicationData.publication).toEqualPublicationData(data.publication);
     });
 
     it('should set fields new values after click on trees element, rollback', function () {
-        publicationData.setElementValue(publicationData.number, data.testNumber);
-        publicationData.setType(data.testType);
-        publicationData.setElementValue(publicationData.date, data.testDate);
-        publicationData.setPrice(data.testPrice);
-        expect(publicationData.number.getAttribute('value')).toEqual(data.testNumber);
-        expect(publicationData.type.getAttribute('value')).toEqual(data.testType);
-        expect(publicationData.date.getAttribute('value')).toEqual(data.testDate);
-        expect(publicationData.price.getAttribute('value')).toEqual(data.testPrice);
+        publicationData.setElementValue(publicationData.testPublication.number, data.testPublication.number);
+        publicationData.setType(data.testPublication.type);
+        publicationData.setElementValue(publicationData.testPublication.date, data.testPublication.date);
+        publicationData.setPrice(data.testPublication.price);
+        expect(publicationData.testPublication).toEqualPublicationData(data.testPublication);
 
         publicationData.cancelButton.click();
         expect(publicationData.cancelMessage.isPresent()).toBe(true);

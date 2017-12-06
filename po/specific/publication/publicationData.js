@@ -8,10 +8,20 @@ function PublicationData (data) {
     var that = this;
     that.data = data;
 
-    that.number = element(by.model('publication.name'));
-    that.type = element(by.model('publication.type'));
-    that.date = element.all(by.model('dateItem')).first();
-    that.price = element(by.model('publication.priceType'));
     that.cancelButton = element(by.css('.fa-undo'));
     that.cancelMessage = element(by.cssContainingText('.cp-text-color', 'Noch nichts geändert'));
+
+    that.publication = {
+        number : element(by.model('publication.name')),
+        type : element(by.model('publication.type')),
+        date : element.all(by.model('dateItem')).first(),
+        price : element(by.model('publication.priceType'))
+    };
+
+    that.testPublication = {
+        number : element(by.model('publication.name')),
+        type : element(by.model('publication.type')),
+        date : element.all(by.model('dateItem')).first(),
+        price : element(by.model('publication.priceType'))
+    };
 }
