@@ -1,23 +1,24 @@
 module.exports = Input;
 
-function Input(data) {
+function Input() {
     var that = this;
-    that.data = data;
 
     /**
      * Устанавливает значение элементу type в выпадающем меню
      * @returns {Promise.<void>}
      */
-    that.setType = function () {
-        return element(by.model('publication.type')).$("[value='" + that.data.testType + "']").click();
+    that.setType = function (type) {
+        return element(by.model('publication.type')).$("[value='" + type + "']").click();
+        // return element(by.model('publication.type')).$("[value='" + that.data.testType + "']").click();
     };
 
     /**
      * Устанавливает значение элементу price в выпадающем меню
      * @returns {Promise.<void>}
      */
-    that.setPrice = function () {
-        return element(by.model('publication.priceType')).$("[value='" + that.data.testPrice + "']").click();
+    that.setPrice = function (price) {
+        return element(by.model('publication.priceType')).$("[value='" + price + "']").click();
+        // return element(by.model('publication.priceType')).$("[value='" + that.data.testPrice + "']").click();
     };
 
     /**
