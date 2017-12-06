@@ -8,22 +8,52 @@ function PublicationTree() {
 
     /**
      * Кликает по элементу после ожидания прорисовки
-     * @param {string} value - текст элемента меню
+     * @param {string} elementText - текст элемента меню
      * @returns {Promise.<void>}
      */
-    that.nodeDoubleClick = function (value) {
-        var node = element(by.tagName('body'))
-            .element(by.cssContainingText('.aciTreeLevel1 .aciTreeText', value));
+    that.nodeDoubleClick = function (elementText) {
+        var elem = element(by.tagName('body'))
+            .element(by.cssContainingText('.aciTreeLevel1 .aciTreeText', elementText));
+        return that.elementVisibilityWaiting(elem, elem)
+            .then(that.elementDoubleClick(elem));
+    };
+
+    /**
+     * Двойной клик по элементу
+     * @param {ElementFinder} elem - элемент
+     * @returns {Promise.<void>}
+     */
+    that.elementDoubleClick = function (elem) {
+            return browser
+                .actions()
+                .doubleClick(elem)
+                .perform()
+    };
+
+    /**
+     * Отправка кнопки влево элементу
+     * @param {ElementFinder} elem - элемент
+     * @returns {Promise.<void>}
+     */
+    that.elementSendKeyLeft = function (elem) {
+        return browser
+            .actions()
+            .click(elem)
+            .sendKeys(protractor.Key.LEFT)
+            .perform()
+    };
+
+    /**
+     * Отправка кнопки влево элементу
+     * @param {ElementFinder} elem - элемент
+     * @param {string} elementName - название элемента
+     * @returns {Promise.<void>}
+     */
+    that.elementVisibilityWaiting = function (elem, elementName) {
         return browser.wait(
-                EC.visibilityOf(node),
-                browser.params.visibilityWaitingTime.elementDrawing,
-                node + ' is not visible.')
-            .then(function () {
-                    return browser
-                        .actions()
-                        .doubleClick(node)
-                        .perform()
-            });
+            EC.visibilityOf(elem),
+            browser.params.visibilityWaitingTime.elementDrawing,
+            elementName + ' is not visible.')
     };
 
     /**
@@ -34,7 +64,6 @@ function PublicationTree() {
      */
     that.openCloseBranch = function (nodeMap, openFlag) {
         var branchPromise = Promise.resolve(),
-            node,
             nodeKeys = Object.keys(nodeMap).sort();
 
         /* смена очерёдности */
@@ -46,38 +75,22 @@ function PublicationTree() {
         nodeKeys.forEach(function (key) {
             if (openFlag) {
                 branchPromise = branchPromise
-                    .then(function () {
-                        node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
-                        return browser.wait(
-                            EC.visibilityOf(node),
-                            browser.params.visibilityWaitingTime.elementDrawing,
-                            nodeMap[key] + ' is not visible.')
-                    })
-                    .then(function () {
-                        node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
-                        return browser
-                            .actions()
-                            .doubleClick(node)
-                            .perform()
-                    })
-                    ;
+                    .then(that.elementVisibilityWaiting(
+                        that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]),
+                        nodeMap[key]
+                    ))
+                    .then(that.elementDoubleClick(
+                        that.getNodeElementByLevelNumberAndValue(key, nodeMap[key])
+                    ));
             } else {
                 branchPromise = branchPromise
-                    .then(function () {
-                        node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
-                        return browser.wait(
-                            EC.visibilityOf(node),
-                            browser.params.visibilityWaitingTime.elementDrawing,
-                            nodeMap[key] + ' is not visible.')
-                    })
-                    .then(function () {
-                        node = that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]);
-                        return browser
-                            .actions()
-                            .click(node)
-                            .sendKeys(protractor.Key.LEFT)
-                            .perform()
-                    });
+                    .then(that.elementVisibilityWaiting(
+                        that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]),
+                        nodeMap[key]
+                    ))
+                    .then(that.elementSendKeyLeft(
+                        that.getNodeElementByLevelNumberAndValue(key, nodeMap[key])
+                    ));
             }
         });
         return branchPromise;
