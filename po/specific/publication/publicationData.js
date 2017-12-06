@@ -2,7 +2,6 @@ module.exports = PublicationData;
 
 Input = require('../../common/input.js');
 PublicationData.prototype = Object.create(Input.prototype);
-PublicationData.prototype.constructor = PublicationData;
 
 function PublicationData (data) {
     Input.apply(this, arguments);
