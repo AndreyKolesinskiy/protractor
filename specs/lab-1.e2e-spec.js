@@ -1,3 +1,5 @@
+"use strict";
+
 var util = require('../util/common.js'),
     matchers = require('../matchers/common.js'),
     data = require('../data/lab-1.e2e-data.json'),

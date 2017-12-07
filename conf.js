@@ -1,3 +1,5 @@
+"use strict";
+
 var downloadsPath = __dirname;
 
 exports.config = {

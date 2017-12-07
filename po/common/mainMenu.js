@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = new MainMenu();
 
 var util = require('../../util/common.js');

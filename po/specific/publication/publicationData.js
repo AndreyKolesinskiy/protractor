@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = PublicationData;
 
 var Input = require('../../common/input.js');

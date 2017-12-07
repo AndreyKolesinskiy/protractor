@@ -1,3 +1,5 @@
+"use strict";
+
 var util = require('../util/common.js'),
 data = require('../data/lab-2.e2e-data.json'),
 
