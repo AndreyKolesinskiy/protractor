@@ -25,19 +25,22 @@ function Matchers (){
                                 return (value === publicationData.price);
                             })];
 
-                    return Promise.all(eq)
-                        .then(
-                            function () {
-                                var result = { pass: true };
-                                result.message =  "Equal " + publicationData.number;
-                                return result;
-                            },
-                            function () {
-                                var result = { pass: false };
-                                result.message =  "NOT Equal " + publicationData.number;
-                                return result;
-                            }
-                        );
+                    var msg = "Equal " + publicationData.number;
+                    return {
+                        pass: protractor.promise.all(eq)
+                            .then(
+                                function (values) {
+                                    var result = true;
+                                    values.forEach(function (value) {
+                                        if (!value) {
+                                            result = false;
+                                            msg = "Error";
+                                        }
+                                    });
+                                    return result;
+                            }),
+                        message :  msg
+                    }
                 }
             }
         }
