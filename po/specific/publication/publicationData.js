@@ -1,6 +1,6 @@
 module.exports = PublicationData;
 
-Input = require('../../common/input.js');
+var Input = require('../../common/input.js');
 PublicationData.prototype = Object.create(Input.prototype);
 
 function PublicationData (data) {
