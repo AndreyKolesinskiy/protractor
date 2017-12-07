@@ -11,7 +11,7 @@ var util = require('../util/common.js'),
     PublicationData = require('../po/specific/publication/publicationData.js'),
     publicationData = new PublicationData(data);
 
-describe('lab 1', function () {
+fdescribe('lab 1', function () {
     beforeEach(matchers);
 
     beforeAll(function () {
