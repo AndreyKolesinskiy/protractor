@@ -6,7 +6,6 @@ var Input = require('../../common/input.js');
 PublicationData.prototype = Object.create(Input.prototype);
 
 function PublicationData (data) {
-    Input.apply(this, arguments);
     var that = this;
     that.data = data;
 
