@@ -15,7 +15,13 @@ function PublicationTree() {
      */
     that.nodeDoubleClick = function (elementText) {
         var elem = element(by.tagName('body'))
-            .element(by.cssContainingText('.aciTreeLevel1 .aciTreeText', elementText));
+            .all(by.css('.aciTreeLevel1 .aciTreeText'))
+            .filter(function (elem) {
+                return elem.getText().then(function(text) {
+                    return text === elementText;
+                });
+            }).first();
+
         return that.elementVisibilityWaiting(elem, elem)
             .then(that.elementDoubleClick(elem));
     };
