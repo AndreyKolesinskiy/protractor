@@ -20,7 +20,8 @@ describe('lab 1', function () {
 
     it('should set title value by menu element', function () {
         mainMenu.open(data.productionsMenuSubElement);
-        expect(title.title.getText()).toEqual(data.productionsMenuSubElement);
+        // expect(title.title.getText()).toEqual(data.productionsMenuSubElement);
+        expect(title.getTitle()).toEqual([{ text: data.productionsMenuSubElement }]);
     });
 
     it('should set fields values after click on branch element', function () {

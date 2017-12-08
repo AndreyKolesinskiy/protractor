@@ -22,7 +22,8 @@ describe('lab 6', function () {
 
     it('should set title value by menu element', function () {
         mainMenu.open(data.productionsMenuSubElement);
-        expect(title.title.getText()).toEqual(data.productionsMenuSubElement);
+        // expect(title.title.getText()).toEqual(data.productionsMenuSubElement);
+        expect(title.getTitle()).toEqual([{ text: data.productionsMenuSubElement }]);
     });
 
     it('should set title value like menus element', function () {
@@ -30,7 +31,7 @@ describe('lab 6', function () {
         publicationTree.nodeDoubleClick(data.innerNode);
         mainMenu.open(data.menuElement);
         mainMenu.open(data.articleMenuSubElement);
-        expect(title.title.getText()).toEqual(data.title);
+        expect(title.getTitle()).toEqual([{ text: data.title }]);
     });
 
     it('should add, check and undo entered value', function () {
