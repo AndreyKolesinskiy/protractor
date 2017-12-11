@@ -1,6 +1,6 @@
 "use strict";
 
-var downloadsPath = __dirname;
+var rootDir = __dirname;
 
 exports.config = {
     framework: 'jasmine',
@@ -22,7 +22,7 @@ exports.config = {
             prefs: {
                 'download': {
                     'prompt_for_download': false,
-                    'default_directory': downloadsPath
+                    'default_directory': rootDir
                 }
             }
         }
@@ -39,13 +39,13 @@ exports.config = {
             elementDrawing: 8000
         },
         downloading: {
-            path: downloadsPath,
+            path: rootDir,
             fileName : '/report.xlsx'
         }
     },
     onPrepare: function () {
         var env = jasmine.getEnv();
-        var matchers = require(downloadsPath + '/matchers/matchers.js');
+        var matchers = require(rootDir + '/matchers/matchers.js');
         env.beforeEach(function () {
             jasmine.addMatchers(matchers);
         });
