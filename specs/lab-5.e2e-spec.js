@@ -27,32 +27,10 @@ describe('lab 5', function () {
     });
     
     it('should save file', function () {
-        expect(saveFile(publicationTree.saveFileButton)).toBe(true);
+        util.removeFile(browser.params.downloading.path + browser.params.downloading.fileName);
+        util.waitVisibilityAndClick(publicationTree.saveFileButton);
+        expect(util.checkExistFile(browser.params.downloading.path + browser.params.downloading.fileName)).toBe(true);
     });
-
-    /**
-     * Скачивает файл
-     * @param {ElementFinder} saveButton - кнопка, после нажатия которой начинается скачивание
-     * @returns {Promise.<boolean>} - статус загрузки
-     */
-    var saveFile = function (saveButton) {
-        var path = browser.params.downloading.path + browser.params.downloading.fileName;
-        var fs = require('fs');
-
-        if (fs.existsSync(path)) {
-            fs.unlinkSync(path);
-        }
-        util.waitVisibilityAndClick(saveButton);
-
-        return browser
-            .driver
-            .wait(function () {
-                return fs.existsSync(path);
-            }, browser
-                .params
-                .visibilityWaitingTime
-                .fileDownloading);
-    };
 
     afterAll(function () {
         publicationTree.toggleBranch(data.outerNodes, false);
