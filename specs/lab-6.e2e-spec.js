@@ -37,7 +37,7 @@ describe('lab 6', function () {
         assignmentPopup.setPublicationPart(data);
         assignmentPopup.setPage(data);
         popup.okButton.click();
-        expect(assignmentTable.addedElement.isPresent()).toBe(true);
+        expect(assignmentTable.addedElement.isDisplayed()).toBe(true);
 
         focusAndSetDropdownMenuValue();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual(data.eshopNumber);

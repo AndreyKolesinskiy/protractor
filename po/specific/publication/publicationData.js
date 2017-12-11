@@ -10,7 +10,7 @@ function PublicationData (data) {
     that.data = data;
 
     that.cancelButton = element(by.css('.fa-undo'));
-    that.cancelMessage = element(by.cssContainingText('.cp-text-color', 'Noch nichts geändert'));
+    that.cancelMessage = element(by.cssContainingText('.cp-text-color', 'Wurde gespeichert'));
 
     that.publication = {
         number : element(by.model('publication.name')),

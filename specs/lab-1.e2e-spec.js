@@ -35,7 +35,7 @@ describe('lab 1', function () {
         expect(publicationData.testPublication).toEqualPublicationData(data.testPublication);
 
         publicationData.cancelButton.click();
-        expect(publicationData.cancelMessage.isPresent()).toBe(true);
+        expect(publicationData.cancelMessage.isDisplayed()).toBe(true);
     });
 
     afterAll(function () {

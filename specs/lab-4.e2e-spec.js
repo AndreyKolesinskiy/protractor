@@ -33,7 +33,7 @@ describe('lab 4', function () {
         publicationPopup.setPrice(data.testPrice);
         publicationPopup.description.sendKeys(data.description);
         popup.okButton.click();
-        expect(publicationTree.getNodeByValue(data.addedNode).isPresent()).toBe(true);
+        expect(publicationTree.getNodeByValue(data.addedNode).isDisplayed()).toBe(true);
     });
     
     it('should remove element', function () {
