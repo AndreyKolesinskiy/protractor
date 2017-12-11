@@ -122,5 +122,15 @@ function PublicationTree() {
                     .element(by.cssContainingText('.aciTreeLevel0 .aciTreeText', value));
                 break;
         }
-    }
+    };
+
+    /**
+     * Получить элемент узла дерева по текстовому значение
+     * @param {string} elementValue - текстовое значение
+     * @returns {ElementFinder} - элемент узла дерева
+     */
+    this.getNodeByValue = function (elementValue) {
+        return element(by.tagName('body'))
+            .element(by.cssContainingText('.aciTreeText', elementValue));
+    };
 }

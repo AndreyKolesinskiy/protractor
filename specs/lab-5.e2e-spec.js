@@ -8,7 +8,6 @@ mainMenu = require('../po/common/mainMenu.js'),
 publicationTree = require('../po/specific/publication/publicationTree.js');
 
 describe('lab 5', function () {
-    var that = this;
         
     beforeAll(function () {
         util.loadPage();
@@ -28,7 +27,7 @@ describe('lab 5', function () {
     });
     
     it('should save file', function () {
-        expect(that.saveFile(publicationTree.saveFileButton)).toBe(true);
+        expect(saveFile(publicationTree.saveFileButton)).toBe(true);
     });
 
     /**
@@ -36,7 +35,7 @@ describe('lab 5', function () {
      * @param {ElementFinder} saveButton - кнопка, после нажатия которой начинается скачивание
      * @returns {Promise.<boolean>} - статус загрузки
      */
-    that.saveFile = function (saveButton) {
+    var saveFile = function (saveButton) {
         var path = browser.params.downloading.path + browser.params.downloading.fileName;
         var fs = require('fs');
 
@@ -57,5 +56,5 @@ describe('lab 5', function () {
 
     afterAll(function () {
         publicationTree.toggleBranch(data.outerNodes, false);
-    });    
+    });
 });

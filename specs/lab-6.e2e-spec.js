@@ -14,7 +14,6 @@ AssignmentPopup = require('../po/specific/assignment/assignmentPopup.js'),
 assignmentPopup = new AssignmentPopup(data);
 
 describe('lab 6', function () {
-    var that = this;
 
     beforeAll(function () {
         util.loadPage();
@@ -40,7 +39,7 @@ describe('lab 6', function () {
         popup.okButton.click();
         expect(assignmentTable.addedElement.isPresent()).toBe(true);
 
-        that.focusAndSetDropdownMenuValue();
+        focusAndSetDropdownMenuValue();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual(data.eshopNumber);
 
         assignmentData.cancelButton.click();
@@ -52,7 +51,7 @@ describe('lab 6', function () {
      * @returns {Promise.<void>}
      */
     /* TODO: focusAndSetDropdownMenuValue - WAITING OF NEW MONITOR */
-    that.focusAndSetDropdownMenuValue = function () {
+    var focusAndSetDropdownMenuValue = function () {
         return browser
             .actions()
             .sendKeys(protractor.Key.ENTER)

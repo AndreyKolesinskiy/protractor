@@ -13,7 +13,6 @@ PublicationPopup = require('../po/specific/publication/publicationPopup.js'),
 publicationPopup = new PublicationPopup(data);
 
 describe('lab 4', function () {
-    var that = this;
     
     beforeAll(function () {
         util.loadPage();
@@ -27,37 +26,27 @@ describe('lab 4', function () {
     it('should add element', function () {
         publicationPopup.plusButton.click();
         publicationPopup.season.sendKeys(data.season);
-        publicationPopup.newNumber.sendKeys(that.getRandomValue());
+        publicationPopup.newNumber.sendKeys(getRandomValue());
         publicationPopup.setType(data.testType);
         publicationPopup.setElementValue(publicationPopup.mainDate, data.mainDate);
         publicationPopup.setElementValue(publicationPopup.tradeDate, data.tradeDate);
         publicationPopup.setPrice(data.testPrice);
         publicationPopup.description.sendKeys(data.description);
         popup.okButton.click();
-        expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(true);
+        expect(publicationTree.getNodeByValue(data.addedNode).isPresent()).toBe(true);
     });
     
     it('should remove element', function () {
         publicationPopup.trashButton.click();
         popup.yesButton.click();
-        expect(that.getNodeByValue(data.addedNode).isPresent()).toBe(false);
+        expect(publicationTree.getNodeByValue(data.addedNode).isPresent()).toBe(false);
     });
-
-    /**
-     * Получить элемент узла дерева по текстовому значение
-     * @param {string} elementValue - текстовое значение
-     * @returns {ElementFinder} - элемент узла дерева
-     */
-    this.getNodeByValue = function (elementValue) {
-        return element(by.tagName('body'))
-            .element(by.cssContainingText('.aciTreeText', elementValue));
-    };
 
     /**
      * Генерирует случайное четырёхзначное число в заданном диапазоне
      * @returns {number} - число
      */
-    that.getRandomValue = function () {
+    var getRandomValue = function () {
         return Math.round(_.random(browser.params.randomValues.from, browser.params.randomValues.to));
     };
 

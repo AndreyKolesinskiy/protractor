@@ -23,9 +23,9 @@ function CommonUtil() {
             });
     };
 
-    /*
+    /**
     * Загружает страницу по указанному url
-    * */
+    */
     that.loadPage = function () {
         return browser.get(browser.params.baseUrl);
     };
