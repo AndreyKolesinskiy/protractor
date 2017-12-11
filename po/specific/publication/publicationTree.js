@@ -39,7 +39,7 @@ function PublicationTree() {
     };
 
     /**
-     * Отправка кнопки влево элементу
+     * Отправка кнопки влево элементу (для закрытия ветки)
      * @param {ElementFinder} elem - элемент
      * @returns {Promise.<void>}
      */
@@ -52,7 +52,7 @@ function PublicationTree() {
     };
 
     /**
-     * Отправка кнопки влево элементу
+     * Ожидание прорисовки элемента
      * @param {ElementFinder} elem - элемент
      * @param {string} elementName - название элемента
      * @returns {Promise.<void>}
