@@ -61,7 +61,8 @@ function PublicationTree() {
         return browser.wait(
             EC.visibilityOf(elem),
             browser.params.visibilityWaitingTime.elementDrawing,
-            elementName + ' is not visible.')
+            elementName + ' is not visible.'
+        )
     };
 
     /**

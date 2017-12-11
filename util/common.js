@@ -16,7 +16,8 @@ function CommonUtil() {
             .wait(
                 EC.visibilityOf(elem),
                 browser.params.visibilityWaitingTime.elementDrawing,
-                'cant click, element is not visible.')
+                'cant click, element is not visible.'
+            )
             .then(function () {
                 return elem.click();
             });
@@ -26,6 +27,6 @@ function CommonUtil() {
     * Загружает страницу по указанному url
     * */
     that.loadPage = function () {
-        browser.get(browser.params.baseUrl);
+        return browser.get(browser.params.baseUrl);
     };
 }
