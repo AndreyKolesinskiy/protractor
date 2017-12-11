@@ -16,8 +16,7 @@ exports.config = {
                 '--v8-cache-options=off',
                 '--window-size=1360,768',
                 'disable-infobars=true',
-                'incognito',
-                '--start-fullscreen'
+                'incognito'
             ],
             prefs: {
                 'download': {
