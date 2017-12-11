@@ -71,7 +71,7 @@ function PublicationTree() {
      * @param {boolean} openFlag - флаг открытия-закрытия ветки
      * @returns {Promise}
      */
-    that.openCloseBranch = function (nodeMap, openFlag) {
+    that.toggleBranch = function (nodeMap, openFlag) {
         var branchPromise = Promise.resolve(),
             nodeKeys = Object.keys(nodeMap).sort();
 

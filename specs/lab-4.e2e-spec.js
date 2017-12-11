@@ -62,6 +62,6 @@ describe('lab 4', function () {
     };
 
     afterAll(function () {
-        publicationTree.openCloseBranch(data.outerNodes, false);
+        publicationTree.toggleBranch(data.outerNodes, false);
     });
 });

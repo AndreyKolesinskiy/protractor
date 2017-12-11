@@ -22,7 +22,7 @@ describe('lab 1', function () {
     });
 
     it('should set fields values after click on branch element', function () {
-        publicationTree.openCloseBranch(data.outerNodes, true);
+        publicationTree.toggleBranch(data.outerNodes, true);
         publicationTree.nodeDoubleClick(data.innerNode);
         expect(publicationData.publication).toEqualPublicationData(data.publication);
     });
@@ -39,6 +39,6 @@ describe('lab 1', function () {
     });
 
     afterAll(function () {
-        publicationTree.openCloseBranch(data.outerNodes, false);
+        publicationTree.toggleBranch(data.outerNodes, false);
     });
 });
