@@ -42,5 +42,12 @@ exports.config = {
             path: downloadsPath,
             fileName : '/report.xlsx'
         }
+    },
+    onPrepare: function () {
+        var env = jasmine.getEnv();
+        var matchers = require(downloadsPath + '/matchers/matchers.js');
+        env.beforeEach(function () {
+            jasmine.addMatchers(matchers);
+        });
     }
 };

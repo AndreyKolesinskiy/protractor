@@ -1,7 +1,6 @@
 "use strict";
 
 var util = require('../util/common.js'),
-    matchers = require('../matchers/common.js'),
     data = require('../data/lab-1.e2e-data.json'),
 
     title = require('../po/common/title.js'),
@@ -12,7 +11,6 @@ var util = require('../util/common.js'),
     publicationData = new PublicationData(data);
 
 describe('lab 1', function () {
-    beforeEach(matchers);
 
     beforeAll(function () {
         util.loadPage();

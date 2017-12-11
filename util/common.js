@@ -28,5 +28,4 @@ function CommonUtil() {
     that.loadPage = function () {
         browser.get(browser.params.baseUrl);
     };
-
 }
