@@ -19,7 +19,7 @@ describe('lab 2', function () {
     it('should set title value like menus element', function () {
         mainMenu.open(data.menuElement);
         mainMenu.open(data.seasonsMenuSubElement);
-        expect(title.getTitle()).toEqual([{ text: data.seasonsMenuSubElement }]);
+        expect(title.getTitle()).toEqual(data.seasonsMenuSubElement);
     });
 
     it('should set season and specific data in fields', function () {
