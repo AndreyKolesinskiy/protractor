@@ -33,13 +33,13 @@ describe('lab 4', function () {
         publicationPopup.setValue(publicationPopup.priceType, data.testPrice);
         publicationPopup.description.sendKeys(data.description);
         popup.okButton.click();
-        expect(publicationTree.getNodeByValue(data.addedNode).isDisplayed()).toBe(true);
+        expect(publicationTree.getNodeByText(data.addedNode).isDisplayed()).toBe(true);
     });
     
     it('should remove element', function () {
         publicationPopup.trashButton.click();
         popup.yesButton.click();
-        expect(publicationTree.getNodeByValue(data.addedNode).isPresent()).toBe(false);
+        expect(publicationTree.getNodeByText(data.addedNode).isPresent()).toBe(false);
     });
 
     /**

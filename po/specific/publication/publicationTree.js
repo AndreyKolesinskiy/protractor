@@ -9,7 +9,8 @@ function PublicationTree() {
     that.saveFileButton = element(by.css('.glyphicon-file'));
 
     /**
-     * Кликает по элементу после ожидания прорисовки
+     * Кликает по элементу после ожидания прорисовки.
+     * Предназначен для заполнения полей панели с данными для выбранного элемента.
      * @param {string} elementText - текст элемента меню
      * @returns {Promise.<void>}
      */
@@ -22,7 +23,7 @@ function PublicationTree() {
                 });
             }).first();
 
-        return that.elementVisibilityWaiting(elem, elem)
+        return that.elementVisibilityWait(elem, elem)
             .then(that.elementDoubleClick(elem));
     };
 
@@ -54,19 +55,19 @@ function PublicationTree() {
     /**
      * Ожидание прорисовки элемента
      * @param {ElementFinder} elem - элемент
-     * @param {string} elementName - название элемента
+     * @param {string} text - название элемента
      * @returns {Promise.<void>}
      */
-    that.elementVisibilityWaiting = function (elem, elementName) {
+    that.elementVisibilityWait = function (elem, text) {
         return browser.wait(
             EC.visibilityOf(elem),
             browser.params.visibilityWaitingTime.elementDrawing,
-            elementName + ' is not visible.'
+            text + ' is not visible.'
         )
     };
 
     /**
-     * Раскрывает\ сворачивает ветку элементов в зависимости от флага
+     * Раскрывает\ сворачивает ветку элементов в зависимости от флага.
      * @param {Object} nodeMap - объект с заполненными полями (уровень вложенности = текст узла)
      * @param {boolean} openFlag - флаг открытия-закрытия ветки
      * @returns {Promise}
@@ -84,21 +85,23 @@ function PublicationTree() {
         nodeKeys.forEach(function (key) {
             if (openFlag) {
                 branchPromise = branchPromise
-                    .then(that.elementVisibilityWaiting(
-                        that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]),
+                    .then(that.elementVisibilityWait(
+                        that.getNodeByLevelAndText(key, nodeMap[key]),
                         nodeMap[key]
                     ))
+                    /* раскрытие ветки по двойному клику */
                     .then(that.elementDoubleClick(
-                        that.getNodeElementByLevelNumberAndValue(key, nodeMap[key])
+                        that.getNodeByLevelAndText(key, nodeMap[key])
                     ));
             } else {
                 branchPromise = branchPromise
-                    .then(that.elementVisibilityWaiting(
-                        that.getNodeElementByLevelNumberAndValue(key, nodeMap[key]),
+                    .then(that.elementVisibilityWait(
+                        that.getNodeByLevelAndText(key, nodeMap[key]),
                         nodeMap[key]
                     ))
+                    /* сворачивание ветки по нажатию кнопки влево */
                     .then(that.elementSendKeyLeft(
-                        that.getNodeElementByLevelNumberAndValue(key, nodeMap[key])
+                        that.getNodeByLevelAndText(key, nodeMap[key])
                     ));
             }
         });
@@ -106,31 +109,35 @@ function PublicationTree() {
     };
 
     /**
-     * Возвращает элемент согласно уровню вложенности и тексту
-     * @param {string} levelNumber - уровень вложенности
-     * @param {string} value - текстовое значение элемента
+     * Возвращает элемент согласно уровню вложенности и тексту.
+     * Маркеры level0, level1 условные, для мапы.  
+     * @param {string} level - уровень вложенности
+     * @param {string} text - текстовое значение элемента
      * @returns {ElementFinder} - элемент узла дерева
      */
-    that.getNodeElementByLevelNumberAndValue = function (levelNumber, value)  {
-        switch (levelNumber) {
+    that.getNodeByLevelAndText = function (level, text)  {
+        switch (level) {
             case('level0') :
-                return element(by.tagName('body'))
-                    .element(by.cssContainingText('.aciTreeText', value));
+                /* TODO: body */
+                return element(by.tagName('body')).
+                    element(by.cssContainingText('.aciTreeText', text));
                 break;
             case('level1') :
+                /* TODO: body */
                 return element(by.tagName('body'))
-                    .element(by.cssContainingText('.aciTreeLevel0 .aciTreeText', value));
+                    .element(by.cssContainingText('.aciTreeLevel0 .aciTreeText', text));
                 break;
         }
     };
 
     /**
-     * Получить элемент узла дерева по текстовому значение
-     * @param {string} elementValue - текстовое значение
+     * Возвращает элемент узла дерева по текстовому значению.
+     * @param {string} text - текстовое значение
      * @returns {ElementFinder} - элемент узла дерева
      */
-    this.getNodeByValue = function (elementValue) {
+    this.getNodeByText = function (text) {
+        /* TODO: body */
         return element(by.tagName('body'))
-            .element(by.cssContainingText('.aciTreeText', elementValue));
+            .element(by.cssContainingText('.aciTreeText', text));
     };
 }
