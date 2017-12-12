@@ -21,5 +21,7 @@ function PublicationPopup(data) {
     that.plusButton = element(by.css('.btn-toolbar')).$('.glyphicon-plus');
     that.trashButton = element(by.css('.glyphicon-trash'));
 
-    that.setElementValue = input.setElementValue;
+    that.setElementValue = function (elem, value) {
+        return input.setElementValue(elem, value);
+    }
 }
