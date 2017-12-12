@@ -26,7 +26,7 @@ describe('lab 4', function () {
     it('should add element', function () {
         publicationPopup.plusButton.click();
         publicationPopup.season.sendKeys(data.season);
-        publicationPopup.newNumber.sendKeys(getRandomValue());
+        publicationPopup.number.sendKeys(getRandomValue());
         publicationPopup.setValue(publicationPopup.type, data.testType);
         publicationPopup.setElementValue(publicationPopup.mainDate, data.mainDate);
         publicationPopup.setElementValue(publicationPopup.tradeDate, data.tradeDate);
