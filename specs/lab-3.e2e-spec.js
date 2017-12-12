@@ -30,7 +30,7 @@ describe('lab 3', function () {
 
     it('should add new element', function () {
         seasonData.plusButton.click();
-        privilegePopup.popupNameField.sendKeys('Test_create');
+        privilegePopup.name.sendKeys('Test_create');
         popup.okButton.click();
         util.clickAfterDrawing(privilegeTable.firstListItem);
         expect(privilegeData.name.getAttribute('value')).toEqual(data.testCreateItemName);
