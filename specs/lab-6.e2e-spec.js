@@ -2,14 +2,15 @@
 
 var util = require('../util/util.js'),
     data = require('../data/lab-6.e2e-data.json'),
+
     title = require('../po/common/title.js'),
+    menu = require('../po/common/menu.js'),
     popup = require('../po/common/popup.js'),
     assignmentData = require('../po/specific/assignment/assignmentData.js'),
-    menu = require('../po/common/menu.js'),
     publicationTree = require('../po/specific/publication/publicationTree.js'),
+
     AssignmentTable = require('../po/specific/assignment/assignmentTable.js'),
     AssignmentPopup = require('../po/specific/assignment/assignmentPopup.js'),
-
     assignmentTable = new AssignmentTable(data),
     assignmentPopup = new AssignmentPopup();
 

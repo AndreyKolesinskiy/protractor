@@ -1,11 +1,11 @@
 "use strict";
 
 var util = require('../util/util.js'),
-data = require('../data/lab-5.e2e-data.json'),
+    data = require('../data/lab-5.e2e-data.json'),
 
-title = require('../po/common/title.js'),
-menu = require('../po/common/menu.js'),
-publicationTree = require('../po/specific/publication/publicationTree.js');
+    title = require('../po/common/title.js'),
+    menu = require('../po/common/menu.js'),
+    publicationTree = require('../po/specific/publication/publicationTree.js');
 
 describe('lab 5', function () {
         

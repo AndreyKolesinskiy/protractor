@@ -1,16 +1,16 @@
 "use strict";
 
-var _ = require('lodash'),
-util = require('../util/util.js'),
-data = require('../data/lab-4.e2e-data.json'),
+var util = require('../util/util.js'),
+    data = require('../data/lab-4.e2e-data.json'),
+    _ = require('lodash'),
 
-title = require('../po/common/title.js'),
-popup = require('../po/common/popup.js'),
-menu = require('../po/common/menu.js'),
-publicationTree = require('../po/specific/publication/publicationTree.js'),
+    title = require('../po/common/title.js'),
+    popup = require('../po/common/popup.js'),
+    menu = require('../po/common/menu.js'),
+    publicationTree = require('../po/specific/publication/publicationTree.js'),
 
-PublicationPopup = require('../po/specific/publication/publicationPopup.js'),
-publicationPopup = new PublicationPopup(data);
+    PublicationPopup = require('../po/specific/publication/publicationPopup.js'),
+    publicationPopup = new PublicationPopup(data);
 
 describe('lab 4', function () {
     

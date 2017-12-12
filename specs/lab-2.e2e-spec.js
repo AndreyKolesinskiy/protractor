@@ -1,14 +1,14 @@
 "use strict";
 
 var util = require('../util/util.js'),
-data = require('../data/lab-2.e2e-data.json'),
+    data = require('../data/lab-2.e2e-data.json'),
 
-title = require('../po/common/title.js'),
-seasonData = require('../po/specific/season/seasonData.js'),
-menu = require('../po/common/menu.js'),
+    title = require('../po/common/title.js'),
+    menu = require('../po/common/menu.js'),
+    seasonData = require('../po/specific/season/seasonData.js'),
 
-SeasonTable = require('../po/specific/season/seasonTable.js'),
-seasonTable = new SeasonTable(data);
+    SeasonTable = require('../po/specific/season/seasonTable.js'),
+    seasonTable = new SeasonTable(data);
 
 describe('lab 2', function () {
 

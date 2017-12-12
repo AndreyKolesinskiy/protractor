@@ -1,15 +1,16 @@
 "use strict";
 
 var util = require('../util/util.js'),
-data = require('../data/lab-3.e2e-data.json'),
+    data = require('../data/lab-3.e2e-data.json'),
 
-title = require('../po/common/title.js'),
-popup = require('../po/common/popup.js'),
-seasonData = require('../po/specific/season/seasonData.js'),
-privilegeTable = require('../po/specific/privilege/privilegeTable.js'),
-privilegePopup = require('../po/specific/privilege/privilegePopup.js'),
-privilegeData = require('../po/specific/privilege/privilegeData.js'),
-menu = require('../po/common/menu.js');
+    title = require('../po/common/title.js'),
+    menu = require('../po/common/menu.js'),
+    popup = require('../po/common/popup.js'),
+
+    seasonData = require('../po/specific/season/seasonData.js'),
+    privilegeTable = require('../po/specific/privilege/privilegeTable.js'),
+    privilegePopup = require('../po/specific/privilege/privilegePopup.js'),
+    privilegeData = require('../po/specific/privilege/privilegeData.js');
 
 describe('lab 3', function () {
 
