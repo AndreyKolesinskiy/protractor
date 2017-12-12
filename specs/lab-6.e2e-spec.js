@@ -1,16 +1,17 @@
 "use strict";
 
 var util = require('../util/common.js'),
-data = require('../data/lab-6.e2e-data.json'),
+    data = require('../data/lab-6.e2e-data.json'),
+    title = require('../po/common/title.js'),
+    popup = require('../po/common/popup.js'),
+    assignmentData = require('../po/specific/assignment/assignmentData.js'),
+    mainMenu = require('../po/common/mainMenu.js'),
+    publicationTree = require('../po/specific/publication/publicationTree.js'),
+    AssignmentTable = require('../po/specific/assignment/assignmentTable.js'),
+    AssignmentPopup = require('../po/specific/assignment/assignmentPopup.js'),
 
-title = require('../po/common/title.js'),
-popup = require('../po/common/popup.js'),
-assignmentData = require('../po/specific/assignment/assignmentData.js'),
-assignmentTable = require('../po/specific/assignment/assignmentTable.js'),
-mainMenu = require('../po/common/mainMenu.js'),
-publicationTree = require('../po/specific/publication/publicationTree.js'),
-AssignmentPopup = require('../po/specific/assignment/assignmentPopup.js'),
-assignmentPopup = new AssignmentPopup();
+    assignmentTable = new AssignmentTable(data),
+    assignmentPopup = new AssignmentPopup();
 
 describe('lab 6', function () {
 
@@ -38,26 +39,13 @@ describe('lab 6', function () {
         popup.okButton.click();
         expect(assignmentTable.addedElement.isDisplayed()).toBe(true);
 
-        focusAndSetDropdownMenuValue();
+        assignmentTable.arrow.click();
+        assignmentTable.number.click();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual(data.eshopNumber);
 
         assignmentData.cancelButton.click();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual('');
     });
-
-    /**
-     * Фокусировка на текущем элементе и присвоение ему значения из выпадающего списка
-     * @returns {Promise.<void>}
-     */
-    /* TODO: focusAndSetDropdownMenuValue - WAITING OF NEW MONITOR */
-    var focusAndSetDropdownMenuValue = function () {
-        return browser
-            .actions()
-            .sendKeys(protractor.Key.ENTER)
-            .sendKeys(protractor.Key.ARROW_DOWN)
-            .sendKeys(protractor.Key.ENTER)
-            .perform();
-    };
 
     afterAll(function () {
         publicationTree.toggleBranch(data.outerNodes, false);
