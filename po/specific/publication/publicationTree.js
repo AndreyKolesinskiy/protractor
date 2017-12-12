@@ -1,10 +1,10 @@
 "use strict";
 
 module.exports = new PublicationTree();
+var util = require('../../../util/util.js');
 
 function PublicationTree() {
-    var that = this,
-    EC = protractor.ExpectedConditions;
+    var that = this;
 
     that.saveFileButton = element(by.css('.glyphicon-file'));
 
@@ -22,47 +22,8 @@ function PublicationTree() {
                 });
             }).first();
 
-        return that.elementVisibilityWait(elem, elem)
-            .then(that.elementDoubleClick(elem));
-    };
-
-    /**
-     * Двойной клик по элементу
-     * @param {ElementFinder} elem - элемент
-     * @returns {Promise.<void>}
-     */
-    that.elementDoubleClick = function (elem) {
-            return browser
-                .actions()
-                .doubleClick(elem)
-                .perform()
-    };
-
-    /**
-     * Отправка кнопки влево элементу (для закрытия ветки)
-     * @param {ElementFinder} elem - элемент
-     * @returns {Promise.<void>}
-     */
-    that.elementSendKeyLeft = function (elem) {
-        return browser
-            .actions()
-            .click(elem)
-            .sendKeys(protractor.Key.LEFT)
-            .perform()
-    };
-
-    /**
-     * Ожидание прорисовки элемента
-     * @param {ElementFinder} elem - элемент
-     * @param {string} text - название элемента
-     * @returns {Promise.<void>}
-     */
-    that.elementVisibilityWait = function (elem, text) {
-        return browser.wait(
-            EC.visibilityOf(elem),
-            browser.params.visibilityWaitingTime.elementDrawing,
-            text + ' is not visible.'
-        )
+        return util.elementVisibilityWait(elem, elem)
+            .then(util.elementDoubleClick(elem));
     };
 
     /**
@@ -84,22 +45,22 @@ function PublicationTree() {
         nodeKeys.forEach(function (key) {
             if (openFlag) {
                 branchPromise = branchPromise
-                    .then(that.elementVisibilityWait(
+                    .then(util.elementVisibilityWait(
                         that.getNodeByLevelAndText(key, nodeMap[key]),
                         nodeMap[key]
                     ))
                     /* раскрытие ветки по двойному клику */
-                    .then(that.elementDoubleClick(
+                    .then(util.elementDoubleClick(
                         that.getNodeByLevelAndText(key, nodeMap[key])
                     ));
             } else {
                 branchPromise = branchPromise
-                    .then(that.elementVisibilityWait(
+                    .then(util.elementVisibilityWait(
                         that.getNodeByLevelAndText(key, nodeMap[key]),
                         nodeMap[key]
                     ))
                     /* сворачивание ветки по нажатию кнопки влево */
-                    .then(that.elementSendKeyLeft(
+                    .then(util.elementSendKeyLeft(
                         that.getNodeByLevelAndText(key, nodeMap[key])
                     ));
             }

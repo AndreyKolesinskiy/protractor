@@ -7,17 +7,52 @@ function Util() {
     EC = protractor.ExpectedConditions;
 
     /**
-     * Ожидает прорисовку элемента и кликает на него
-     * @param {ElementFinder} elem - элемент, на который необходимо нажать
+     * Двойной клик по элементу
+     * @param {ElementFinder} elem - элемент
      * @returns {Promise.<void>}
      */
-    that.clickAfterDrawing = function (elem) {
+    that.elementDoubleClick = function (elem) {
         return browser
-            .wait(
-                EC.visibilityOf(elem),
-                browser.params.visibilityWaitingTime.elementDrawing,
-                'cant click, element is not visible.'
-            )
+            .actions()
+            .doubleClick(elem)
+            .perform()
+    };
+
+    /**
+     * Отправка кнопки влево элементу
+     * @param {ElementFinder} elem - элемент
+     * @returns {Promise.<void>}
+     */
+    that.elementSendKeyLeft = function (elem) {
+        return browser
+            .actions()
+            .click(elem)
+            .sendKeys(protractor.Key.LEFT)
+            .perform()
+    };
+
+    /**
+     * Ожидание прорисовки элемента
+     * @param {ElementFinder} elem - элемент
+     * @param {string} text - название элемента
+     * @returns {Promise.<void>}
+     */
+    that.elementVisibilityWait = function (elem, text) {
+        return browser.wait(
+            EC.visibilityOf(elem),
+            browser.params.visibilityWaitingTime.elementDrawing,
+            text + ' is not visible.'
+        )
+    };
+
+    /**
+     * Ожидает прорисовку элемента и кликает на него
+     * @param {ElementFinder} elem - элемент, на который необходимо нажать
+     * @param {string} text - название элемента
+     * @returns {Promise.<void>}
+     */
+    that.clickAfterDrawing = function (elem, text) {
+        return that.elementVisibilityWait(elem, text)
             .then(function () {
                 return elem.click();
             });

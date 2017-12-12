@@ -13,6 +13,6 @@ function Menu() {
      * @returns {Promise.<void>}
      */
     that.open = function (text) {
-        return util.clickAfterDrawing(element(by.partialLinkText(text)));
+        return util.clickAfterDrawing(element(by.partialLinkText(text)), text);
     }
 }

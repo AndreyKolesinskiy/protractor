@@ -28,7 +28,7 @@ describe('lab 5', function () {
     
     it('should save file', function () {
         util.removeFile(browser.params.downloading.path + browser.params.downloading.fileName);
-        util.clickAfterDrawing(publicationTree.saveFileButton);
+        util.clickAfterDrawing(publicationTree.saveFileButton, 'publicationTree.saveFileButton');
         expect(util.checkExistFile(browser.params.downloading.path + browser.params.downloading.fileName)).toBe(true);
     });
 

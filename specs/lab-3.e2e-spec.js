@@ -32,7 +32,7 @@ describe('lab 3', function () {
         seasonData.plusButton.click();
         privilegePopup.name.sendKeys('Test_create');
         popup.okButton.click();
-        util.clickAfterDrawing(privilegeTable.firstListItem);
+        util.clickAfterDrawing(privilegeTable.firstListItem, 'privilegeTable.firstListItem');
         expect(privilegeData.name.getAttribute('value')).toEqual(data.testCreateItemName);
     });
 
@@ -49,7 +49,7 @@ describe('lab 3', function () {
         privilegeTable.firstListItem.click();
         seasonData.minusButton.click();
         popup.yesButton.click();
-        util.clickAfterDrawing(privilegeTable.firstListItem);
+        util.clickAfterDrawing(privilegeTable.firstListItem, 'privilegeTable.firstListItem');
         expect(privilegeData.name.getAttribute('value')).toEqual(data.itemNameFirst);
     });
 });
