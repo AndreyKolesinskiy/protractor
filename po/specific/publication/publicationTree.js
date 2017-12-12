@@ -15,8 +15,7 @@ function PublicationTree() {
      * @returns {Promise.<void>}
      */
     that.toggleInnerNode = function (elementText) {
-        var elem = element(by.tagName('body'))
-            .$$('.aciTreeLevel1 .aciTreeText')
+        var elem = $$('.aciTreeLevel1 .aciTreeText')
             .filter(function (elem) {
                 return elem.getText().then(function(text) {
                     return text === elementText;
@@ -118,12 +117,10 @@ function PublicationTree() {
     that.getNodeByLevelAndText = function (level, text)  {
         switch (level) {
             case('level0') :
-                return element(by.tagName('body')).
-                    element(by.cssContainingText('.aciTreeText', text));
+                return element(by.cssContainingText('.aciTreeText', text));
                 break;
             case('level1') :
-                return element(by.tagName('body'))
-                    .element(by.cssContainingText('.aciTreeLevel0 .aciTreeText', text));
+                return element(by.cssContainingText('.aciTreeLevel0 .aciTreeText', text));
                 break;
         }
     };
@@ -134,7 +131,6 @@ function PublicationTree() {
      * @returns {ElementFinder} - элемент узла дерева
      */
     this.getNodeByText = function (text) {
-        return element(by.tagName('body'))
-            .element(by.cssContainingText('.aciTreeText', text));
+        return element(by.cssContainingText('.aciTreeText', text));
     };
 }
