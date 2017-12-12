@@ -11,7 +11,7 @@ function PublicationData (data) {
     var that = this;
     that.data = data;
 
-    that.cancelButton = element(by.css('.fa-undo'));
+    that.cancelButton = $('.fa-undo');
     that.cancelMessage = element(by.cssContainingText('.cp-text-color', 'Wurde gespeichert'));
 
     that.publication = {
