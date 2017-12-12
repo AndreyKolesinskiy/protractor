@@ -2,7 +2,8 @@
 
 module.exports = PublicationPopup;
 
-var Dropdown = require('../../common/dropdown.js');
+var input = require('../../common/input.js'),
+    Dropdown = require('../../common/dropdown.js');
 PublicationPopup.prototype = Object.create(Dropdown.prototype);
 
 function PublicationPopup(data) {
@@ -19,16 +20,5 @@ function PublicationPopup(data) {
     that.plusButton = element(by.css('.btn-toolbar')).$('.glyphicon-plus');
     that.trashButton = element(by.css('.glyphicon-trash'));
 
-    /**
-     * Устанавливает значение элементу
-     * @param {ElementFinder} elem - элемент, которому необходимо присвоить значение
-     * @param {string} value - значение
-     * @returns {Promise.<void>}
-     */
-    that.setElementValue = function (elem, value) {
-        return elem.clear()
-            .then(function () {
-                return elem.sendKeys(value);
-            });
-    };
+    that.setElementValue = input.setElementValue;
 }

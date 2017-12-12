@@ -2,7 +2,8 @@
 
 module.exports = PublicationData;
 
-var Dropdown = require('../../common/dropdown.js');
+var input = require('../../common/input.js'),
+    Dropdown = require('../../common/dropdown.js');
 PublicationData.prototype = Object.create(Dropdown.prototype);
 
 function PublicationData (data) {
@@ -26,16 +27,5 @@ function PublicationData (data) {
         price : element(by.model('publication.priceType'))
     };
 
-    /**
-     * Устанавливает значение элементу
-     * @param {ElementFinder} elem - элемент, которому необходимо присвоить значение
-     * @param {string} value - значение
-     * @returns {Promise.<void>}
-     */
-   that.setElementValue = function (elem, value) {
-        return elem.clear()
-            .then(function () {
-                return elem.sendKeys(value);
-            });
-    };
+   that.setElementValue = input.setElementValue;
 }
