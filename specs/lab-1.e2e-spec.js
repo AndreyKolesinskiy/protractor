@@ -24,7 +24,7 @@ describe('lab 1', function () {
     it('should set fields values after click on branch element', function () {
         publicationTree.toggleBranch(data.outerNodes, true);
         publicationTree.toggleInnerNode(data.innerNode);
-        expect(publicationData.publication).toEqualPublicationData(data.nodePublication);
+        expect(publicationData.publication).toEqualPublication(data.nodePublication);
     });
 
     it('should set fields new values after click on trees element, rollback', function () {
@@ -32,7 +32,7 @@ describe('lab 1', function () {
         publicationData.setValue(publicationData.publication.price, data.newPublication.price);
         publicationData.inputValue(publicationData.publication.number, data.newPublication.number);
         publicationData.inputValue(publicationData.publication.date, data.newPublication.date);
-        expect(publicationData.publication).toEqualPublicationData(data.newPublication);
+        expect(publicationData.publication).toEqualPublication(data.newPublication);
 
         publicationData.cancelButton.click();
         expect(publicationData.cancelMessage.isDisplayed()).toBe(true);

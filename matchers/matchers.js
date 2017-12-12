@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = {
-    toEqualPublicationData: function () {
+    toEqualPublication: function () {
         return {
             compare: function (publication, publicationData) {
                 var eq =
