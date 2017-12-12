@@ -26,7 +26,7 @@ describe('lab 6', function () {
 
     it('should set title value like menus element', function () {
         publicationTree.toggleBranch(data.outerNodes, true);
-        publicationTree.nodeDoubleClick(data.innerNode);
+        publicationTree.toggleInnerNode(data.innerNode);
         mainMenu.open(data.menuElement);
         mainMenu.open(data.articleMenuSubElement);
         expect(title.getTitle()).toEqual(data.title);

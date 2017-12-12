@@ -23,7 +23,7 @@ describe('lab 1', function () {
 
     it('should set fields values after click on branch element', function () {
         publicationTree.toggleBranch(data.outerNodes, true);
-        publicationTree.nodeDoubleClick(data.innerNode);
+        publicationTree.toggleInnerNode(data.innerNode);
         expect(publicationData.publication).toEqualPublicationData(data.publication);
     });
 

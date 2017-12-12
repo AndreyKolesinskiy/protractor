@@ -14,7 +14,7 @@ function PublicationTree() {
      * @param {string} elementText - текст элемента меню
      * @returns {Promise.<void>}
      */
-    that.nodeDoubleClick = function (elementText) {
+    that.toggleInnerNode = function (elementText) {
         var elem = element(by.tagName('body'))
             .all(by.css('.aciTreeLevel1 .aciTreeText'))
             .filter(function (elem) {
