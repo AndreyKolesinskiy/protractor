@@ -30,8 +30,8 @@ describe('lab 1', function () {
     it('should set fields new values after click on trees element, rollback', function () {
         publicationData.setValue(publicationData.publication.type, data.newPublication.type);
         publicationData.setValue(publicationData.publication.price, data.newPublication.price);
-        publicationData.setElementValue(publicationData.publication.number, data.newPublication.number);
-        publicationData.setElementValue(publicationData.publication.date, data.newPublication.date);
+        publicationData.inputValue(publicationData.publication.number, data.newPublication.number);
+        publicationData.inputValue(publicationData.publication.date, data.newPublication.date);
         expect(publicationData.publication).toEqualPublicationData(data.newPublication);
 
         publicationData.cancelButton.click();

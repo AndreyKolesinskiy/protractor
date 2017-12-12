@@ -11,7 +11,7 @@ function Input() {
      * @param {string} value - значение
      * @returns {Promise.<void>}
      */
-    that.setElementValue = function (elem, value) {
+    that.setValue = function (elem, value) {
         return elem.clear()
             .then(function () {
                 return elem.sendKeys(value);

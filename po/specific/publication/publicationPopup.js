@@ -23,7 +23,7 @@ function PublicationPopup(data) {
     that.plusButton = $('.btn-toolbar').$('.glyphicon-plus');
     that.trashButton = $('.glyphicon-trash');
 
-    that.setElementValue = function (elem, value) {
-        return input.setElementValue(elem, value);
+    that.inputValue = function (elem, value) {
+        return input.setValue(elem, value);
     }
 }

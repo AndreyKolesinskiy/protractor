@@ -21,7 +21,7 @@ function PublicationData (data) {
         price : element(by.model('publication.priceType'))
     };
 
-   that.setElementValue = function (elem, value) {
-       return input.setElementValue(elem, value);
+   that.inputValue = function (elem, value) {
+       return input.setValue(elem, value);
    }
 }
