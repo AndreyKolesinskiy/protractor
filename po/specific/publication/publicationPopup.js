@@ -4,6 +4,7 @@ module.exports = PublicationPopup;
 
 var input = require('../../common/input.js'),
     Dropdown = require('../../common/dropdown.js');
+
 PublicationPopup.prototype = Object.create(Dropdown.prototype);
 
 function PublicationPopup(data) {

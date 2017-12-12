@@ -9,14 +9,8 @@ exports.config = {
         browserName: 'chrome',
         chromeOptions: {
             args: [
-                '--disable-cache',
-                '--disable-application-cache',
-                '--disable-offline-load-stale-cache',
-                '--disk-cache-size=0',
-                '--v8-cache-options=off',
                 '--window-size=1360,768',
-                'disable-infobars=true',
-                'incognito'
+                'disable-infobars=true'
             ],
             prefs: {
                 'download': {

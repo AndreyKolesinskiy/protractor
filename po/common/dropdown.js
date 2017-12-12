@@ -2,6 +2,7 @@
 
 module.exports = Dropdown;
 
+/* Наследование реализовано в рамках обучения */
 function Dropdown() {}
 
 /**

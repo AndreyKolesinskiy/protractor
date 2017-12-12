@@ -4,6 +4,7 @@ module.exports = PublicationData;
 
 var input = require('../../common/input.js'),
     Dropdown = require('../../common/dropdown.js');
+
 PublicationData.prototype = Object.create(Dropdown.prototype);
 
 function PublicationData (data) {
