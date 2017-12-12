@@ -39,8 +39,8 @@ describe('lab 6', function () {
         popup.okButton.click();
         expect(assignmentTable.addedElement.isDisplayed()).toBe(true);
 
-        assignmentTable.arrow.click();
-        assignmentTable.number.click();
+        assignmentTable.dropdownArrow.click();
+        assignmentTable.eshopNumber.click();
         expect(assignmentData.eshopNumber.getAttribute('value')).toEqual(data.eshopNumber);
 
         assignmentData.cancelButton.click();
