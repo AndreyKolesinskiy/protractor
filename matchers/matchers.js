@@ -9,18 +9,18 @@ module.exports = {
                         .then(function (value) {
                             return (value === publicationData.number);
                         }),
-                        publication.type.getAttribute('value')
-                            .then(function (value) {
-                                return (value === publicationData.type);
-                            }),
-                        publication.date.getAttribute('value')
-                            .then(function (value) {
-                                return (value === publicationData.date);
-                            }),
-                        publication.price.getAttribute('value')
-                            .then(function (value) {
-                                return (value === publicationData.price);
-                            })];
+                    publication.type.getAttribute('value')
+                        .then(function (value) {
+                            return (value === publicationData.type);
+                        }),
+                    publication.date.getAttribute('value')
+                        .then(function (value) {
+                            return (value === publicationData.date);
+                        }),
+                    publication.price.getAttribute('value')
+                        .then(function (value) {
+                            return (value === publicationData.price);
+                        })];
 
                 var msg = "Equal " + publicationData.number;
                 return {
