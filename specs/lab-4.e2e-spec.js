@@ -20,7 +20,7 @@ describe('lab 4', function () {
     
     it('should set title value by menu element', function () {
         menu.open(data.productionsMenuSubElement);
-        expect(title.getTitle()).toEqual(data.productionsMenuSubElement);
+        expect(title.getText()).toEqual(data.productionsMenuSubElement);
     });
     
     it('should add element', function () {

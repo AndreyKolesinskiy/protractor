@@ -15,7 +15,7 @@ describe('lab 5', function () {
 
     it('should set title value by menu element', function () {
         menu.open(data.productionsMenuSubElement);
-        expect(title.getTitle()).toEqual(data.productionsMenuSubElement);
+        expect(title.getText()).toEqual(data.productionsMenuSubElement);
     });
 
     it('should set title value like menus element', function () {
@@ -23,7 +23,7 @@ describe('lab 5', function () {
         publicationTree.toggleInnerNode(data.innerNode);
         menu.open(data.menuElement);
         menu.open(data.pageMenuSubElement);
-        expect(title.getTitle()).toEqual(data.pageMenuSubElement);
+        expect(title.getText()).toEqual(data.pageMenuSubElement);
     });
     
     it('should save file', function () {

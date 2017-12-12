@@ -20,7 +20,7 @@ describe('lab 3', function () {
     it('should set title value like menus element', function () {
         menu.open(data.menuElement);
         menu.open(data.privilegesMenuSubElement);
-        expect(title.getTitle()).toEqual(data.privilegesMenuSubElement);
+        expect(title.getText()).toEqual(data.privilegesMenuSubElement);
     });
 
     it('should set name by selected element', function () {

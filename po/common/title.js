@@ -6,12 +6,12 @@ function Title() {
     var that = this;
 
     /**
-     *  Возвращает текст элемента title.
+     *  Возвращает промис с текстом элемента title.
      *  Использование map - в рамках изучения,
-     *  возвращение первого элемента массива - для упрощения спек.
+     *  возвращение первого элемента массива - для упрощения спек
      *  @returns {Promise}
      **/
-    that.getTitle = function () {
+    that.getText = function () {
         return element.all(by.binding('applicationTitle'))
             .map(function (elem) {
                 return elem.getText();
