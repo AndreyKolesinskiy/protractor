@@ -1,6 +1,6 @@
 "use strict";
 
-var util = require('../util/common.js'),
+var util = require('../util/util.js'),
 data = require('../data/lab-5.e2e-data.json'),
 
 title = require('../po/common/title.js'),
@@ -28,7 +28,7 @@ describe('lab 5', function () {
     
     it('should save file', function () {
         util.removeFile(browser.params.downloading.path + browser.params.downloading.fileName);
-        util.waitVisibilityAndClick(publicationTree.saveFileButton);
+        util.clickAfterDrawing(publicationTree.saveFileButton);
         expect(util.checkExistFile(browser.params.downloading.path + browser.params.downloading.fileName)).toBe(true);
     });
 

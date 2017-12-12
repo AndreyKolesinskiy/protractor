@@ -1,6 +1,6 @@
 "use strict";
 
-var util = require('../util/common.js'),
+var util = require('../util/util.js'),
 data = require('../data/lab-2.e2e-data.json'),
 
 title = require('../po/common/title.js'),

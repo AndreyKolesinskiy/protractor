@@ -2,7 +2,7 @@
 
 module.exports = new MainMenu();
 
-var util = require('../../util/common.js');
+var util = require('../../util/util.js');
 
 function MainMenu() {
     var that = this;
@@ -13,6 +13,6 @@ function MainMenu() {
      * @returns {Promise.<void>}
      */
     that.open = function (menuText) {
-        return util.waitVisibilityAndClick(element(by.partialLinkText(menuText)));
+        return util.clickAfterDrawing(element(by.partialLinkText(menuText)));
     }
 }

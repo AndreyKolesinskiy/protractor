@@ -1,7 +1,7 @@
 "use strict";
 
 var _ = require('lodash'),
-util = require('../util/common.js'),
+util = require('../util/util.js'),
 data = require('../data/lab-4.e2e-data.json'),
 
 title = require('../po/common/title.js'),

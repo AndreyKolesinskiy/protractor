@@ -1,6 +1,6 @@
 "use strict";
 
-var util = require('../util/common.js'),
+var util = require('../util/util.js'),
 data = require('../data/lab-3.e2e-data.json'),
 
 title = require('../po/common/title.js'),
@@ -32,7 +32,7 @@ describe('lab 3', function () {
         seasonData.plusButton.click();
         privilegePopup.popupNameField.sendKeys('Test_create');
         popup.okButton.click();
-        util.waitVisibilityAndClick(privilegeTable.firstListItem);
+        util.clickAfterDrawing(privilegeTable.firstListItem);
         expect(privilegeData.name.getAttribute('value')).toEqual(data.testCreateItemName);
     });
 
@@ -49,7 +49,7 @@ describe('lab 3', function () {
         privilegeTable.firstListItem.click();
         seasonData.minusButton.click();
         popup.yesButton.click();
-        util.waitVisibilityAndClick(privilegeTable.firstListItem);
+        util.clickAfterDrawing(privilegeTable.firstListItem);
         expect(privilegeData.name.getAttribute('value')).toEqual(data.itemNameFirst);
     });
 });

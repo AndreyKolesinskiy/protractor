@@ -1,8 +1,8 @@
 "use strict";
 
-module.exports = new CommonUtil();
+module.exports = new Util();
 
-function CommonUtil() {
+function Util() {
     var that = this,
     EC = protractor.ExpectedConditions;
 
@@ -11,7 +11,7 @@ function CommonUtil() {
      * @param {ElementFinder} elem - элемент, на который необходимо нажать
      * @returns {Promise.<void>}
      */
-    that.waitVisibilityAndClick = function (elem) {
+    that.clickAfterDrawing = function (elem) {
         return browser
             .wait(
                 EC.visibilityOf(elem),
