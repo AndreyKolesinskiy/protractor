@@ -9,9 +9,8 @@ assignmentData = require('../po/specific/assignment/assignmentData.js'),
 assignmentTable = require('../po/specific/assignment/assignmentTable.js'),
 mainMenu = require('../po/common/mainMenu.js'),
 publicationTree = require('../po/specific/publication/publicationTree.js'),
-
 AssignmentPopup = require('../po/specific/assignment/assignmentPopup.js'),
-assignmentPopup = new AssignmentPopup(data);
+assignmentPopup = new AssignmentPopup();
 
 describe('lab 6', function () {
 
@@ -34,8 +33,8 @@ describe('lab 6', function () {
 
     it('should add, check and undo entered value', function () {
         assignmentData.plusButton.click();
-        assignmentPopup.setPublicationPart(data);
-        assignmentPopup.setPage(data);
+        assignmentPopup.setValue(assignmentPopup.publicationPart, data.publicationPart);
+        assignmentPopup.setValue(assignmentPopup.page, data.page);
         popup.okButton.click();
         expect(assignmentTable.addedElement.isDisplayed()).toBe(true);
 

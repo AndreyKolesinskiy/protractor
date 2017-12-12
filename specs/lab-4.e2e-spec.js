@@ -27,10 +27,10 @@ describe('lab 4', function () {
         publicationPopup.plusButton.click();
         publicationPopup.season.sendKeys(data.season);
         publicationPopup.newNumber.sendKeys(getRandomValue());
-        publicationPopup.setType(data.testType);
+        publicationPopup.setValue(publicationPopup.type, data.testType);
         publicationPopup.setElementValue(publicationPopup.mainDate, data.mainDate);
         publicationPopup.setElementValue(publicationPopup.tradeDate, data.tradeDate);
-        publicationPopup.setPrice(data.testPrice);
+        publicationPopup.setValue(publicationPopup.priceType, data.testPrice);
         publicationPopup.description.sendKeys(data.description);
         popup.okButton.click();
         expect(publicationTree.getNodeByValue(data.addedNode).isDisplayed()).toBe(true);

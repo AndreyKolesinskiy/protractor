@@ -2,6 +2,9 @@
 
 module.exports = PublicationPopup;
 
+var Dropdown = require('../../common/dropdown.js');
+PublicationPopup.prototype = Object.create(Dropdown.prototype);
+
 function PublicationPopup(data) {
     var that = this;
     that.data = data;
@@ -15,22 +18,6 @@ function PublicationPopup(data) {
     that.tradeDate = element(by.cssContainingText('.modal-content .row.smallspacer', 'Warenabgabe')).$('.form-control');
     that.plusButton = element(by.css('.btn-toolbar')).$('.glyphicon-plus');
     that.trashButton = element(by.css('.glyphicon-trash'));
-
-    /**
-     * Устанавливает значение элементу type в выпадающем меню
-     * @returns {Promise.<void>}
-     */
-    that.setType = function () {
-        return element(by.model('newPublication.type')).$("[value='" + that.data.testType + "']").click();
-    };
-
-    /**
-     * Устанавливает значение элементу price в выпадающем меню
-     * @returns {Promise.<void>}
-     */
-    that.setPrice = function () {
-        return element(by.model('newPublication.priceType')).$("[value='" + that.data.testPrice + "']").click();
-    };
 
     /**
      * Устанавливает значение элементу
