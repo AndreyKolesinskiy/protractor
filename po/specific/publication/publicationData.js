@@ -21,13 +21,6 @@ function PublicationData (data) {
         price : element(by.model('publication.priceType'))
     };
 
-    that.testPublication = {
-        number : element(by.model('publication.name')),
-        type : element(by.model('publication.type')),
-        date : element.all(by.model('dateItem')).first(),
-        price : element(by.model('publication.priceType'))
-    };
-
    that.setElementValue = function (elem, value) {
        return input.setElementValue(elem, value);
    }

@@ -8,14 +8,14 @@
     "level1" : "Prospekt"
   },
 
-  "publication" : {
+  "nodePublication" : {
     "number" : "6556",
     "type" : "1",
     "date" : "02.03.2017",
     "price" : "0"
   },
 
-  "testPublication" : {
+  "newPublication": {
     "number" : "121",
     "type" : "21",
     "date" : "01.02.2007",
