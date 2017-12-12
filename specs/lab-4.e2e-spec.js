@@ -6,7 +6,7 @@ data = require('../data/lab-4.e2e-data.json'),
 
 title = require('../po/common/title.js'),
 popup = require('../po/common/popup.js'),
-mainMenu = require('../po/common/mainMenu.js'),
+menu = require('../po/common/menu.js'),
 publicationTree = require('../po/specific/publication/publicationTree.js'),
 
 PublicationPopup = require('../po/specific/publication/publicationPopup.js'),
@@ -19,7 +19,7 @@ describe('lab 4', function () {
     });
     
     it('should set title value by menu element', function () {
-        mainMenu.open(data.productionsMenuSubElement);
+        menu.open(data.productionsMenuSubElement);
         expect(title.getTitle()).toEqual(data.productionsMenuSubElement);
     });
     

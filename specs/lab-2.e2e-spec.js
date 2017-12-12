@@ -5,7 +5,7 @@ data = require('../data/lab-2.e2e-data.json'),
 
 title = require('../po/common/title.js'),
 seasonData = require('../po/specific/season/seasonData.js'),
-mainMenu = require('../po/common/mainMenu.js'),
+menu = require('../po/common/menu.js'),
 
 SeasonTable = require('../po/specific/season/seasonTable.js'),
 seasonTable = new SeasonTable(data);
@@ -17,8 +17,8 @@ describe('lab 2', function () {
     });
     
     it('should set title value like menus element', function () {
-        mainMenu.open(data.menuElement);
-        mainMenu.open(data.seasonsMenuSubElement);
+        menu.open(data.menuElement);
+        menu.open(data.seasonsMenuSubElement);
         expect(title.getTitle()).toEqual(data.seasonsMenuSubElement);
     });
 
