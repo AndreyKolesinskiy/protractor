@@ -29,7 +29,7 @@ function PublicationTree() {
     /**
      * Раскрывает\ сворачивает ветку элементов в зависимости от флага.
      * @param {Object} nodeMap - объект с заполненными полями (уровень вложенности = текст узла)
-     * @param {boolean} openFlag - флаг открытия-закрытия ветки
+     * @param {boolean} openFlag - флаг открытия-закрытия ветки (true - открытие, false - закрытие)
      * @returns {Promise}
      */
     that.toggleBranch = function (nodeMap, openFlag) {
